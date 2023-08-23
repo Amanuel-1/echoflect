@@ -1,0 +1,13 @@
+
+.appButton{
+    @apply py-2 px-10 rounded-xl
+           hover:hue-rotate-15 
+}
+
+.filled {
+   @apply bg-gradient-to-br from-yellow-900 to-yellow-700 text-white
+}
+
+.outline {
+    @apply border border-yellow-800
+}
