@@ -1,63 +1,57 @@
-import Box from '@/app/components/shared/Box'
 import React from 'react'
 import Image from 'next/image'
-import { shortener } from '@/lib/utils'
-import Avatar from '@/app/components/shared/nav/Avatar'
 import { RiHeart2Line } from 'react-icons/ri'
 import { AiFillDislike, AiFillEye, AiFillHeart, AiFillLike, AiOutlineHeart } from 'react-icons/ai'
 import { FaThumbsUp } from 'react-icons/fa'
 import { MdThumbsUpDown } from 'react-icons/md'
+
+
+
+import Box from '@/app/components/shared/Box'
+import { shortener } from '@/lib/utils'
+import Avatar from '@/app/components/shared/nav/Avatar'
 import { roboto } from '@/public/Fonts'
+import { Categories as categ } from '@/lib/Constants'
+import Link from 'next/link'
 
 const Categories = () => {
 
   
   return (
-    <div className='w-full flex flex-col md:p-[1rem] rounded-[5px]'>
-      <div className="flex w-full justify-center ">
-
-      </div>
-      <Box className=' grid grid-cols-1 md:grid-cols-2 gap-6 dark:bg-gray-950'>
-       {
-        [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,].map((num,i)=>(
-          <div key={num} className=' col-span-1 flex flex-col justify-center dark:bg-gray-950   rounded-[15px] border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950'>
-          
-          <Image className='rounded-t-[15px]' src={'/resources/herosection.jpg'} alt='image' width={800} height={400} />
-          <div className="flex gap-6 justify-between mx-4">
-            <Avatar img={'https://api.dicebear.com/6.x/bottts/png'} name='Abebe' />
-            <div style={roboto.style} className="flex gap-3 justify-center items-center ">
-              <button className='flex gap-1 items-center text-gray-500 dark:text-gray-700'><AiFillEye size={25}/> <p>2K</p></button>
-              <button className='flex gap-1 items-center text-gray-500 dark:text-gray-700'><AiFillHeart size={25}/> <p>2K</p></button>
-              <button className='flex gap-1 items-center text-gray-500 dark:text-gray-700'><AiFillDislike size={25}/> <p>2K</p></button>
-            </div>
-          </div>
-          <div className="p-4 relative text-gray-800 dark:text-gray-100 dark:bg-gray-950 rounded-[15px] ">
-          <h1 className="text-md font-light text-justify">
+    <section style={roboto.style} className='mt-8 h-full bg-inherit mx-6 md:mx-[2rem] transition-all duration-300 ease-in'>
+        <div className="flex flex-wrap gap-[2rem] justify-center">
             {
-             shortener( `
-             Literature serves as a gateway to different cultures, societies, a
-             nd perspectives. It introduces readers to a myriad of experiences 
-             and allows them to step into the shoes of diverse characters.
-              By immersing oneself in the pages of a well-crafted story, readers 
-              gain a deeper understanding of the world around them, fostering empathy 
-               compassion. As they encounter characters from various backgrounds and walks of life, readers are encouraged to question
-              their own beliefs and prejudices, leading to personal growth and an expanded worldview.
-             `)
-            }
-          </h1>
-          <div className='absolute bottom-0 left-0 flex justify-center items-end w-full h-full rounded-b-[15px] bg-gradient-to-t from-white via-[rgba(255,255,255,.9)] dark:from-[rgba(5,5,10,1)]  dark:via-[rgba(6,10,20,.98)] dark:to-transparent'>
-                <button className='py-5 text-neutral-500 font-extralight italic'>continue reading</button>
-          </div>
-          </div>
+              categ.map((category,index)=>(
+                
+                
+                    <Box className='lg:max-w-[45%] dark:bg-gray-950 hover:hue-rotate-[180deg] cursor-pointer rounded-md border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950'>
+                        <Link className='grid grid-cols-3 ' href={`/categories/${category.title}`} >
+                        <div className="relative col-span-1 flex items-center category-image py-[0.04rem] bg-gray-300 dark:bg-gray-900 ">
+                    <Image className='rounded-l-md' src={category.logo} alt={category.title} layout="fill" objectFit="cover" />
+                        </div>
+                        <div className="col-span-2 p-3 flex flex-col gap-4 justify-spread">
+                          <h1 className="text-left text-lg md:text-3xl font-semibold dark:text-gray-500">
+                            {category.title}
+                          </h1>
+                          <ul className="flex gap-2">
+                            <li className=' pr-4 text-xs font-extralight md:text-sm'><small>10k+ articles</small></li>
+                            <li className='border-l px-4 text-xs font-extralight md:text-sm'><small>500k+ likes</small></li>
+                            <li className='border-l px-4 text-xs font-extralight md:text-sm'><small>3k+ authors</small></li>
+                          </ul>
+                          <p className="px-1 text-xs md:text-sm text-justify font-light">
+                          {shortener(category.description,180)}
+                          </p>
+                        </div>
+                        </Link>
+                    </Box>
+                
           
+              ))
+            }
         </div>
-       
-        ))
-       }
-      </Box>
-       
-    </div>
+    </section>
   )
+
 }
 
 export default Categories

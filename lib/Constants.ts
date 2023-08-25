@@ -41,7 +41,7 @@ import { Images } from "@/public/resources";
     {
       title: "Literature",
       href: "/categories/literature",
-      logo: "",
+      logo: Images.blogFigma,
       description: "Explore a vast collection of literary works from renowned authors and emerging talents.",
       dropdown: false,
       megaMenu: false
@@ -49,7 +49,7 @@ import { Images } from "@/public/resources";
     {
       title: "Technology",
       href: "/categories/technology",
-      logo: "",
+      logo: Images.cover,
       description: "Discover how technology impacts the world of writing and publishing, and stay updated with the latest tools and trends.",
       dropdown: false,
       megaMenu: false
@@ -57,7 +57,7 @@ import { Images } from "@/public/resources";
     {
       title: "Art",
       href: "/categories/art",
-      logo: "",
+      logo: Images.author,
       description: "Immerse yourself in the artistic expressions of authors through visual art, illustrations, and cover designs.",
       dropdown: false,
       megaMenu: false
@@ -65,7 +65,7 @@ import { Images } from "@/public/resources";
     {
       title: "Science",
       href: "/categories/science",
-      logo: "",
+      logo: Images.lighthouse,
       description: "Delve into the intersection of science and writing, and explore scientific concepts through the lens of literature.",
       dropdown: false,
       megaMenu: false

@@ -7,7 +7,7 @@ type boxProps = {
 }
 const Box:React.FC<boxProps> = ({className,children}) => {
   return (
-    <div className={twMerge("rounded-lg font-semibold",className)}>
+    <div className={twMerge(" font-semibold",className)}>
         {children}
     </div>
   )

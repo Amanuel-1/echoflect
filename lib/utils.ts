@@ -1,8 +1,8 @@
-export function shortener(text: string): string {
+export function shortener(text: string,size:number): string {
     let result: string; // Declare the type of 'result' as string
   
-    if (text.length > 500) {
-      result = text.substring(0, 500) + "...";
+    if (text.length > size) {
+      result = text.substring(0, size) + "...";
     } else {
       result = text;
     }

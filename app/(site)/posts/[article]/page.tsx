@@ -18,14 +18,14 @@ const author = {
 
 const Article = () => {
   return (
-    <div className="relative grid md:grid-cols-6 gap-4 ">
+    <div className="relative grid md:grid-cols-6 gap-1 ">
 
         <div className="col-span-4 w-full mx-0 md:mx-4 bg-white dark:bg-inherit md:p-6 border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 rounded-xl">
           <Box className='h-[40rem]  bg-gray-50 dark:bg-inherit w-full p-[2rem] '>
                 
           </Box>
         </div>
-        <div className="hidden md:flex col-span-2 w-full mx-4  bg-white dark:bg-inherit md:p-6">
+        <div className="hidden md:flex col-span-2 w-full px-2  bg-white dark:bg-inherit md:p-6">
           <Box className='h-fit w-full border  border-gray-200 rounded-xl dark:border-[#47291b81] shadow-sm dark:shadow-none drop-shadow-lg shadow-gray-200'>
           <ProfileCard cover={author.cover} avatar={author.avatar} bio={author.bio}
                     role={author.role} email={author.email} followers={author.followers} likes={author.likes}/>

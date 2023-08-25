@@ -3,6 +3,8 @@ import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import FacebookProvider from "next-auth/providers/facebook"
+import {SupabaseAdapter} from '@auth/supabase-adapter'
+import { Adapter } from "next-auth/adapters";
 
 
 export const authOptions:AuthOptions ={
@@ -20,9 +22,14 @@ export const authOptions:AuthOptions ={
             clientId:process.env.NEXT_PUBLIC_FACEBOOK_ID??"",
             clientSecret:process.env.NEXT_PUBLIC_FACEBOOK_SECRET??""
         })
-    ]
+    ],
+    adapter: SupabaseAdapter({
+        url: process.env.NEXT_PUBLIC_SUPABASE_URL ?? '',
+        secret: process.env.SUPABASE_SERVICE_ROLE_KEY ?? '',
+      }) as Adapter,
+
 }
 
-console.log(process.env.NEXT_PUBLIC_GOOGLE_ID)
+
 
 export default NextAuth(authOptions)
