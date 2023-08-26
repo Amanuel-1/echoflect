@@ -1,8 +1,15 @@
 import Image from 'next/image';
+
+
+export type loadingProps ={
+    isloading:boolean
+}
+
 export type avatarProps ={
     img:any,
     name?:string
 }
+
 export type profileProps = {
     avatar:avatarProps,
     cover:any

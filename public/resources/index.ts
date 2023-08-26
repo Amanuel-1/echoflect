@@ -6,5 +6,7 @@ export const Images= {
     facebook: require('./facebook.svg'),
     github: require('./github.svg'),
     author: require('./author.jpg'),
-    cover: require('./cover.jpg')
+    cover: require('./cover.jpg'),
+    loader:require('./loader.svg')
+
 }

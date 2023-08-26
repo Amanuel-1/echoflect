@@ -6,6 +6,8 @@ import { FaCamera, FaCameraRetro } from 'react-icons/fa';
 import { RiCamera2Line } from 'react-icons/ri';
 import styles from '@/styles/app.module.css'
 import { FiEdit2, FiSettings } from 'react-icons/fi';
+import { data } from 'autoprefixer';
+
 const user  = {
   name : "selam Woldeyes",
   email: "selamwolde@gmail.com",
@@ -15,7 +17,8 @@ const user  = {
 }
 
 
-const Profile = () => {
+
+const Profile =() => {
   return (
     <section className=" min-h-screen text-black md:px-20">
      <div className="relative flex flex-col gap-[4rem] container mx-auto w-full bg-yellow-500 min-h-[15rem]">

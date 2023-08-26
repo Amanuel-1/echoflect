@@ -55,10 +55,12 @@ const User = () => {
                 <FiSettings className="mr-2" />
                 Settings
               </button>
-              <button className="flex items-center w-full px-4 py-2">
-                <FiUser className="mr-2" />
-                Profile
-              </button>
+              <Link href={`/profile/${session?.user?.name}`} >
+                <button className="flex items-center w-full px-4 py-2">
+                      <FiUser className="mr-2" />
+                      Profile
+                </button>
+                </Link>
               <button
                 className="flex items-center w-full px-4 py-2 text-red-500 hover:text-red-700"
                 onClick={handleLogout}

@@ -5,6 +5,7 @@ import GoogleProvider from "next-auth/providers/google"
 import FacebookProvider from "next-auth/providers/facebook"
 import {SupabaseAdapter} from '@auth/supabase-adapter'
 import { Adapter } from "next-auth/adapters";
+import login_validate from '../../../lib/validate';
 
 
 export const authOptions:AuthOptions ={
@@ -27,6 +28,9 @@ export const authOptions:AuthOptions ={
         url: process.env.NEXT_PUBLIC_SUPABASE_URL ?? '',
         secret: process.env.SUPABASE_SERVICE_ROLE_KEY ?? '',
       }) as Adapter,
+    
+    
+
 
 }
 

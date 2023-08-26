@@ -1,6 +1,6 @@
 
 .appButton{
-    @apply py-2 px-10 rounded-xl
+    @apply py-2 lg:px-8 md:px-6  rounded-xl
            hover:hue-rotate-15 
 }
 
