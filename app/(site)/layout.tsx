@@ -48,7 +48,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body style={inter.style} className='overflow-x-hidden'>
+      <body style={inter.style} className='all overflow-x-hidden'>
        
           <SessionProvider>
               <Navbar darkMode={darkMode} setDarkMode ={setDarkMode}/>

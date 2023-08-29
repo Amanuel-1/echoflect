@@ -4,7 +4,9 @@ import Image from 'next/image';
 export type loadingProps ={
     isloading:boolean
 }
-
+export type tabsProps={
+    open:boolean
+}
 export type avatarProps ={
     img:any,
     name?:string

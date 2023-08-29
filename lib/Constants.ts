@@ -73,7 +73,7 @@ import { Images } from "@/public/resources";
     {
       title: "Food",
       href: "/categories/food",
-      logo: "",
+      logo: Images.green,
       description: "Unleash your creativity in the kitchen with recipes inspired by literary works and explore the relationship between food and writing.",
       dropdown: false,
       megaMenu: false
@@ -81,7 +81,7 @@ import { Images } from "@/public/resources";
     {
       title: "Travel",
       href: "/categories/travel",
-      logo: "",
+      logo:Images.herosection,
       description: "Embark on literary journeys around the world, exploring travel writing, cultural experiences, and inspiring destinations.",
       dropdown: false,
       megaMenu: false
@@ -89,7 +89,7 @@ import { Images } from "@/public/resources";
     {
       title: "Sports",
       href: "/categories/sports",
-      logo: "",
+      logo: Images.nodata,
       description: "Discover the captivating world of sports writing, featuring articles, interviews, and stories that intertwine literature and athletics.",
       dropdown: false,
       megaMenu: false

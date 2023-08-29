@@ -1,15 +1,13 @@
-"use client"
-
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import styles from '@/styles/markdown.module.css'
 import Image from 'next/image'
+import Loading from '../shared/Loading';
+import Box from '../shared/Box';
 import { Images } from '@/public/resources';
+import ProfileCard from '../cards/ProfileCard';
 import supabase from '@/lib/supabase';
 import { PostgrestError } from '@supabase/supabase-js';
-import ProfileCard from '@/app/components/cards/ProfileCard';
-import Box from '@/app/components/shared/Box';
-import Loading from '@/app/components/shared/Loading';
  // Import CSS file for styling
 
 const markdownText = `
@@ -78,7 +76,7 @@ const MarkdownComponent = () => {
 
   useEffect(()=>{
     const fetcheData  = async ()=>{
-      const {data,error} = await supabase.schema('public').from('posts').select('content').eq('authorid', '0d2849e1-e515-46d6-97ca-82f8458be84c')
+      const {data,error} = await supabase.schema('public').from('posts').select('*')
       if(error){
         console.log(error)
         setError(error)
@@ -104,18 +102,17 @@ const MarkdownComponent = () => {
 
     <div className="relative col-span-3 md:col-span-2 p-2 min-h-screen w-full md:border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 rounded-xl">
     <Loading isloading={loading} />
-      <div className='flex flex-col gap-y-4'>
+      <Box className='flex flex-col gap-y-4'>
         
       {
           userData?.length!=0 ?(
-           userData?.map((data,i)=>(
-            <div key={i} className="markdown-container">
+           
+            <div className="markdown-container">
             <ReactMarkdown className={styles.reactMarkDown}>{markdownText}</ReactMarkdown>
           </div>
-           ))
         
           ):(
-            <div className="h-full py-[10rem]">
+            <div className="absolute flex justify-center items-center w-full h-full">
                 <div className="flex flex-col gap-1 justify-center items-center grayscale hue-rotate-[50deg]">
                 <Image src={Images.nodata} alt="no data" width={300} height={300}/>
                 <h1 className="text-2xl text-gray-700 text-center">
@@ -125,7 +122,7 @@ const MarkdownComponent = () => {
             </div>
           )
         }
-      </div>
+      </Box>
     </div>
     <div className="hidden h-fit md:flex col-span-1 ">
       <Box className=' border  border-gray-200 rounded-xl dark:border-[#47291b81] shadow-sm dark:shadow-none drop-shadow-lg shadow-gray-200'>

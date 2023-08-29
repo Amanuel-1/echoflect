@@ -1,0 +1,83 @@
+/* MarkdownComponent.css */
+
+.reactMarkDown {
+    /* Root styles for the Markdown component */
+  }
+  
+  .reactMarkDown h1 {
+    /* Styles for h1 headings */
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 1em;
+  }
+  
+  .reactMarkDown h2 {
+    /* Styles for h2 headings */
+    font-size: 32px;
+    margin-bottom: 0.5em;
+  }
+  
+  .reactMarkDown h3 {
+    /* Styles for h3 headings */
+    font-size: 24px;
+    margin-bottom: 0.5em;
+  }
+  
+  .reactMarkDown h4 {
+    /* Styles for h4 headings */
+    font-size: 20px;
+    margin-bottom: 0.5em;
+  }
+  
+  .reactMarkDown h5 {
+    /* Styles for h5 headings */
+    font-size: 18px;
+    margin-bottom: 0.5em;
+  }
+  
+  .reactMarkDown h6 {
+    /* Styles for h6 headings */
+    font-size: 16px;
+    margin-bottom: 0.5em;
+  }
+  
+  .reactMarkDown p {
+    /* Styles for paragraphs */
+    margin-bottom: 1em;
+  }
+  
+  .reactMarkDown ul {
+    /* Styles for unordered lists */
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style: disc outside none;
+  }
+  
+  .reactMarkDown ul li {
+    /* Styles for list items */
+    margin-left: 2em;
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+  
+  .reactMarkDown a {
+    /* Styles for links */
+    color: #0066cc;
+  }
+  
+  .reactMarkDown code {
+    /* Styles for inline code */
+    background-color: transparent;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .reactMarkDown pre {
+    /* Styles for code blocks */
+    background-color: #1b1b1b5d;
+    padding: 1em;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+  }

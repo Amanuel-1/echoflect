@@ -8,8 +8,9 @@ import { roboto } from '@/public/Fonts'
 import Avatar from '@/app/components/shared/nav/Avatar'
 import { shortener } from '@/lib/utils'
 import Link from 'next/link'
+import { Images } from '../../../../public/resources/index';
 
-
+const covers = [Images.cover,Images.author,Images.green,Images.lighthouse,Images.herosection]
 const page = () => {
   return (
     <section style={roboto.style} className=' h-full py-24 bg-inherit mx-6 md:mx-[2rem]'>
@@ -24,7 +25,7 @@ const page = () => {
             <div key={num} className=' col-span-1 flex flex-col justify-center dark:bg-gray-950   rounded-[15px] border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 cursor-pointer hover:grayscale'>
           
           <div className="relative min-h-[18rem]">
-          <Image className='rounded-t-[15px]' src={'/resources/herosection.jpg'} alt='image' layout="fill" objectFit="cover"/>
+          <Image className='rounded-t-[15px]' src={covers[Math.floor(Math.random() * 5)]} alt='image' layout="fill" objectFit="cover"/>
           </div>
           <div className="flex gap-6 justify-between mx-4">
             <Avatar img={'https://api.dicebear.com/6.x/bottts/png'} name='Abebe' />

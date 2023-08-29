@@ -7,6 +7,10 @@ export const Images= {
     github: require('./github.svg'),
     author: require('./author.jpg'),
     cover: require('./cover.jpg'),
-    loader:require('./loader.svg')
+    loader:require('./loader.svg'),
+    nodata:require('./noData.svg'),
+    herosection:require('./herosection.jpg'),
+    green: require('./img3.jpg')
+
 
 }

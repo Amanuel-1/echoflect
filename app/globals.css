@@ -7,3 +7,6 @@ body{
   @apply dark:bg-gray-950 dark:text-gray-200;
   
 }
+.all{
+  @apply text-gray-700 dark:text-gray-200
+}
