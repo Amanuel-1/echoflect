@@ -76,7 +76,7 @@ const Navbar = (props:navbarProps) => {
             </div>
                
             {/* the following section is for smaller devices. */}
-            <div className={`absolute md:hidden ${mobileView?'':'top-[-150vh]'}  left-0 w-full h-[50rem] rounded-b-[20px] bg-[rgba(0,4,0,0.9)] backdrop-blur-md py-3 md-hidden overflow-scroll transition-all duration-700 ease-in-out`}>
+            <div className={`absolute md:hidden ${mobileView?'top-0':'top-[-150vh]'}  left-0 w-full min-h-screen rounded-b-[20px] bg-[rgba(0,4,0,0.9)] backdrop-blur-md py-8 md-hidden overflow-scroll transition-all duration-700 ease-in-out z-40`}>
                 <ul className="w-full">
                     <li className="relative w-full  px-[2rem] py-5 ">
                     <NavItems link="/" icon={<AiFillMessage />} text={"Home"}  setOpen={()=>{}} open={false}/>
@@ -96,10 +96,10 @@ const Navbar = (props:navbarProps) => {
                     
 
                 </ul>
-            </div>
+            </div>  
 
             </nav>
-            </div>          
+            </div>   
         </>    
      );
 }
