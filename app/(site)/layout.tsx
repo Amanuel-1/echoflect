@@ -11,7 +11,7 @@ import { SessionProvider } from 'next-auth/react';
 
 const inter = Inter({ subsets: ['latin'] })
 
- const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'EchoFlect',
   description: 'reflex your feeling with the rest of the world',
 }
