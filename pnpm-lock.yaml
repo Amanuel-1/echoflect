@@ -11,6 +11,9 @@ dependencies:
   '@auth/supabase-adapter':
     specifier: ^0.1.2
     version: 0.1.2(@supabase/supabase-js@2.33.1)
+  '@neondatabase/serverless':
+    specifier: ^0.6.0
+    version: 0.6.0
   '@supabase/supabase-js':
     specifier: ^2.33.1
     version: 2.33.1
@@ -31,7 +34,7 @@ dependencies:
     version: 16.3.1
   drizzle-orm:
     specifier: ^0.28.5
-    version: 0.28.5(@types/pg@8.10.2)(pg@8.11.3)(postgres@3.3.5)
+    version: 0.28.5(@neondatabase/serverless@0.6.0)(@types/pg@8.10.2)(pg@8.11.3)(postgres@3.3.5)
   eslint:
     specifier: 8.47.0
     version: 8.47.0
@@ -502,6 +505,12 @@ packages:
       unist-util-visit: 1.4.1
     dev: false
 
+  /@neondatabase/serverless@0.6.0:
+    resolution: {integrity: sha512-qXxBRYN0m2v8kVQBfMxbzNGn2xFAhTXFibzQlE++NfJ56Shz3m7+MyBBtXDlEH+3Wfa6lToDXf1MElocY4sJ3w==}
+    dependencies:
+      '@types/pg': 8.6.6
+    dev: false
+
   /@next/env@13.4.16:
     resolution: {integrity: sha512-pCU0sJBqdfKP9mwDadxvZd+eLz3fZrTlmmDHY12Hdpl3DD0vy8ou5HWKVfG0zZS6tqhL4wnQqRbspdY5nqa7MA==}
     dev: false
@@ -744,6 +753,14 @@ packages:
       '@types/node': 20.5.0
       pg-protocol: 1.6.0
       pg-types: 4.0.1
+
+  /@types/pg@8.6.6:
+    resolution: {integrity: sha512-O2xNmXebtwVekJDD+02udOncjVcMZQuTEQEMpKJ0ZRf5E7/9JJX3izhKUcUifBkyKpljyUM6BTgy2trmviKlpw==}
+    dependencies:
+      '@types/node': 20.5.0
+      pg-protocol: 1.6.0
+      pg-types: 2.2.0
+    dev: false
 
   /@types/phoenix@1.6.1:
     resolution: {integrity: sha512-g2/8Ogi2zfiS25jdGT5iDSo5yjruhhXaOuOJCkOxMW28w16VxFvjtAXjBNRo7WlRS4+UXAMj3mK46UwieNM/5g==}
@@ -1401,7 +1418,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.28.5(@types/pg@8.10.2)(pg@8.11.3)(postgres@3.3.5):
+  /drizzle-orm@0.28.5(@neondatabase/serverless@0.6.0)(@types/pg@8.10.2)(pg@8.11.3)(postgres@3.3.5):
     resolution: {integrity: sha512-6r6Iw4c38NAmW6TiKH3TUpGUQ1YdlEoLJOQptn8XPx3Z63+vFNKfAiANqrIiYZiMjKR9+NYAL219nFrmo1duXA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -1463,6 +1480,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
+      '@neondatabase/serverless': 0.6.0
       '@types/pg': 8.10.2
       pg: 8.11.3
       postgres: 3.3.5

@@ -22,6 +22,13 @@
       "when": 1694781665149,
       "tag": "0002_pale_ulik",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1694790681881,
+      "tag": "0003_early_baron_zemo",
+      "breakpoints": true
     }
   ]
 }
