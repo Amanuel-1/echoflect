@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1694464362573,
+      "tag": "0000_productive_purifiers",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1694476539995,
+      "tag": "0001_rapid_thena",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1694781665149,
+      "tag": "0002_pale_ulik",
+      "breakpoints": true
+    }
+  ]
+}
