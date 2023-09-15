@@ -13,12 +13,14 @@ import Avatar from '@/app/components/shared/nav/Avatar'
 import { roboto } from '@/public/Fonts'
 import { Categories as categ } from '@/lib/Constants'
 import Link from 'next/link'
+import SearchFilter from '@/app/components/categories/searchFilter'
 
 const Categories = () => {
 
   
   return (
-    <section style={roboto.style} className='mt-8 h-full bg-inherit mx-6 md:mx-[2rem] transition-all duration-300 ease-in'>
+    <section style={roboto.style} className='mt-8 flex flex-col gap-[6rem] h-full bg-inherit mx-6 md:mx-[2rem] transition-all duration-300 ease-in'>
+        <SearchFilter/>
         <div className="flex flex-wrap gap-[2rem] justify-center">
             {
               categ.map((category,index)=>(
