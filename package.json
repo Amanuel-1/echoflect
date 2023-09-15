@@ -8,11 +8,13 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "drizzle-kit generate:pg",
-    "db:push": "drizzle-kit push:pg --config=drizzle.config.ts"
+    
+    "db:push": "drizzle-kit push:pg"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^0.3.2",
     "@auth/supabase-adapter": "^0.1.2",
+    "@neondatabase/serverless": "^0.6.0",
     "@supabase/supabase-js": "^2.33.1",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",

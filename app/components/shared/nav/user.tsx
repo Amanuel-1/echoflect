@@ -74,12 +74,12 @@ const User = () => {
       ) : (
         <div className="flex gap-2 items-center">
           
-           <Link href={"/Login"}>
+           
            <button onClick={()=>signIn()} className="px-3 py-3 md:py-1 rounded-full text-xs md:text-lg font-light text-white bg-gradient-to-tr from-blue-500 to-indigo-500 ">
               <p className='hidden md:flex'>signIn</p>
               
             </button>
-            </Link>
+            
 
           
         </div>
