@@ -2,6 +2,7 @@
 
 import { db } from '@/lib/db'
 import * as schema from "@/lib/db/schema"
+import { IPost } from '@/lib/db/schemaTypes'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
@@ -18,12 +19,12 @@ export default  function Home() {
   
   useEffect( ()=>{
     const getUsers =async ()=>{
-      const result = await db.select().from(schema.posts);
+      const result  = await fetch("http://localhost:3000/api/post").then((res)=>res.json())
       if(result){
-        setUsers(result as any)
+        setUsers(result)
       }
       console.log(result)
-     
+           
     }
 
     getUsers()
@@ -88,7 +89,7 @@ export default  function Home() {
           {
              <div className='flex flex-col gap-4'>
               {
-                [...acc].map((p:typeof schema.posts,i)=>(
+                acc && acc.map((p:IPost,i)=>(
                   <h1 key={i} className="">{p.title}</h1>
                 ))
               }            
@@ -155,3 +156,5 @@ export default  function Home() {
     </main>
   )
 }
+
+
