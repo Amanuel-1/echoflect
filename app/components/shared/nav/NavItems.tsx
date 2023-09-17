@@ -1,6 +1,6 @@
 "use client"
 
-import {roboto, pacifico,ibmFlex} from '@/fonts'
+import {roboto, pacific,ibmFlex} from '@/fonts'
 import { navItemsProps } from '@/lib/types'
 import Link from 'next/link'
 import { ReactComponentElement, use, useEffect, useRef, useState } from 'react'

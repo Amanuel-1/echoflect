@@ -91,10 +91,7 @@ const MarkdownComponent = () => {
   },[])
   
   const renderers = {
-    heading: ({ level, children }) => {
-      const Heading = level === 1 ? 'h1' : `h${level}`;
-      return <h1  className='text-4xl font-bold'>{children}</h1>;
-    },
+   
   };
 
   return (

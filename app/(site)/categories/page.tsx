@@ -25,12 +25,13 @@ import Loading from '@/app/components/shared/Loading'
 const Categories = () => {
 
   const [categoryList,setCategoryList] = useState([])
-  
+  const [loading,setLoading] = useState(true)
   
   useEffect(()=>{
     const fetchCategories = async ()=>{
-      const result  = await fetch("http://localhost:3000/api/categories").then((res)=>res.json())
+      const result  = await fetch("http://localhost:3000/api/categories",{cache:'no-cache'}).then((res)=>res.json())
       if(result){
+        setLoading(false)
         setCategoryList(result)
       }
       console.log(result)
@@ -44,12 +45,12 @@ const Categories = () => {
     <section style={roboto.style} className='mt-8 flex flex-col gap-[3rem] h-full bg-inherit mx-6 md:mx-[2rem] transition-all duration-300 ease-in'>
         <SearchFilter/>
         <div className="relative flex flex-wrap gap-[2rem] justify-center">
-          <Loading isloading={false} />         
+          <Loading className="py-[4rem]" isloading={loading} />         
             {
               categoryList.map((category:ICategory,index)=>(
                 
                 
-                    <Box  key={index} className='lg:max-w-[45%] dark:bg-gray-950 hover:hue-rotate-[180deg] cursor-pointer rounded-md border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950'>
+                    <Box  key={index} className='lg:max-w-[40%] dark:bg-gray-950 hover:hue-rotate-[180deg] cursor-pointer rounded-md border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950'>
                         <Link className='grid grid-cols-3 ' href={`/categories/${category.name}`} >
                         <div  key={index*2}  className="relative col-span-1 flex items-center category-image py-[0.04rem] bg-gray-300 dark:bg-gray-900 ">
                           <Image className='rounded-l-md' src={category.thumbnail} alt={category.id} layout="fill" objectFit="cover" />
@@ -57,7 +58,7 @@ const Categories = () => {
                         <div className="col-span-2 p-3 flex flex-col gap-4 justify-spread">
                           <h1 className="text-left text-lg md:text-3xl font-semibold dark:text-gray-500">
                             {category.name}
-                          </h1>
+                          </h1> 
                           <ul className="flex gap-2">
                             <li className=' pr-4 text-xs font-extralight md:text-sm'><small>{category.views} views</small></li>
                             <li className='border-l px-4 text-xs font-extralight md:text-sm'><small>500k+ likes</small></li>

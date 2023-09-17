@@ -92,12 +92,7 @@ const MarkdownComponent = () => {
     fetcheData();
   },[])
   
-  const renderers = {
-    heading: ({ level, children }) => {
-      const Heading = level === 1 ? 'h1' : `h${level}`;
-      return <h1  className='text-4xl font-bold'>{children}</h1>;
-    },
-  };
+  ;
 
   return (
     <div className="relative grid grid-cols-3 gap-4 container mx-auto">
@@ -108,7 +103,7 @@ const MarkdownComponent = () => {
         
       {
           userData?.length!=0 ?(
-           userData?.map((data,i)=>(
+           userData?.map((data:object,i:number)=>(
             <div key={i} className="markdown-container">
             <ReactMarkdown className={styles.reactMarkDown}>{markdownText}</ReactMarkdown>
           </div>

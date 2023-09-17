@@ -21,3 +21,9 @@ export function shortener(text: string,size:number): string {
     return result;
   }
 
+export function getDomain(){
+  let result : string
+
+  
+}
+

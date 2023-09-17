@@ -2,7 +2,8 @@ import Image from 'next/image';
 
 
 export type loadingProps ={
-    isloading:boolean
+    isloading:boolean,
+    className?:string
 }
 export type tabsProps={
     open:boolean
