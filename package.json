@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "drizzle-kit generate:pg",
-    
     "db:push": "drizzle-kit push:pg"
   },
   "dependencies": {
@@ -21,11 +20,11 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
     "dotenv": "^16.3.1",
-    "drizzle-orm": "^0.28.5",
+    "drizzle-kit": "^0.19.13",
+    "drizzle-orm": "^0.28.6",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
     "formik": "^2.4.3",
-    "markdown-it": "^13.0.1",
     "marked": "^7.0.5",
     "next": "13.4.16",
     "next-auth": "^4.23.1",
@@ -51,7 +50,6 @@
     "unified": "^11.0.2"
   },
   "devDependencies": {
-    "@types/pg": "^8.10.2",
-    "drizzle-kit": "^0.19.13"
+    "@types/pg": "^8.10.2"
   }
 }

@@ -19,7 +19,7 @@ const Categories = () => {
 
   
   return (
-    <section style={roboto.style} className='mt-8 flex flex-col gap-[6rem] h-full bg-inherit mx-6 md:mx-[2rem] transition-all duration-300 ease-in'>
+    <section style={roboto.style} className='mt-8 flex flex-col gap-[3rem] h-full bg-inherit mx-6 md:mx-[2rem] transition-all duration-300 ease-in'>
         <SearchFilter/>
         <div className="flex flex-wrap gap-[2rem] justify-center">
             {
@@ -29,7 +29,7 @@ const Categories = () => {
                     <Box  key={index} className='lg:max-w-[45%] dark:bg-gray-950 hover:hue-rotate-[180deg] cursor-pointer rounded-md border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950'>
                         <Link className='grid grid-cols-3 ' href={`/categories/${category.title}`} >
                         <div  key={index*2}  className="relative col-span-1 flex items-center category-image py-[0.04rem] bg-gray-300 dark:bg-gray-900 ">
-                    <Image className='rounded-l-md' src={category.logo} alt={category.title} layout="fill" objectFit="cover" />
+                          <Image className='rounded-l-md' src={category.logo} alt={category.title} layout="fill" objectFit="cover" />
                         </div>
                         <div className="col-span-2 p-3 flex flex-col gap-4 justify-spread">
                           <h1 className="text-left text-lg md:text-3xl font-semibold dark:text-gray-500">

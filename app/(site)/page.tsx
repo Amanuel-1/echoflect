@@ -1,6 +1,9 @@
+'use client'
+
 import { db } from '@/lib/db'
-import { users } from '@/lib/db/schema'
+import * as schema from "@/lib/db/schema"
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 const meta = {
   title:'Login',
@@ -8,16 +11,35 @@ const meta = {
 }
 
 
-export default async function Home() {
-  const result = await db.select().from(users);
+export default  function Home() {
+
+
+  const [acc,setUsers]= useState([])
+  
+  useEffect( ()=>{
+    const getUsers =async ()=>{
+      const result = await db.select().from(schema.posts);
+      if(result){
+        setUsers(result as any)
+      }
+      console.log(result)
+     
+    }
+
+    getUsers()
+    
+
+  },[])
+  
+
   return ( 
     <main className="flex min-h-screen flex-col items-center justify-between p-32 overflow-x-hidden">
 
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by {result[0].name}&nbsp;
+        <h1 className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+          Get started by this &nbsp; 
           <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
+        </h1>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
           <a
             className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
@@ -62,6 +84,18 @@ export default async function Home() {
               -&gt;
             </span>
           </h2>
+          <div className="flex flex-col">
+          {
+             <div className='flex flex-col gap-4'>
+              {
+                [...acc].map((p:typeof schema.posts,i)=>(
+                  <h1 key={i} className="">{p.title}</h1>
+                ))
+              }            
+              
+            </div>
+          }
+          </div>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Find in-depth information about Next.js features and API.
           </p>

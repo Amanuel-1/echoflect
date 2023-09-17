@@ -5,29 +5,22 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1694464362573,
-      "tag": "0000_productive_purifiers",
+      "when": 1694967554876,
+      "tag": "0000_low_vision",
       "breakpoints": true
     },
     {
       "idx": 1,
       "version": "5",
-      "when": 1694476539995,
-      "tag": "0001_rapid_thena",
+      "when": 1694967777968,
+      "tag": "0001_wet_blizzard",
       "breakpoints": true
     },
     {
       "idx": 2,
       "version": "5",
-      "when": 1694781665149,
-      "tag": "0002_pale_ulik",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1694790681881,
-      "tag": "0003_early_baron_zemo",
+      "when": 1694967876896,
+      "tag": "0002_breezy_silver_surfer",
       "breakpoints": true
     }
   ]

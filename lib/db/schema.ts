@@ -4,9 +4,14 @@ import {
   text,
   primaryKey,
   integer,
+  uniqueIndex,
+  boolean,
+  decimal,
+  index,
 } from "drizzle-orm/pg-core";
 import type { AdapterAccount } from "@auth/core/adapters";
-import { Many, relations } from "drizzle-orm";
+import { Many, relations, sql } from "drizzle-orm";
+
 
 export const users = pgTable("user", {
   id: text("id").notNull().primaryKey(),
@@ -14,7 +19,15 @@ export const users = pgTable("user", {
   email: text("email").notNull(),
   emailVerified: timestamp("emailVerified", { mode: "date" }),
   image: text("image"),
-});
+  honor:decimal("honor",{precision:2 }).default("1.0").notNull(),
+  createdAt:timestamp("created_at",{ mode:"date"}).notNull(),
+},
+(users) => {
+  return {
+    email_uq_idx: uniqueIndex("email_uq_idx").on(users.email),
+  };
+}
+);
 
 export const accounts = pgTable(
   "account",
@@ -60,55 +73,121 @@ export const verificationTokens = pgTable(
 
 export const posts  = pgTable("posts",{
   id : text("id").notNull().primaryKey(),
-  authorId:text("authorId").notNull(),
+  //foreign key authorId
+  authorId:text("authorId").references(
+    ()=>(users.id),
+    {
+      onDelete:"cascade",
+      onUpdate:"cascade"
+    }).notNull(),
+
+
   title : text("title").default("untitled").notNull(),
+  slug:text("slug").notNull(),
   description : text("description").notNull(),
   content: text("content").notNull(),
-  cover:text("cover"),
+  thumbnail:text("thumbnail").notNull(),
+  published:boolean("published").default(true).notNull(),
+  rating:decimal("rating",{precision:2,scale:1}),
+  views:integer("views").default(0).notNull(),
   createdAt:timestamp("createdAt",{ mode: "date" }).notNull(),
   updatedAt:timestamp("createdAt",{ mode: "date" }).notNull(),
 
-})
+},
+
+(posts) => {
+  return {
+    slug_uq_idx: uniqueIndex("slug_uq_idx").on(posts.slug),
+    published_idx: index("published_idx").on(posts.published),
+  };
+}
+)
 
 export const followers = pgTable("followers",{
-  followerId:text("followerId"),
-  followedId:text("followedId")
+  followerId:text("followerId").references(()=>users.id,{
+    onDelete:'cascade',
+    onUpdate:'cascade'
+  }).notNull(),
+  followedId:text("followedId").references(()=>users.id,{
+    onDelete:'cascade',
+    onUpdate:'cascade'
+  }).notNull()
   
 })
 
 export const comments  = pgTable("comments",{
   id : text("id").notNull().primaryKey(),
-  postId:text("postId"),
-  authorId:text("authoId"),
-  body:text("body")
+  postId:text("postId").references(()=>posts.id,{
+    onDelete:'cascade',
+    onUpdate:'cascade'
+  }).notNull(),
+  authorId:text("authoId").references(()=>users.id,{
+    onDelete:'cascade',
+    onUpdate:'cascade'
+  }).notNull(),
+  body:text("body").notNull(),
+  createdAt: timestamp("created_at").notNull()
 
 })
 
 
 export const replies = pgTable('replies', {
   id: text('id').primaryKey(),
-  commentId: text('commentId'),
-  authorId: text('authorId'),
-  content: text('content'),
+  commentId: text('commentId').references(()=>comments.id,{
+    onDelete:'cascade',
+    onUpdate:'cascade'
+  }),
+  authorId: text('authorId').references(()=>users.id,{
+    onDelete:'cascade',
+    onUpdate:'cascade'
+  }).notNull(),
+  content: text('content').notNull(),
   replyId: text('replyId'),
 });
 
 export const categories = pgTable('categories', {
-  categoryId: text('categoryId').primaryKey(),
+  id: text('id').primaryKey(),
   name: text('name'),
-});
+  slug:text("slug").notNull().unique(),
+  published:boolean("published").default(true).notNull(),
+  thumbnail:text("thumbnail").notNull(),
+  views:integer("views").default(0).notNull(),
+  rating:decimal("rating",{precision:2, scale:1}).notNull()
+},
+(categorySchema) => {
+  return {
+    slug_uq_idx: uniqueIndex("slug_uq_idx").on(categorySchema.slug),
+  };
+}
+);
 
 export const postCategories = pgTable('post_categories', {
-  postId: text('postId'),
-  categoryId: text('categoryId'),
-});
+  postId: text('postId').references(()=> posts.id,{
+    onDelete:'cascade',
+    onUpdate:'cascade'
+  }).notNull(),
+  categoryId: text('categoryId').references(()=> posts.id,{
+    onDelete:'cascade',
+    onUpdate:'cascade'
+  }).notNull(),
+},
+(p2c) => {
+  return {
+    cpk: primaryKey(p2c.postId, p2c.categoryId),
+  };
+}
+);
+
+
+
+// relationships
 
 export const usersRelations = relations(users, ({ many }) => ({
 	posts: many(posts),
   followers:many(users),
   followed:many(users)
 }));
- 
+ //post relations 
 export const postRelations = relations(posts, ({ one , many }) => ({
   
 	authorId:one(users,{
@@ -117,9 +196,32 @@ export const postRelations = relations(posts, ({ one , many }) => ({
  }),
 
  comments:many(comments),
- categories:many(categories)
+ postToCategories:many(postCategories)
 
 }));
+
+//categories relations
+
+export const categoriesRelations = relations(categories,({many})=>({
+  postToCategories:many(postCategories)
+} 
+))
+
+//post to categories relations
+export const postCategoriesRelations = relations(postCategories,({one,many})=>(
+  {
+    postId:one(posts,{
+      fields:[postCategories.postId],
+      references:[posts.id]
+    }),
+    categoryId:one(categories,{
+      fields:[postCategories.categoryId],
+      references:[categories.id]
+    })
+  }
+))
+
+//comments relations
 
 export const commentRelations = relations(comments,( {one,many} )=>({
   post:one(posts,{
@@ -138,11 +240,7 @@ export const commentRelations = relations(comments,( {one,many} )=>({
 
 }))
 
-export const PostcategoriesRelation = relations(categories,( { one,many})=>({
-  posts:many(posts),
-  categories:many(categories)
-  
-}))
+//replies relations
 
 export const repliesRelations = relations(replies,({one,many})=>({
   replies:many(replies),
