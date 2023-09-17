@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1694967554876,
-      "tag": "0000_low_vision",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1694967777968,
-      "tag": "0001_wet_blizzard",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1694967876896,
-      "tag": "0002_breezy_silver_surfer",
+      "when": 1694971620233,
+      "tag": "0000_sparkling_misty_knight",
       "breakpoints": true
     }
   ]

@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS "comments" (
 	"postId" text NOT NULL,
 	"authoId" text NOT NULL,
 	"body" text NOT NULL,
-	"created_at" timestamp NOT NULL
+	"created_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "followers" (
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS "posts" (
 	"published" boolean DEFAULT true NOT NULL,
 	"rating" numeric(2, 1),
 	"views" integer DEFAULT 0 NOT NULL,
-	"createdAt" timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL
+	"createdAt" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "replies" (
@@ -77,8 +77,8 @@ CREATE TABLE IF NOT EXISTS "user" (
 	"email" text NOT NULL,
 	"emailVerified" timestamp,
 	"image" text,
-	"honor" numeric(2, 20) DEFAULT '1.0' NOT NULL,
-	"created_at" timestamp NOT NULL
+	"honor" numeric(2) DEFAULT '1.0' NOT NULL,
+	"created_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "verificationToken" (
@@ -99,13 +99,13 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "comments" ADD CONSTRAINT "comments_postId_posts_id_fk" FOREIGN KEY ("postId") REFERENCES "posts"("id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "comments" ADD CONSTRAINT "comments_postId_posts_id_fk" FOREIGN KEY ("postId") REFERENCES "posts"("id") ON DELETE cascade ON UPDATE cascade;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "comments" ADD CONSTRAINT "comments_authoId_user_id_fk" FOREIGN KEY ("authoId") REFERENCES "user"("id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "comments" ADD CONSTRAINT "comments_authoId_user_id_fk" FOREIGN KEY ("authoId") REFERENCES "user"("id") ON DELETE cascade ON UPDATE cascade;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -123,31 +123,31 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "post_categories" ADD CONSTRAINT "post_categories_postId_posts_id_fk" FOREIGN KEY ("postId") REFERENCES "posts"("id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "post_categories" ADD CONSTRAINT "post_categories_postId_posts_id_fk" FOREIGN KEY ("postId") REFERENCES "posts"("id") ON DELETE cascade ON UPDATE cascade;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "post_categories" ADD CONSTRAINT "post_categories_categoryId_posts_id_fk" FOREIGN KEY ("categoryId") REFERENCES "posts"("id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "post_categories" ADD CONSTRAINT "post_categories_categoryId_posts_id_fk" FOREIGN KEY ("categoryId") REFERENCES "posts"("id") ON DELETE cascade ON UPDATE cascade;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "posts" ADD CONSTRAINT "posts_authorId_user_id_fk" FOREIGN KEY ("authorId") REFERENCES "user"("id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "posts" ADD CONSTRAINT "posts_authorId_user_id_fk" FOREIGN KEY ("authorId") REFERENCES "user"("id") ON DELETE cascade ON UPDATE cascade;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "replies" ADD CONSTRAINT "replies_commentId_comments_id_fk" FOREIGN KEY ("commentId") REFERENCES "comments"("id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "replies" ADD CONSTRAINT "replies_commentId_comments_id_fk" FOREIGN KEY ("commentId") REFERENCES "comments"("id") ON DELETE cascade ON UPDATE cascade;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "replies" ADD CONSTRAINT "replies_authorId_user_id_fk" FOREIGN KEY ("authorId") REFERENCES "user"("id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "replies" ADD CONSTRAINT "replies_authorId_user_id_fk" FOREIGN KEY ("authorId") REFERENCES "user"("id") ON DELETE cascade ON UPDATE cascade;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

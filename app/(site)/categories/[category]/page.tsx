@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Box from '@/app/components/shared/Box'
 import { roboto } from '@/public/Fonts'
 import Avatar from '@/app/components/shared/nav/Avatar'
-import { shortener } from '@/lib/utils'
+import { shortener } from '@/lib/functions/utils'
 import Link from 'next/link'
 import { Images } from '../../../../public/resources/index';
 

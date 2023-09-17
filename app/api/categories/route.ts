@@ -1,11 +1,11 @@
 import { db } from "@/lib/db";
 import { posts, users } from "@/lib/db/schema";
-import { getAllPosts } from "@/lib/functions/dbfunctions";
+import { getAllCategories } from "@/lib/functions/dbfunctions";
 import { NextResponse } from "next/server";
 
 export async function GET(){
 
-  const result = await getAllPosts()  
+  const result = await getAllCategories()  
 
   return NextResponse.json(result.data,{status:result.status})
 }

@@ -1,1 +1,0 @@
-ALTER TABLE "user" ALTER COLUMN "honor" SET DATA TYPE numeric(2);
