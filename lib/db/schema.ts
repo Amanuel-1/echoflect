@@ -20,7 +20,7 @@ export const users = pgTable("user", {
   emailVerified: timestamp("emailVerified", { mode: "date" }),
   image: text("image"),
   honor:decimal("honor",{precision:2 }).default("1.0").notNull(),
-  createdAt:timestamp("created_at",{ mode:"date"}).notNull(),
+  createdAt:timestamp("created_at",{ mode:"date"}).defaultNow().notNull(),
 },
 (users) => {
   return {
@@ -90,8 +90,8 @@ export const posts  = pgTable("posts",{
   published:boolean("published").default(true).notNull(),
   rating:decimal("rating",{precision:2,scale:1}),
   views:integer("views").default(0).notNull(),
-  createdAt:timestamp("createdAt",{ mode: "date" }).notNull(),
-  updatedAt:timestamp("createdAt",{ mode: "date" }).notNull(),
+  createdAt:timestamp("createdAt",{ mode: "date" }).defaultNow().notNull(),
+  updatedAt:timestamp("createdAt",{ mode: "date" }).defaultNow().notNull(),
 
 },
 
@@ -126,7 +126,7 @@ export const comments  = pgTable("comments",{
     onUpdate:'cascade'
   }).notNull(),
   body:text("body").notNull(),
-  createdAt: timestamp("created_at").notNull()
+  createdAt: timestamp("created_at").defaultNow().notNull()
 
 })
 
