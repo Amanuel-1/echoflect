@@ -3,6 +3,7 @@
 import { db } from '@/lib/db'
 import * as schema from "@/lib/db/schema"
 import { IPost } from '@/lib/db/schemaTypes'
+import { getDomain } from '@/lib/functions/utils'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
@@ -19,7 +20,7 @@ export default  function Home() {
   
   useEffect( ()=>{
     const getUsers =async ()=>{
-      const result  = await fetch("http://localhost:3000/api/post").then((res)=>res.json())
+      const result  = await fetch(`${getDomain()}/api/post`).then((res)=>res.json())
       if(result){
         setUsers(result)
       }

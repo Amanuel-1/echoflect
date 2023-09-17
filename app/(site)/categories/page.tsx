@@ -10,7 +10,7 @@ import { MdThumbsUpDown } from 'react-icons/md'
 
 
 import Box from '@/app/components/shared/Box'
-import { shortener } from '@/lib/functions/utils'
+import { getDomain, shortener } from '@/lib/functions/utils'
 import Avatar from '@/app/components/shared/nav/Avatar'
 import { roboto } from '@/public/Fonts'
 import { Categories as categ } from '@/lib/Constants'
@@ -29,7 +29,8 @@ const Categories = () => {
   
   useEffect(()=>{
     const fetchCategories = async ()=>{
-      const result  = await fetch("http://localhost:3000/api/categories",{cache:'no-cache'}).then((res)=>res.json())
+      const result  = await fetch(`${getDomain()}/api/categories`,{cache:'no-cache'}).then((res)=>res.json())
+
       if(result){
         setLoading(false)
         setCategoryList(result)
