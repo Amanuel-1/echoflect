@@ -1,7 +1,11 @@
+'use client'
+
+
 import React from 'react'
 import { AiFillDislike, AiFillEye, AiFillHeart } from 'react-icons/ai'
 import Image from 'next/image'
-
+ 
+import { useParams } from 'next/navigation'
 
 import Box from '@/app/components/shared/Box'
 import { roboto } from '@/public/Fonts'
@@ -11,12 +15,14 @@ import Link from 'next/link'
 import { Images } from '../../../../public/resources/index';
 
 const covers = [Images.cover,Images.author,Images.green,Images.lighthouse,Images.herosection]
-const page = () => {
+const CategoryPage = () => {
+  
+  const params = useParams();
   return (
     <section style={roboto.style} className=' h-full py-24 bg-inherit mx-6 md:mx-[2rem]'>
     <div className='w-full flex flex-col md:p-[1rem] rounded-[5px]'>
       <div className="flex w-full justify-center ">
-
+            
       </div>
       <Box className=' grid grid-cols-1 md:grid-cols-2 gap-6 dark:bg-gray-950 re'>
        {
@@ -28,7 +34,7 @@ const page = () => {
           <Image className='rounded-t-[15px]' src={covers[Math.floor(Math.random() * 5)]} alt='image' layout="fill" objectFit="cover"/>
           </div>
           <div className="flex gap-6 justify-between mx-4">
-            <Avatar img={'https://api.dicebear.com/6.x/bottts/png'} name='Abebe' />
+            <Avatar img={'https://api.dicebear.com/6.x/bottts/png'} name={params.category as string} />
             <div style={roboto.style} className="flex gap-3 justify-center items-center ">
               <button className='flex gap-1 items-center text-gray-500 dark:text-gray-700'><AiFillEye size={25}/> <p>2K</p></button>
               <button className='flex gap-1 items-center text-gray-500 dark:text-gray-700'><AiFillHeart size={25}/> <p>2K</p></button>
@@ -66,4 +72,4 @@ const page = () => {
   )
 }
 
-export default page
+export default CategoryPage
