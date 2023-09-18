@@ -4,7 +4,7 @@ import { RiAccountCircleFill } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image"
 import { FiUser } from "react-icons/fi";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession,signIn,signOut } from "next-auth/react";
 import { navButtonsProps } from "@/lib/types";
 import Search from "./Search";
 import User from "./user";
