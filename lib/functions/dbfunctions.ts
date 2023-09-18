@@ -41,6 +41,7 @@ export async function getAllCategories(){
     }
     catch(error){
         response = {message :"failed to fetch posts from the database"}
+        throw new Error(JSON.stringify(response))
     }
 
     return {data:response,status:status}
