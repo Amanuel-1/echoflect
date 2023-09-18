@@ -6,7 +6,7 @@ import { Inter } from 'next/font/google'
 import { useEffect, useState } from 'react'
 import Footer from '../components/shared/footer/Footer'
 import Navbar from '../components/shared/nav/Navbar'
-import { SessionProvider } from 'next-auth/react';
+import {SessionProvider} from 'next-auth/react'
 
 
 const inter = Inter({ subsets: ['latin'] })
