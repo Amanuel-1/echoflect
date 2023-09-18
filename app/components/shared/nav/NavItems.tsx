@@ -3,7 +3,7 @@
 import {roboto, pacific,ibmFlex} from '@/fonts'
 import { navItemsProps } from '@/lib/types'
 import Link from 'next/link'
-import { ReactComponentElement, use, useEffect, useRef, useState } from 'react'
+import { ReactComponentElement, useEffect, useRef, useState } from 'react'
 
  const NavItems = (props:navItemsProps) => {
 
