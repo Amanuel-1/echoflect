@@ -1,12 +1,13 @@
 // lib/auth/index.ts
 
-import GithubProvider from 'next-auth/providers/github';
-import GoogleProvider from 'next-auth/providers/google';
+
 import { eq } from 'drizzle-orm';
 import { DrizzleAdapter } from '@auth/drizzle-adapter';
 import { db } from '@/lib/db';
 import { users } from '@/lib/db/schema';
 import type { NextAuthOptions } from 'next-auth';
+import GoogleProvider from 'next-auth/providers/google';
+import GithubProvider from 'next-auth/providers/github';
 
 export const authOptions: NextAuthOptions = {
   adapter: DrizzleAdapter(db),
@@ -26,7 +27,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async session({ token, session }) {
+    async session({ token, session}:{token:any,session:any}) {
       if (token) {
         session.user.id = token.id;
         session.user.name = token.name;
@@ -36,7 +37,7 @@ export const authOptions: NextAuthOptions = {
 
       return session;
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user }:{ token:any, user:any }) {
       const [dbUser] = await db
         .select()
         .from(users)
