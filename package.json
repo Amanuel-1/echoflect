@@ -11,6 +11,7 @@
     "db:push": "drizzle-kit push:pg"
   },
   "dependencies": {
+    "@auth/core":"0.15.0",
     "@auth/drizzle-adapter": "^0.3.2",
     "@auth/supabase-adapter": "^0.1.2",
     "@neondatabase/serverless": "^0.6.0",
