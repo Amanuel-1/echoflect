@@ -1,7 +1,11 @@
 "use client"
 
 import {AiFillHome,AiOutlineOrderedList,AiFillMessage} from "react-icons/ai"
+import {BiSolidHot} from "react-icons/bi"
+import {SiAboutdotme} from "react-icons/si"
 import {RiArrowDropDownLine} from "react-icons/ri"
+
+
 
 import Menu from "./NavItems"
 import Image from "next/image";
@@ -39,8 +43,8 @@ const Navbar = (props:navbarProps) => {
                     
                     <NavItems link="/" icon={<AiFillHome />} text={"Home"} setOpen={()=>{}} open={false}/>
                     <NavItems link="/categories" icon={<RiArrowDropDownLine size="30" />} text={"Categories"} setOpen={setOpen} open={open}><MegaMenu data={Categories} onClose={()=>{setOpen(!open)}} /></NavItems>                
-                    <NavItems link="/trending" icon={<AiFillMessage />} text={"Trending"}  setOpen={()=>{}} open={false}/>
-                    <NavItems link="/about" icon={<AiOutlineOrderedList />} text={"About"}  setOpen={()=>{}} open={false}/>
+                    <NavItems link="/trending" icon={<BiSolidHot/>} text={"Trending"}  setOpen={()=>{}} open={false}/>
+                    <NavItems link="/about" icon={<SiAboutdotme/>} text={"About"}  setOpen={()=>{}} open={false}/>
                     </div>
                     <div className="navButtons hidden md:flex md:px-8 align-middle self-center">
                         <NavButtons darkMode={props.darkMode} setDarkMode={props.setDarkMode}/>

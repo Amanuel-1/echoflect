@@ -13,7 +13,7 @@ export async function getAllPosts(param?:{href:any}){
    try{
        let result: any
        if(param){
-         result =  await db.select().from(posts).innerJoin(postCategories,eq(posts.id,postCategories.postId))
+         result =  await db.select().from(posts).innerJoin(postCategories,eq(posts.id,postCategories.postId)).innerJoin(categories,eq(categories.id,postCategories.categoryId))
        }
        else{
           result  =  await db.select().from(posts)

@@ -1,13 +1,15 @@
 "use client"
+import Link from 'next/link'
+
+import { ReactComponentElement, useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 import {roboto, pacific,ibmFlex} from '@/fonts'
 import { navItemsProps } from '@/lib/types'
-import Link from 'next/link'
-import { ReactComponentElement, useEffect, useRef, useState } from 'react'
 
  const NavItems = (props:navItemsProps) => {
-
   
+  const pathname = usePathname()
   const reff = useRef<HTMLDivElement>(null)
   const outSideClicked = (e:MouseEvent)=>{
      // Check if the clicked element is inside the dropdown
@@ -30,7 +32,7 @@ import { ReactComponentElement, useEffect, useRef, useState } from 'react'
    return (
 
         <Link href={!props.children?(props.link??''):''}>
-            <div className='cursor-pointer text-gray-100 md:text-gray-900 dark:text-gray-100 md:hover:text-gray-800 overflow-y-auto' onClick={()=>props.setOpen(!props.open)}>
+            <div className={`cursor-pointer ${pathname==props.link?'text-amber-800  dark:text-amber-600 md:hover:text-amber-600':'text-gray-700  dark:text-gray-300 md:hover:text-gray-800'} overflow-y-auto`} onClick={()=>props.setOpen(!props.open)}>
                 <ul style={roboto.style} className="flex gap-1 text-xl items-center">
                     <li className={`${props.open && props.children ? 'rotate-180':''}  transition-all duration-700 ease-in-out`}>{props.icon}</li>
                     <li className='text z-40' >{props.text}</li>
