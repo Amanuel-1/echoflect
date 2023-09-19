@@ -1,16 +1,25 @@
 
+import { eq } from "drizzle-orm";
 import { db } from "../db";
-import { categories, posts } from "../db/schema";
-import { IPost } from "../db/schemaTypes"; 
+import { categories, postCategories, posts } from "../db/schema";
+import { ICategory, IPost, IPostToCategory } from "../db/schemaTypes"; 
 
 
-export async function getAllPosts(){
+export async function getAllPosts(param?:{href:any}){
     
-    let response:object = {message :"failed to fetch posts from the database"}
+    let response:object = {message :"failed to fetch categories from the database"}
     let status = 400;
+    
    try{
-       const result  =  await db.select().from(posts)
-        if(result){
+       let result: any
+       if(param){
+         result =  await db.select().from(posts).innerJoin(postCategories,eq(posts.id,postCategories.postId))
+       }
+       else{
+          result  =  await db.select().from(posts)
+       }
+        
+       if(result){
             response =result;
             status= 200
         }
@@ -26,13 +35,23 @@ export async function getAllPosts(){
 }
 
 
-export async function getAllCategories(){
+export async function getAllCategories(param?:{href:any}){
     
     let response:object = {message :"failed to fetch categories from the database"}
     let status = 400;
+    
    try{
-       const result  =  await db.select().from(categories)
-        if(result){
+       let result:ICategory[] | ICategory
+       if(param){
+         result  =  await db.query.categories.findMany({
+            where: eq(categories.slug,param?.href as string)
+         })
+       }
+       else{
+          result  =  await db.select().from(categories)
+       }
+        
+       if(result){
             response =result;
             status= 200
         }

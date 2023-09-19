@@ -1,3 +1,4 @@
+import { categories } from './schema';
 import {users,
     categories,
     sessions,
@@ -6,6 +7,7 @@ import {users,
     comments,
     postCategories,
     posts}  from './schema'
+import { ICategory } from './schemaTypes';
 
 declare module './db' {
     interface Query {
@@ -14,6 +16,8 @@ declare module './db' {
         sessions:typeof sessions,
         posts:typeof posts,
         comments:typeof comments
+        categories:ICategory[]
+        
 
 
     }
