@@ -72,19 +72,19 @@ const Profile =() => {
      <div className="py-6 grid grid-cols-4 gap-4 lg:gap-">
        <Box className=" col-span-4 md:col-span-1 px-2 py-4 w-full h-fit ">
           <ul className="flex flex-wrap md:flex-col gap-4 w-full p-2 justify-around md:justify-center">
-              <li onClick={()=>setSelectedTab(0)} className="flex gap-2 lg:gap-4 md:w-full py-2 justify-start text-md font-bold hover:bg-[rgba(0,0,0,.2)] cursor-pointer items-center text-center">
+              <li onClick={()=>setSelectedTab(0)} className={`flex gap-2 lg:gap-4 md:w-full py-2 justify-start ${selectedTab==0?'text-amber-600':''} text-md font-bold hover:bg-[rgba(170,123,93,0.05)] cursor-pointer items-center text-center`}>
                 <MdOutlineManageAccounts size={30}/>
                 <p className="hidden md:flex">Account Setting</p>
               </li>
-              <li onClick={()=>setSelectedTab(1)} className="flex gap-2 lg:gap-4 md:w-full py-2 justify-start text-md font-bold hover:bg-[rgba(0,0,0,.2)] cursor-pointer items-center text-center">
+              <li onClick={()=>setSelectedTab(1)} className={`flex gap-2 lg:gap-4 md:w-full py-2 justify-start ${selectedTab==1?'text-amber-600':''} text-md font-bold hover:bg-[rgba(170,123,93,0.05)] cursor-pointer items-center text-center`}>
                 <MdOutlineManageHistory size={30}/>
                 <p className="hidden md:flex">Activity Log</p>
               </li>
-              <li onClick={()=>setSelectedTab(2)} className="flex gap-2 lg:gap-4 md:w-full py-2 justify-start text-md font-bold hover:bg-[rgba(0,0,0,.2)] cursor-pointer items-center text-center">
+              <li onClick={()=>setSelectedTab(2)} className={`flex gap-2 lg:gap-4 md:w-full py-2 justify-start ${selectedTab==2?'text-amber-600':''} text-md font-bold hover:bg-[rgba(170,123,93,0.05)] cursor-pointer items-center text-center`}>
                 <MdOutlineWebStories size={30}/>
                 <p className="hidden md:flex">Stories</p>
               </li>
-              <li onClick={()=>setSelectedTab(3)} className="flex gap-2 lg:gap-4 md:w-full py-2 justify-start text-md font-bold hover:bg-[rgba(0,0,0,.2)] cursor-pointer items-center text-center">
+              <li onClick={()=>setSelectedTab(3)} className={`flex gap-2 lg:gap-4 md:w-full py-2 justify-start ${selectedTab==3?'text-amber-600':''} text-md font-bold hover:bg-[rgba(170,123,93,0.05)] cursor-pointer items-center text-center`}>
                 <MdOutlinePostAdd size={30}/>
                 <p  className="hidden md:flex">Posts</p>
               </li>
