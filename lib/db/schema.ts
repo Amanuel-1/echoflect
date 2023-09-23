@@ -158,28 +158,28 @@ export const categories = pgTable('categories', {
 },
 (categorySchema) => {
   return {
-    slug_uq_idx: uniqueIndex("slug_uq_idx").on(categorySchema.slug),
+    slug_uq_idx: uniqueIndex("slug_uq_idx").on(categorySchema.id),
   };
 }
 );
 
-export const postCategories = pgTable('post_categories', {
+// export const postCategories = pgTable('post_categories', {
   
-  postId: text('postId').references(()=> posts.id,{
-    onDelete:'cascade',
-    onUpdate:'cascade'
-  }).notNull(),
-  categoryId: text('categoryId').references(()=> posts.id,{
-    onDelete:'cascade',
-    onUpdate:'cascade'
-  }).notNull(),
-},
-(postCategories) => {
-  return {
-    pc_pk: primaryKey(postCategories.categoryId,postCategories.postId),
-  };
-}
-);
+//   postId: text('postId').references(()=> posts.id,{
+//     onDelete:'cascade',
+//     onUpdate:'cascade'
+//   }).notNull(),
+//   categoryId: text('categoryId').references(()=> posts.id,{
+//     onDelete:'cascade',
+//     onUpdate:'cascade'
+//   }).notNull(),
+// },
+// (postCategories) => {
+//   return {
+//     pc_pk: primaryKey(postCategories.categoryId,postCategories.postId),
+//   };
+// }
+// );
 
 
 
@@ -220,18 +220,18 @@ export const categoriesRelations = relations(categories,({many})=>({
 ))
 
 //post to categories relations
-export const postCategoriesRelations = relations(postCategories,({one,many})=>(
-  {
-    postId:one(posts,{
-      fields:[postCategories.postId],
-      references:[posts.id]
-    }),
-    categoryId:one(categories,{
-      fields:[postCategories.categoryId],
-      references:[categories.id]
-    })
-  }
-))
+// export const postCategoriesRelations = relations(postCategories,({one,many})=>(
+//   {
+//     postId:one(posts,{
+//       fields:[postCategories.postId],
+//       references:[posts.id]
+//     }),
+//     categoryId:one(categories,{
+//       fields:[postCategories.categoryId],
+//       references:[categories.id]
+//     })
+//   }
+// ))
 
 //comments relations
 
@@ -263,4 +263,33 @@ export const repliesRelations = relations(replies,({one,many})=>({
 }))
 
 
+
+export const postCategories = pgTable(
+  "postCategories",
+  {
+    id:text("id").primaryKey(),
+    postId: text("post_id")
+      .notNull()
+      .references(() => posts.id, { onDelete: "cascade", onUpdate: "cascade" }),
+    categoryId: text("category_id")
+      .notNull()
+      .references(() => categories.id, { onDelete: "cascade", onUpdate: "cascade" }),
+  }
+);
+
+// types
+
+
+// 1 b2c has 1 blog
+// 1 b2c has 1 category
+export const PostToCategories = relations(postCategories, ({ one }) => ({
+  post: one(posts, {
+    fields: [postCategories.postId],
+    references: [posts.id],
+  }),
+  category: one(categories, {
+    fields: [postCategories.categoryId],
+    references: [categories.id],
+  }),
+}));
 

@@ -1,7 +1,7 @@
 'use client'
 
 
-import React from 'react'
+import React, { useState } from 'react'
 import { AiFillDislike, AiFillEye, AiFillHeart } from 'react-icons/ai'
 import Image from 'next/image'
  
@@ -14,10 +14,17 @@ import { shortener } from '@/lib/functions/utils'
 import Link from 'next/link'
 import { Images } from '../../../../public/resources/index';
 
+
+
 const covers = [Images.cover,Images.author,Images.green,Images.lighthouse,Images.herosection]
+
+
 const CategoryPage = () => {
   
+  const [postData,setPostData] = useState([]);  
   const params = useParams();
+
+  
   return (
     <section style={roboto.style} className=' h-full py-24 bg-inherit mx-6 md:mx-[2rem]'>
     <div className='w-full flex flex-col md:p-[1rem] rounded-[5px]'>

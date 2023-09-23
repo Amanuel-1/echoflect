@@ -36,6 +36,20 @@
       "when": 1695449465014,
       "tag": "0004_nasty_lady_deathstrike",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1695453760268,
+      "tag": "0005_silly_kulan_gath",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1695463747018,
+      "tag": "0006_giant_eternity",
+      "breakpoints": true
     }
   ]
 }
