@@ -164,7 +164,7 @@ export const categories = pgTable('categories', {
 );
 
 export const postCategories = pgTable('post_categories', {
-  id:text('id').primaryKey(),
+  
   postId: text('postId').references(()=> posts.id,{
     onDelete:'cascade',
     onUpdate:'cascade'
@@ -174,7 +174,11 @@ export const postCategories = pgTable('post_categories', {
     onUpdate:'cascade'
   }).notNull(),
 },
-
+(postCategories) => {
+  return {
+    pc_pk: primaryKey(postCategories.categoryId,postCategories.postId),
+  };
+}
 );
 
 
