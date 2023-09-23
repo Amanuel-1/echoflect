@@ -1,0 +1,1 @@
+ALTER TABLE "replies" DROP COLUMN IF EXISTS "replyId";

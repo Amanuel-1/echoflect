@@ -6,11 +6,12 @@ import {
   integer,
   uniqueIndex,
   boolean,
+  
   decimal,
   index,
 } from "drizzle-orm/pg-core";
 import type { AdapterAccount } from "@auth/core/adapters";
-import { Many, relations, sql } from "drizzle-orm";
+import { Many, relations, sql, One } from 'drizzle-orm';
 
 
 export const users = pgTable("user", {
@@ -103,17 +104,18 @@ export const posts  = pgTable("posts",{
 }
 )
 
-export const followers = pgTable("followers",{
-  followerId:text("followerId").references(()=>users.id,{
+export const bookmarks = pgTable("bookmarks",{
+  id:text("id").primaryKey().notNull(),
+  postId:text("postId").references(()=>posts.id,{
     onDelete:'cascade',
     onUpdate:'cascade'
   }).notNull(),
-  followedId:text("followedId").references(()=>users.id,{
+  authorId:text("authorId").references(()=>users.id,{
     onDelete:'cascade',
     onUpdate:'cascade'
   }).notNull()
-  
 })
+
 
 export const comments  = pgTable("comments",{
   id : text("id").notNull().primaryKey(),
@@ -142,7 +144,7 @@ export const replies = pgTable('replies', {
     onUpdate:'cascade'
   }).notNull(),
   content: text('content').notNull(),
-  replyId: text('replyId'),
+
 });
 
 export const categories = pgTable('categories', {
@@ -181,8 +183,8 @@ export const postCategories = pgTable('post_categories', {
 
 export const usersRelations = relations(users, ({ many }) => ({
 	posts: many(posts),
-  followers:many(users),
-  followed:many(users)
+  bookmarks:many(bookmarks),
+
 }));
  //post relations 
 export const postRelations = relations(posts, ({ one , many }) => ({
@@ -196,6 +198,15 @@ export const postRelations = relations(posts, ({ one , many }) => ({
  postToCategories:many(postCategories)
 
 }));
+
+export const bookmarksRelations = relations(bookmarks,({one,many})=>(
+  {
+    author:one(users,{
+      fields:[bookmarks.authorId],
+      references:[users.id]
+    })
+  }
+))
 
 //categories relations
 
@@ -240,11 +251,7 @@ export const commentRelations = relations(comments,( {one,many} )=>({
 //replies relations
 
 export const repliesRelations = relations(replies,({one,many})=>({
-  replies:many(replies),
-  parentReply:one(replies,{
-    fields:[replies.replyId],
-    references:[replies.replyId]
-  }),
+
   comment:one(comments,{
     fields:[replies.commentId],
     references:[comments.id]
