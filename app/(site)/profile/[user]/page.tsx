@@ -91,7 +91,7 @@ const Profile =() => {
           </ul>
        </Box>
 
-       <Box className="col-span-4 md:col-span-3 px-2 py-4 w-full h-fit ">
+       <Box className="col-span-4 md:col-span-3 px-2 py-4 w-full h-fit transition-all duration-500 ease-in-out">
          <AccountSetting open= {selectedTab==0}/>
          <ActivityLog open= {selectedTab==1}/>
          <Story open= {selectedTab==2}/>

@@ -6,9 +6,14 @@ import {tabsProps} from '@/lib/types'
 import styles from '@/styles/app.module.css'
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css'; // Import Quill styles
+import Image from 'next/image'
+import Loading from '../shared/Loading';
 
 
-const QuillEditor = dynamic(() => import('react-quill'), { ssr: false });
+const QuillEditor = dynamic(() => import('react-quill'),
+ { ssr: false,
+  loading:()=>(<Loading isloading/>) 
+ });
 
 
 const PostsTab:React.FC<tabsProps> = ({open}) => {
@@ -72,18 +77,18 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
               <form className={`${!addPost?'hidden':'mt-5'}`} method='post' onSubmit={()=>handleSubmit()}>
                   <div className="metadata flex flex-col gap-6">
                   <input className=' w-full  py-4 px-6  rounded-l-[10px] bg-[#ffffff] dark:bg-gray-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2' type='text' placeholder='Post Title' />
-                  <textarea className=' w-full h-[10rem] py-4 px-6   rounded-l-[10px] bg-[#ffffff] dark:bg-gray-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2'  placeholder='Post Title' />
+                  <textarea className=' w-full h-[10rem] py-4 px-6   rounded-l-[10px] bg-[#ffffff] dark:bg-gray-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2'  placeholder='Write your post metadata description' />
 
                   </div>
                   
-                    <div className="h-full w-full">
+                    <div className="h-full w-full border-none">
                       <QuillEditor
                         value={content}
                         onChange={handleEditorChange}
                         modules={quillModules}
                         
                         formats={quillFormats}
-                        className="w-full h-[20rem] mt-1 bg-white dark:bg-stone-950 dark:outline-none dark:text-white"
+                        className="w-full min-h-[10rem] h-fit mt-1 bg-white dark:bg-stone-950 dark:outline-none dark:text-white border-none"
                       />
                     
                   </div>
