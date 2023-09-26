@@ -75,27 +75,27 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
              </div>
 
               <form className={`${!addPost?'hidden':'mt-5'}`} method='post' onSubmit={()=>handleSubmit()}>
-                  <div className="metadata flex flex-col gap-6">
-                  <input className=' w-full  py-4 px-6  rounded-l-[10px] bg-[#ffffff] dark:bg-gray-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2' type='text' placeholder='Post Title' />
-                  <textarea className=' w-full h-[10rem] py-4 px-6   rounded-l-[10px] bg-[#ffffff] dark:bg-gray-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2'  placeholder='Write your post metadata description' />
+                      <div className="metadata flex flex-col gap-6">
+                      <input className=' w-full  py-4 px-6  rounded-l-[10px] bg-[#ffffff] dark:bg-gray-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2' type='text' placeholder='Post Title' />
+                      <textarea className=' w-full h-[10rem] py-4 px-6   rounded-l-[10px] bg-[#ffffff] dark:bg-gray-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2'  placeholder='Write your post metadata description' />
 
-                  </div>
-                  
-                    <div className="h-full w-full border-none">
-                      <QuillEditor
-                        value={content}
-                        onChange={handleEditorChange}
-                        modules={quillModules}
-                        
-                        formats={quillFormats}
-                        className="w-full min-h-[10rem] h-fit mt-1 bg-white dark:bg-stone-950 dark:outline-none dark:text-white border-none"
-                      />
-                    
-                  </div>
-                </form>
-            </div> 
-      
-    );
+                      </div>
+
+                      <div className="h-full w-full border-none">
+                      <QuillEditor
+                        value={content}
+                        onChange={handleEditorChange}
+                        modules={quillModules}
+                                  
+                        formats={quillFormats}
+                        className="w-full min-h-[10rem] h-fit mt-1 bg-white dark:bg-stone-950 dark:outline-none dark:text-white border-none"
+                      />
+
+                      </div>
+            </form>
+    </div> 
+
+ );
 }
 
 export default PostsTab
