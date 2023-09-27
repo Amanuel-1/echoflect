@@ -72,8 +72,9 @@ export async function getAllCategories(param?:{href:any}){
 export async function AddPost(postData:{title:string,description:string,content:string,thumbnail:string,slug:string}){
     // const session = await getServerSession()  ;
     // const userID  = session?.user.id
+    console.log("🔊🔊🔉📢📢 this is  the post data",postData)
     const {title,description,content,thumbnail,slug} = postData;
-    const id  = randomUUID()
+    const uuid  = randomUUID()
     let response ;
 
     if(true){
@@ -81,13 +82,13 @@ export async function AddPost(postData:{title:string,description:string,content:
         try{
             response  = await db.insert(posts).values(
                 {
-                    id:id,
+                    id:uuid,
                     authorId:'7596fd63-5d1a-45e9-9ffc-d5c2058cb201',
-                    title:title,
-                    slug:title.split(' ')[0],
-                    thumbnail:thumbnail,
-                    description:description,
-                    content:content
+                    title,
+                    slug,
+                    thumbnail,
+                    description,
+                    content
                 }
             ).returning()
         } 
@@ -101,15 +102,7 @@ export async function AddPost(postData:{title:string,description:string,content:
         
 
         return response
-    //}
-
     
-
-    
-    
-
-
-    return {}
 }
 
 
@@ -126,7 +119,7 @@ export async function postit(){
             slug:"slug-for-test",
             thumbnail:"cover.jpg",
             description:"sa;lskdjfksajfasklfjksldfaskldfklsadkjfaksldjfaskldf",
-            content:"thisis is a content of the post . i know it is not that much , yet.",
+            content:'hellow there',
 
         }).returning()
 
@@ -144,3 +137,5 @@ export async function getuser(id:string){
         where:eq(users.id,id)
     })
 }
+
+

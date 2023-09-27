@@ -23,7 +23,8 @@ export async function GET(req:NextRequest){
 }
 
 export async function POST(req:NextRequest){
-   const postData = req.body
+   const postData =await req.json()
+   
 
    const result = await AddPost((postData as any))
 
