@@ -146,7 +146,7 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
                       </div>
                       <button type='submit' className={`${styles.appButton} px-5 ${styles.filled} `}>Submit</button>
             </form>
-            <button onClick={async ()=>(await AddPost())} className="w-full px-6 py-2 rounded-full bg-stone-700 text-white">test post</button>
+            
   </div> 
 
  );
