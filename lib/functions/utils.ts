@@ -27,3 +27,33 @@ export function shortener(text: string,size:number): string {
     
     return `${protocol}://${domain}`
 }
+
+
+export const toBase64 = (file:File)=>{
+  return new Promise((resolve,reject)=>{
+      const reader = new FileReader();
+      reader.readAsDataURL(file)
+      
+      reader.onload=()=>{
+      // var canvas =  document.createElement("canvas");
+      //     var contxt = canvas.getContext("2d");
+      //     var img =document.createElement("img")
+
+      //     img.src = reader.result ; 
+
+      //     contxt.drawImage(img,0,0,612,408) ; 
+
+      //     var final =canvas.toDataURL('image/jpeg')
+
+
+
+
+          resolve(reader.result);
+         return reader.result as string
+          
+      }
+      reader.onerror=(error)=>{
+          reject(error)
+      }
+  })
+}

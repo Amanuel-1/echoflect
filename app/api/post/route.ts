@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { posts, users } from "@/lib/db/schema";
-import { getAllPosts } from "@/lib/functions/dbfunctions";
+import { AddPost, getAllPosts } from "@/lib/functions/dbfunctions";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req:NextRequest){
@@ -20,4 +20,13 @@ export async function GET(req:NextRequest){
 
 
   return NextResponse.json(result.data,{status:result.status})
+}
+
+export async function POST(req:NextRequest){
+   const postData = req.body
+
+   const result = await AddPost((postData as any))
+
+   return NextResponse.json(result)
+
 }

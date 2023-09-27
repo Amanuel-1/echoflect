@@ -40,8 +40,8 @@ const Profile =() => {
   const [selectedTab,setSelectedTab] = useState(0);
 
   return (
-    <section className=" min-h-screen text-black md:px-20 text-gray-700 dark:text-gray-200">
-     <div className="relative flex flex-col gap-[4rem] container mx-auto w-full bg-yellow-500 min-h-[15rem]">
+    <section className=" min-h-screen  md:px-20 text-gray-700 dark:text-gray-200">
+     <div className="relative flex flex-col gap-[4rem] container mx-auto w-full bg-stone-800 min-h-[15rem]">
           <Image src={Images.cover} alt='cover' layout="fill" objectFit="cover"/>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 md:left-1/6">
             <Image className='relative rounded-full border-8 border-gray-700' src={Images.author} alt='author' height={200} width={200}/>

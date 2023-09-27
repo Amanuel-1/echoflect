@@ -1,8 +1,10 @@
 
 import { eq } from "drizzle-orm";
 import { db } from "../db";
-import { categories, postCategories, posts } from "../db/schema";
+import { categories, postCategories, posts, users } from "../db/schema";
 import { ICategory, IPost, IPostToCategory } from "../db/schemaTypes"; 
+import { getServerSession } from "next-auth";
+import { randomUUID } from "crypto";
 
 
 export async function getAllPosts(param?:{href:any}){
@@ -37,7 +39,7 @@ export async function getAllPosts(param?:{href:any}){
 
 export async function getAllCategories(param?:{href:any}){
     
-    let response:object = {message :"failed to fetch categories from the database"}
+    let response:object = {message :"failed to fetch categories from the database"};
     let status = 400;
     
    try{
@@ -65,3 +67,85 @@ export async function getAllCategories(param?:{href:any}){
     return {data:response,status:status}
 }
 
+
+
+export async function AddPost(postData:{title:string,description:string,content:string,thumbnail:string,slug:string}){
+    const session = await getServerSession()  ;
+    const userID  = session?.user.id
+    const {title,description,content,thumbnail,slug} = postData;
+    const id  = randomUUID()
+    let response ;
+
+    if(userID){
+        // {
+        //     id:id,
+        //     authorId:userID,
+        //     title:title,
+        //     slug:slug,
+        //     thumbnail:thumbnail,
+        //     description:description,
+        //     content:content
+        // }
+        
+        try{
+            response  = await db.insert(posts).values(
+            {
+                "id": "c4d1c6c6-5b02-4a3f-9e9a-7c5f3d5a1a2b",
+                "authorId": "userID",
+                "title": "Example Title",
+                "slug": "example-slug",
+                "thumbnail": "https://example.com/thumbnail.jpg",
+                "description": "This is an example description.",
+                "content": "This is the content of the article."
+            }).returning()
+        }
+        catch(error){
+            console.log(error)
+            response = {message :"failed to upload posts to the database"}
+        }
+        
+
+        return response
+    }
+
+    
+
+    
+    
+
+
+    return {}
+}
+
+
+export async function postit(){
+
+    const session = await getServerSession()  ;
+    const userID  = session?.user.id
+    let result
+    if(userID){
+        const result  = await db.insert(posts).values({
+            id: "c4d1c6c6-5b02-4a3f-9e9a-7c5f3d5a1a2b",
+            authorId:userID,
+            title:"this is a test",
+            slug:"slug-for-test",
+            thumbnail:"cover.jpg",
+            description:"sa;lskdjfksajfasklfjksldfaskldfklsadkjfaksldjfaskldf",
+            content:"thisis is a content of the post . i know it is not that much , yet.",
+
+        }).returning()
+
+    }
+
+    console.log(result)
+
+    return result
+
+
+}
+
+export async function getuser(id:string){
+    const userdata  = await db.query.users.findFirst({
+        where:eq(users.id,id)
+    })
+}
