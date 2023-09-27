@@ -8,10 +8,11 @@ import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css'; // Import Quill styles
 import Image from 'next/image'
 import Loading from '../shared/Loading';
-import { categories } from '../../../lib/db/schema';
+import { bookmarks, categories } from '../../../lib/db/schema';
 import { getDomain, toBase64 } from '@/lib/functions/utils';
 import { NextResponse } from 'next/server';
-import { postit } from '@/lib/functions/dbfunctions';
+import { AddPost, postit } from '@/lib/functions/dbfunctions';
+import { db } from '@/lib/db';
 
 
 const QuillEditor = dynamic(() => import('react-quill'),
@@ -113,6 +114,8 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
     //here is the post function
 
   }
+
+
   
   
     return (
@@ -143,7 +146,7 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
                       </div>
                       <button type='submit' className={`${styles.appButton} px-5 ${styles.filled} `}>Submit</button>
             </form>
-            <button onClick={()=>postit()} className="w-full px-6 py-2 rounded-full bg-stone-700">test post</button>
+            <button onClick={async ()=>(await AddPost())} className="w-full px-6 py-2 rounded-full bg-stone-700 text-white">test post</button>
   </div> 
 
  );

@@ -4,12 +4,12 @@ import * as dotenv from 'dotenv';
 import * as schema from "@/lib/db/schema"
 
 dotenv.config({
-    path: '.env.local'
+    path: '.env'
 });
 
 neonConfig.fetchConnectionCache = true;
 
-const sql = neon(process.env.DATABASE_URL as string);
+const sql = neon(process.env.NEXT_PUBLIC_DATABASE_URL as string);
 export const db = drizzle(sql,{schema});
 
 // const result = await db.select().from(...);

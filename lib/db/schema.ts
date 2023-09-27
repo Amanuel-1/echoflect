@@ -92,7 +92,7 @@ export const posts  = pgTable("posts",{
   rating:decimal("rating",{precision:2,scale:1}),
   views:integer("views").default(0).notNull(),
   createdAt:timestamp("createdAt",{ mode: "date" }).defaultNow().notNull(),
-  updatedAt:timestamp("createdAt",{ mode: "date" }).defaultNow().notNull(),
+  updatedAt:timestamp("updatedAt",{ mode: "date" }).defaultNow().notNull(),
 
 },
 

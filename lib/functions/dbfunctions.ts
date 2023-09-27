@@ -67,46 +67,41 @@ export async function getAllCategories(param?:{href:any}){
     return {data:response,status:status}
 }
 
-
+//postData:{title:string,description:string,content:string,thumbnail:string,slug:string}
 
 export async function AddPost(postData:{title:string,description:string,content:string,thumbnail:string,slug:string}){
-    const session = await getServerSession()  ;
-    const userID  = session?.user.id
+    // const session = await getServerSession()  ;
+    // const userID  = session?.user.id
     const {title,description,content,thumbnail,slug} = postData;
     const id  = randomUUID()
     let response ;
 
-    if(userID){
-        // {
-        //     id:id,
-        //     authorId:userID,
-        //     title:title,
-        //     slug:slug,
-        //     thumbnail:thumbnail,
-        //     description:description,
-        //     content:content
-        // }
-        
+    if(true){
+       
         try{
             response  = await db.insert(posts).values(
-            {
-                "id": "c4d1c6c6-5b02-4a3f-9e9a-7c5f3d5a1a2b",
-                "authorId": "userID",
-                "title": "Example Title",
-                "slug": "example-slug",
-                "thumbnail": "https://example.com/thumbnail.jpg",
-                "description": "This is an example description.",
-                "content": "This is the content of the article."
-            }).returning()
-        }
+                {
+                    id:id,
+                    authorId:'7596fd63-5d1a-45e9-9ffc-d5c2058cb201',
+                    title:title,
+                    slug:title.split(' ')[0],
+                    thumbnail:thumbnail,
+                    description:description,
+                    content:content
+                }
+            ).returning()
+        } 
         catch(error){
             console.log(error)
             response = {message :"failed to upload posts to the database"}
         }
+}
+        
+        
         
 
         return response
-    }
+    //}
 
     
 
