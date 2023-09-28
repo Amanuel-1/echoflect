@@ -1,15 +1,19 @@
 "use client"
 
 import React, { useEffect, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
 import styles from '@/styles/markdown.module.css'
 import Image from 'next/image'
 import { Images } from '@/public/resources';
-import supabase from '@/lib/supabase';
-import { PostgrestError } from '@supabase/supabase-js';
+
 import ProfileCard from '@/app/components/cards/ProfileCard';
 import Box from '@/app/components/shared/Box';
 import Loading from '@/app/components/shared/Loading';
+import { IPost } from '@/lib/db/schemaTypes';
+import { db } from '@/lib/db';
+import { eq } from 'drizzle-orm';
+import { useParams } from 'next/navigation';
+import { posts, users } from '@/lib/db/schema';
+import { getDomain } from '@/lib/functions/utils';
  // Import CSS file for styling
 
 const markdownText = `
@@ -55,12 +59,38 @@ const author = {
   likes: '2.3M+'
 };
 
+type aPost={
+  posts:IPost,
+  user:typeof users
+}
 
 
-const MarkdownComponent = () => {
-  const [userData,setUserData]  = useState<any>()
-  const [error,setError] =  useState<PostgrestError>()
-  const [loading,setLoading] = useState(true)
+const PostDetail = () => {
+
+  const [loading,setIsLoading] = useState(true)
+  const [postData, setPostData] = useState([]);
+  const [user,setUser] = useState({})
+
+  const params = useParams();
+
+  useEffect( ()=>{
+    const getPost =async ()=>{
+      const result  = await fetch(`${getDomain()}/api/post?slug=${params.article}`).then((res)=>res.json())
+      if(result){
+        setPostData(result)
+        setUser(result[0].user)
+        console.log(result)
+        setIsLoading(false)
+      }
+      console.log(result)
+           
+    }
+
+    getPost()
+    
+
+  },[])
+  
  
    
   const content  = `
@@ -76,23 +106,7 @@ const MarkdownComponent = () => {
 
 
 
-  useEffect(()=>{
-    const fetcheData  = async ()=>{
-      const {data,error} = await supabase.schema('public').from('posts').select('content').eq('authorid', '0d2849e1-e515-46d6-97ca-82f8458be84c')
-      if(error){
-        console.log(error)
-        setError(error)
-      }
-      else{
-        setLoading(false)
-        setUserData(data)
-        
-      }
-    }
-    fetcheData();
-  },[])
-  
-  ;
+
 
   return (
     <div className="relative grid grid-cols-3 gap-4 container mx-auto">
@@ -102,14 +116,13 @@ const MarkdownComponent = () => {
       <div className='flex flex-col gap-y-4'>
         
       {
-          userData?.length!=0 ?(
-           userData?.map((data:object,i:number)=>(
-            <div key={i} className="markdown-container">
-            <ReactMarkdown className={styles.reactMarkDown}>{markdownText}</ReactMarkdown>
-          </div>
-           ))
         
-          ):(
+        //this maynot be neccessary because we only want one post but we are selecting all posts and retrieve the first one
+        postData ?( postData.map(({posts,user}:{posts:IPost,user:typeof users},i)=>(
+          <div key={i} style={styles} dangerouslySetInnerHTML={{ __html: posts.content}} className="flex w-full h-fit py-[3rem] px-6 flex-wrap text-justify"/>
+        ))
+          )
+          :(
             <div className="h-full py-[10rem]">
                 <div className="flex flex-col gap-1 justify-center items-center grayscale hue-rotate-[50deg]">
                 <Image src={Images.nodata} alt="no data" width={300} height={300}/>
@@ -123,10 +136,22 @@ const MarkdownComponent = () => {
       </div>
     </div>
     <div className="hidden h-fit md:flex col-span-1 ">
-      <Box className=' border  border-gray-200 rounded-xl dark:border-[#47291b81] shadow-sm dark:shadow-none drop-shadow-lg shadow-gray-200'>
-      <ProfileCard cover={author.cover} avatar={author.avatar} bio={author.bio}
-                role={author.role} email={author.email} followers={author.followers} likes={author.likes}/>
-      </Box>
+      {
+        user?(<Box className=' border  border-gray-200 rounded-xl dark:border-[#47291b81] shadow-sm dark:shadow-none drop-shadow-lg shadow-gray-200'>
+        <ProfileCard cover={author.cover} user={user as typeof users} bio={author.bio}                 />
+        </Box>
+        ):(
+          <div className="h-full py-[3rem]">
+                <div className="flex flex-col gap-1 justify-center items-center grayscale hue-rotate-[50deg]">
+                <Image src={Images.nodata} alt="no data" width={100} height={100}/>
+                <h1 className="text-xs text-gray-700 text-center">
+                  No Author Found
+                </h1>
+                </div>
+            </div>
+        )
+
+      }
     </div>
 
 
@@ -136,4 +161,4 @@ const MarkdownComponent = () => {
   );
 };
 
-export default MarkdownComponent;
+export default PostDetail;

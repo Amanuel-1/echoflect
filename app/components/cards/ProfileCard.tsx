@@ -4,8 +4,9 @@ import Image from 'next/image'
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
 //styles for the components
 import styles from '@/styles/app.module.css'
+import { users } from '@/lib/db/schema'
 
-const ProfileCard:React.FC<profileProps> = ({ avatar,cover,bio,social,role,email,followers,likes}) => {
+const ProfileCard=({ cover,bio,user}:{cover:string,bio:string,user:typeof users}) => {
   return (
    <div className="flex flex-col gap-4">
      <div className='relative w-full flex flex-col gap-4 justify-center items-center '>
@@ -14,7 +15,7 @@ const ProfileCard:React.FC<profileProps> = ({ avatar,cover,bio,social,role,email
         className={`z-0 w-full h-[10rem] rounded-t-xl 
         border-neutral-400
         dark:border-gray-800`}  />
-        <Image src={avatar.img} alt='Avatar' width={150} height={150} 
+        <Image src={user.image as any} alt='Avatar' width={150} height={150} 
         className={`absolute top-[80px] z-10 rounded-full border-8
         border-neutral-400
         dark:border-[rgba(8,8,8,0.6)]`}  />
@@ -22,8 +23,8 @@ const ProfileCard:React.FC<profileProps> = ({ avatar,cover,bio,social,role,email
     </div>
     <div className="flex flex-col gap-4 py-[60px] text-center justify-center">
         <div className="name-email flex flex-col gap-1">
-          <h1 className="text-xl">{avatar.name}</h1>
-          <small className='font-extralight italic'>{email}</small>
+          <h1 className="text-xl">{}</h1>
+          <small className='font-semibold italic text-xl'>{user.name as any}</small>
         </div>
         <div className="bio flex gap-2 p-2 ">
           <FaQuoteLeft size={20}/>

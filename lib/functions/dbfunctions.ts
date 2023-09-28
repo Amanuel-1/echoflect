@@ -18,7 +18,7 @@ export async function getAllPosts(param?:{href:any}){
          result =  await db.select().from(posts).innerJoin(postCategories,eq(posts.id,postCategories.postId)).innerJoin(categories,eq(categories.id,postCategories.categoryId))
        }
        else{
-          result  =  await db.select().from(posts)
+          result  =  await db.select().from(posts).innerJoin(users,eq(posts.authorId,users.id))
        }
         
        if(result){
@@ -119,5 +119,26 @@ export async function getuser(email:string){
     return userdata;
 
 }
+
+export async function getPost(slug:string){
+    let result ;
+    let response:object = {message :"failed to fetch categories from the database"}
+    let status = 400;
+
+    try{
+        result = await db.select().from(posts).where(eq(posts.slug,slug)).innerJoin(users,eq(posts.authorId,users.id)).limit(1)
+
+    }
+    catch(error){
+        console.log("🛑✋  an error occured while fetching 🛑✋",error)
+    }
+    if(result){
+        response=result;
+        status =200
+    }
+
+
+    return {data:response,status:status}
+} 
 
 
