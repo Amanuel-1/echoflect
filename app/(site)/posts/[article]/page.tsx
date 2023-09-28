@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '@/styles/markdown.module.css'
 import Image from 'next/image'
 import { Images } from '@/public/resources';
+import postStyle from '@/styles/markdown.module.css'
 
 import ProfileCard from '@/app/components/cards/ProfileCard';
 import Box from '@/app/components/shared/Box';
@@ -14,7 +15,8 @@ import { eq } from 'drizzle-orm';
 import { useParams } from 'next/navigation';
 import { posts, users } from '@/lib/db/schema';
 import { getDomain } from '@/lib/functions/utils';
- // Import CSS file for styling
+import hljs from 'highlight.js/lib/core';
+import "highlight.js/styles/github.css";
 
 const markdownText = `
 # My Awesome Blog Post
@@ -88,8 +90,14 @@ const PostDetail = () => {
 
     getPost()
     
+    
 
   },[])
+
+  useEffect(() => {
+    
+      hljs.highlightAll();
+  }, []);
   
  
    
@@ -111,15 +119,24 @@ const PostDetail = () => {
   return (
     <div className="relative grid grid-cols-3 gap-4 container mx-auto">
 
-    <div className="relative col-span-3 md:col-span-2 p-2 min-h-screen w-full md:border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 rounded-xl">
+    <div className="relative postContent col-span-3 md:col-span-2 p-2 min-h-screen w-full md:border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 rounded-xl">
     <Loading isloading={loading} />
-      <div className='flex flex-col gap-y-4'>
+      <div className={`${styles.postContent} flex flex-col gap-y-4`}>
         
       {
         
         //this maynot be neccessary because we only want one post but we are selecting all posts and retrieve the first one
         postData ?( postData.map(({posts,user}:{posts:IPost,user:typeof users},i)=>(
-          <div key={i} style={styles} dangerouslySetInnerHTML={{ __html: posts.content}} className="flex w-full h-fit py-[3rem] px-6 flex-wrap text-justify"/>
+          <>
+          <div className=" relative w-full h-[20rem] flex justify-center items-center rounded-t-[10px]">
+            <Image src={posts.thumbnail} alt={posts.title} objectFit='cover' layout='fill' />
+
+           <div className="absolute flex w-full h-[20rem] justify-center bg-gradient-to-t from-[rgba(0,0,0,1)] via-[rgba(0,0,0,.8)] to-transparent dark:from-stone-950 dark:via-[rgba(8,8,8,0.8)] to-transparent ">
+              <h1 className="absolute z-50 w-full bottom-4 left-0 text-center h1 text-3xl text-gray-200">{posts.title}</h1>
+           </div>
+          </div>
+          <div key={i} style={styles} dangerouslySetInnerHTML={{ __html: posts.content}} className="relative flex w-full h-fit py-[3rem] px-6 flex-wrap text-justify"/>
+          </>
         ))
           )
           :(

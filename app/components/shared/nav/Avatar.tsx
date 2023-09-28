@@ -7,7 +7,7 @@ const Avatar:React.FC<avatarProps> = ({img,name}) => {
   return (
     <div style={concert.style} className='flex gap-4 p-2 items-center'>
         <Image
-              className="rounded-full border-2 p-2 border-gray-200 dark:border-gray-900"
+              className="rounded-full border-2 border-gray-200 dark:border-gray-900"
               src={img }
               alt="avatar"
               width={40}

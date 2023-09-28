@@ -35,6 +35,7 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
 
 
     const quillModules = {
+      
       toolbar: [
         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
@@ -149,6 +150,7 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
 
                       <div className="h-full w-full border-none">
                       <QuillEditor
+                      
                         value={content}
                         onChange={handleEditorChange}
                         modules={quillModules}
