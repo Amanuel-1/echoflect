@@ -90,11 +90,11 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
    }
   const handleSubmit = async(e:React.ChangeEvent<HTMLInputElement>)=>{
     e.preventDefault()
-    const slug  = title.replace(' ',"-")
+    const slug  = title.replace(/\s/g, "-")
 
     const formData = {title,
                       description,
-                      slug:title+description,
+                      slug,
                       thumbnail:cover,
                       content,
                       categories

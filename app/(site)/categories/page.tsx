@@ -43,10 +43,10 @@ const Categories = () => {
 
 
   return (
-    <section style={roboto.style} className='mt-8 flex flex-col gap-[3rem] h-full bg-inherit mx-6 md:mx-[2rem] transition-all duration-300 ease-in'>
+    <section style={roboto.style} className=' mt-8 mb-[20rem] flex flex-col gap-[3rem] h-full bg-inherit mx-6 md:mx-[2rem] transition-all duration-300 ease-in'>
         <SearchFilter/>
-        <div className="relative flex flex-wrap gap-[2rem] justify-center">
-          <Loading className="py-[4rem]" isloading={loading} />         
+        <div className="relative flex flex-wrap gap-[2rem] justify-center h-full w-full">
+          <Loading className="py-[4rem] min-h-[30rem] mb-[10rem] backdrop-blur-sm" isloading={loading} />         
             {
               categoryList.map((category:ICategory,index)=>(
                 
