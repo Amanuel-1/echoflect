@@ -18,20 +18,20 @@ export default  function Home() {
 
   const [acc,setUsers]= useState([])
   
-  useEffect( ()=>{
-    const getUsers =async ()=>{
-      const result  = await fetch(`${getDomain()}/api/post`).then((res)=>res.json())
-      if(result){
-        setUsers(result)
-      }
-      console.log(result)
+  // useEffect( ()=>{
+  //   const getUsers =async ()=>{
+  //     const result  = await fetch(`${getDomain()}/api/post`).then((res)=>res.json())
+  //     if(result){
+  //       setUsers(result)
+  //     }
+  //     console.log(result)
            
-    }
+  //   }
 
-    getUsers()
+  //   getUsers()
     
 
-  },[])
+  // },[])
   
 
   return ( 
@@ -89,7 +89,7 @@ export default  function Home() {
           <div className="flex flex-col">
           {
              <div className='flex flex-col gap-4'>
-              {
+              {/* {
                 acc && acc.map((p:IPost,i)=>(
                   <div key={i} className="relative w-[30rem] h-[15rem]">
                     <h1  className="">{p.title}</h1>
@@ -97,7 +97,7 @@ export default  function Home() {
 
                   </div> 
                 ))
-              }            
+              }             */}
               
             </div>
           }
