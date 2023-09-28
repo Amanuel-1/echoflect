@@ -11,8 +11,9 @@ import Loading from '../shared/Loading';
 import { bookmarks, categories } from '../../../lib/db/schema';
 import { getDomain, toBase64 } from '@/lib/functions/utils';
 import { NextResponse } from 'next/server';
-import { AddPost, postit } from '@/lib/functions/dbfunctions';
+import { AddPost } from '@/lib/functions/dbfunctions';
 import { db } from '@/lib/db';
+import { toast } from 'react-toastify';
 
 
 const QuillEditor = dynamic(() => import('react-quill'),
@@ -112,8 +113,15 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
     }
     catch(error){
       console.log("error while posting the data using fetch",error)
+      toast("An error occured while posting",{
+        type:'info'
+      })
     }
-  
+    if(response){
+      toast("Post added successfully !",{
+        type:'success'
+      })
+    }
     return response
 
      //handle submits here.

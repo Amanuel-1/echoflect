@@ -70,20 +70,21 @@ export async function getAllCategories(param?:{href:any}){
 //postData:{title:string,description:string,content:string,thumbnail:string,slug:string}
 
 export async function AddPost(postData:{title:string,description:string,content:string,thumbnail:string,slug:string}){
-    // const session = await getServerSession()  ;
-    // const userID  = session?.user.id
-    console.log("🔊🔊🔉📢📢 this is  the post data",postData)
+    const session = await getServerSession()  ;
+    const userID  = session?.user.email
+    const user  = await (getuser(userID as string))
+
+    console.log("🔊🔊🔉📢📢 this is the session of the current user data✨🐱‍🐉",user)
     const {title,description,content,thumbnail,slug} = postData;
     const uuid  = randomUUID()
     let response ;
 
-    if(true){
-       
+    if(session){
         try{
             response  = await db.insert(posts).values(
                 {
                     id:uuid,
-                    authorId:'7596fd63-5d1a-45e9-9ffc-d5c2058cb201',
+                    authorId: user?.id as string,
                     title,
                     slug,
                     thumbnail,
@@ -96,6 +97,8 @@ export async function AddPost(postData:{title:string,description:string,content:
             console.log(error)
             response = {message :"failed to upload posts to the database"}
         }
+
+       
 }
         
         
@@ -106,36 +109,15 @@ export async function AddPost(postData:{title:string,description:string,content:
 }
 
 
-export async function postit(){
-
-    const session = await getServerSession()  ;
-    const userID  = session?.user.id
-    let result
-    if(userID){
-        const result  = await db.insert(posts).values({
-            id: "c4d1c6c6-5b02-4a3f-9e9a-7c5f3d5a1a2b",
-            authorId:userID,
-            title:"this is a test",
-            slug:"slug-for-test",
-            thumbnail:"cover.jpg",
-            description:"sa;lskdjfksajfasklfjksldfaskldfklsadkjfaksldjfaskldf",
-            content:'hellow there',
-
-        }).returning()
-
-    }
-
-    console.log(result)
-
-    return result
 
 
-}
-
-export async function getuser(id:string){
+export async function getuser(email:string){
     const userdata  = await db.query.users.findFirst({
-        where:eq(users.id,id)
+        where:eq(users.email,email)
     })
+
+    return userdata;
+
 }
 
 

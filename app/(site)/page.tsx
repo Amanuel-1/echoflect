@@ -91,11 +91,11 @@ export default  function Home() {
              <div className='flex flex-col gap-4'>
               {
                 acc && acc.map((p:IPost,i)=>(
-                  <div key={i} className="relative w-[5rem] h-[5rem]">
+                  <div key={i} className="relative w-[30rem] h-[15rem]">
                     <h1  className="">{p.title}</h1>
                     <Image src={(p.thumbnail).startsWith("cover")?"/public/resources/herosection.jpg":p.thumbnail} alt={p.title} objectFit='cover' layout='fill' />
 
-                  </div>
+                  </div> 
                 ))
               }            
               
