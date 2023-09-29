@@ -45,13 +45,13 @@ const Categories = () => {
   return (
     <section style={roboto.style} className=' mt-8 mb-[20rem] flex flex-col gap-[3rem] h-full bg-inherit mx-6 md:mx-[2rem] transition-all duration-300 ease-in'>
         <SearchFilter/>
-        <div className="relative flex flex-wrap gap-[2rem] justify-center h-full w-full">
+        <div className="relative flex flex-wrap gap-[2rem] justify-center items-stretch h-full w-full">
           <Loading className="py-[4rem] min-h-[30rem] mb-[10rem] backdrop-blur-sm" isloading={loading} />         
             {
               categoryList.map((category:ICategory,index)=>(
                 
                 
-                    <Box  key={index} className='lg:max-w-[40%] dark:bg-gray-950 hover:hue-rotate-[180deg] cursor-pointer rounded-md border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950'>
+                    <Box  key={index} className='lg:max-w-[40%] h-full flex items-stretch dark:bg-gray-950 hover:hue-rotate-[180deg] cursor-pointer rounded-md border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950'>
                         <Link className='grid grid-cols-3 ' href={`/categories/${category.name}`} >
                         <div  key={index*2}  className="relative col-span-1 flex items-center category-image py-[0.04rem] bg-gray-300 dark:bg-gray-900 ">
                           <Image className='rounded-l-md' src={category.thumbnail} alt={category.id} layout="fill" objectFit="cover" />
