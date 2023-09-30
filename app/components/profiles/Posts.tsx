@@ -38,6 +38,7 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
       
       toolbar: [
         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      [{ 'font': [] }],
         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
         [{ list: 'ordered' }, { list: 'bullet' }],
         ['link', 'image'],
@@ -53,6 +54,7 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
   
     const quillFormats = [
       'header',
+      'font',
       'bold',
       'italic',
       'underline',
