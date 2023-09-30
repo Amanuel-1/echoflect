@@ -21,7 +21,7 @@
   }
 
  .postContent h3 {
-    font-size: 18px;
+    font-size: 35px;
     font-weight: bold;
     margin-top: 20px;
   }
@@ -63,6 +63,11 @@
   object-fit: cover;
   width: 40rem;
 
+}
+.postContent blockquote{
+  border-left: rgb(126, 61, 24);
+  border-left-width: 5px;
+  background-color: rgba(156, 86, 19, 0.322);
 }
 
 .postcontent > .ql-align-right {
