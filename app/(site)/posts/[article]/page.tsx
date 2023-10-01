@@ -132,7 +132,7 @@ const PostDetail = () => {
             <Image src={posts.thumbnail} alt={posts.title} objectFit='cover' layout='fill' />
 
            <div className="absolute flex w-full h-[20rem] justify-center bg-gradient-to-t from-[rgba(0,0,0,1)] via-[rgba(0,0,0,.8)] to-transparent dark:from-stone-950 dark:via-[rgba(8,8,8,0.8)] dark:to-transparent ">
-              <h1 className="absolute z-50 w-full bottom-4 left-0 text-center h1 text-3xl text-gray-200">{posts.title}</h1>
+              <h3 className="absolute z-50 w-full bottom-4 left-0 text-center  text-gray-200">{posts.title}</h3>
            </div>
           </div>
           <div key={i} style={styles} dangerouslySetInnerHTML={{ __html: posts.content}} className="relative flex w-full h-fit py-[3rem] px-0 md:px-6 flex-wrap dark:text-gray-200 text-justify font-extralight te"/>
