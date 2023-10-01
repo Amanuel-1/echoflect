@@ -20,10 +20,30 @@ export const authOptions: NextAuthOptions = {
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
+      profile(profile){
+        return {
+          id:profile.id.toString(),
+          email:profile.email,
+          name:profile.name || profile.login || `${profile.email.split('@')[0]}`,
+          username:profile.login || `${profile.email.split('@')[0]}_${Math.random().toString(36).substring(7)}`,
+          image:profile.avatar_url || `https://www.gravatar.com/avatar/${Math.random().toString(36).substring(7)}?d=identicon&r=PG` ,
+
+        }
+      }
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID as string,
       clientSecret: process.env.GOOGLE_SECRET as string,
+      profile(profile){
+        return {
+          id:profile.sub+ "", 
+          email:profile.email,
+          name:profile.name ||  `${profile.email.split('@')[0]}`,
+          username:profile.login || `${profile.email.split('@')[0]}_${Math.random().toString(36).substring(7)}`,
+          image:profile.picture || `https://www.gravatar.com/avatar/${Math.random().toString(36).substring(7)}?d=identicon&r=PG` ,
+
+        }
+      }
     }),
   ],
   callbacks: {
@@ -31,6 +51,7 @@ export const authOptions: NextAuthOptions = {
       if (token) {
         session.user.id = token.id;
         session.user.name = token.name;
+        session.username = token.username;
         session.user.email = token.email;
         session.user.image = token.picture;
       }
@@ -54,6 +75,7 @@ export const authOptions: NextAuthOptions = {
       return {
         id: dbUser.id,
         name: dbUser.name,
+        username:dbUser.username,
         email: dbUser.email,
         picture: dbUser.image,
       };

@@ -70,7 +70,7 @@ const CategoryPage = () => {
           </div>
           <div className="title flex flex-wrap text-center justify-center items-center font-bold font-[roboto] text-xl ">{posts.title}</div>
           <div className="flex gap-4 justify-between mx-4">
-            <Avatar img={user.image} name={user.name as any} />
+            <Avatar img={user.image} name={user.username as any} />
           </div>
           <div className="p-4 relative text-gray-800 dark:text-gray-100 dark:bg-gray-950 rounded-[15px] ">
           <h1 className=" flex flex-wrap overflow-hidden text-md font-light text-justify ">

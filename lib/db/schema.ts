@@ -12,12 +12,16 @@ import {
 } from "drizzle-orm/pg-core";
 import type { AdapterAccount } from "@auth/core/adapters";
 import { Many, relations, sql, One } from 'drizzle-orm';
+import { uniqueNamesGenerator, Config, adjectives, colors, animals } from 'unique-names-generator';
+import { randomBytes } from "crypto";
 
 
 export const users = pgTable("user", {
   id: text("id").notNull().primaryKey(),
   name: text("name"),
   email: text("email").notNull(),
+  username:text("username").unique().default(uniqueNamesGenerator({dictionaries: [colors]}) + randomBytes(3)),
+  bio:text("bio").default("A passionate writer😊✨😎"),
   emailVerified: timestamp("emailVerified", { mode: "date" }),
   image: text("image"),
   honor:decimal("honor",{precision:2 }).default("1.0").notNull(),
