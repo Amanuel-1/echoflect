@@ -45,17 +45,17 @@ const User = () => {
           </button>
 
           {isDropdownOpen && (
-            <div ref={menuRef} className="absolute right-0 mt-2 py-2 w-[180px] bg-white dark:bg-gray-800 rounded shadow-lg overflow-hidden">
+            <div ref={menuRef} className="absolute right-0 mt-2 py-2 w-[210px] bg-white dark:bg-gray-800 rounded shadow-lg overflow-hidden">
               <button className="flex gap-1 items-center text-sm w-full px-2 py-2 border-spacing-3 border-b">
                 
                 <p className="italic">signed in as </p>
-                <p className="font-bold">{session?.user?.name?.split(" ")[0]}</p>
+                <p className="font-bold">{session?.user.username}</p>
               </button>
               <button className="flex items-center w-full px-4 py-2">
                 <FiSettings className="mr-2" />
                 Settings
               </button>
-              <Link href={`/profile/${session?.user?.name}`} >
+              <Link href={`/profile/${session?.user?.username}`} >
                 <button className="flex items-center w-full px-4 py-2">
                       <FiUser className="mr-2" />
                       Profile
