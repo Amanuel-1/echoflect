@@ -69,9 +69,7 @@
   width:100%;
 }
 .postContent blockquote{
-  border-left: rgb(126, 61, 24);
-  border-left-width: 5px;
-  background-color: rgba(156, 86, 19, 0.322);
+@apply border-l-8 border-l-gray-600 px-4 py-2 bg-[rgba(139,64,34,0.22)] rounded-r-[15px] italic
 }
 
 .postcontent > .ql-align-right {

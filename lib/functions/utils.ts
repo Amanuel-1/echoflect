@@ -57,3 +57,12 @@ export const toBase64 = (file:File)=>{
       }
   })
 }
+//this is a function to change all <img/> in the richtext editor into <Image /> tag
+export function wrapImages(content:string,setter:Function) {
+  // Create a regular expression to match all image tags.
+  const imageRegex = /<img(?<attributes>.*?)>/g;
+
+  // Replace all image tags with the `<Image>` tag.
+  setter(content.replace(imageRegex,(match,attributes)=>(`<Image ${attributes} />`)));
+}
+

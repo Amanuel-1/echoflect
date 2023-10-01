@@ -117,9 +117,9 @@ const PostDetail = () => {
 
 
   return (
-    <div className="relative grid grid-cols-3 gap-4 container mx-auto">
+    <div className="relative grid grid-cols-3 gap-4 md:container mx-3 md:mx-auto">
 
-    <div className="relative postContent col-span-3 md:col-span-2 p-2 min-h-screen w-full md:border-r border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 rounded-xl">
+    <div className="relative postContent col-span-3 md:col-span-2 py-2 px-0 md:px-2 min-h-screen w-full md:border-r border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 rounded-xl">
     <Loading isloading={loading} />
       <div className={`${styles.postContent} flex flex-col gap-y-4`}>
         
@@ -131,11 +131,11 @@ const PostDetail = () => {
           <div className=" relative w-full h-[20rem] p-0 flex justify-center items-center rounded-t-[10px]">
             <Image src={posts.thumbnail} alt={posts.title} objectFit='cover' layout='fill' />
 
-           <div className="absolute flex w-full h-[20rem] justify-center bg-gradient-to-t from-[rgba(0,0,0,1)] via-[rgba(0,0,0,.8)] to-transparent dark:from-stone-950 dark:via-[rgba(8,8,8,0.8)] to-transparent ">
+           <div className="absolute flex w-full h-[20rem] justify-center bg-gradient-to-t from-[rgba(0,0,0,1)] via-[rgba(0,0,0,.8)] to-transparent dark:from-stone-950 dark:via-[rgba(8,8,8,0.8)] dark:to-transparent ">
               <h1 className="absolute z-50 w-full bottom-4 left-0 text-center h1 text-3xl text-gray-200">{posts.title}</h1>
            </div>
           </div>
-          <div key={i} style={styles} dangerouslySetInnerHTML={{ __html: posts.content}} className="relative flex w-full h-fit py-[3rem] px-6 flex-wrap dark:text-gray-200 text-justify font-extralight te"/>
+          <div key={i} style={styles} dangerouslySetInnerHTML={{ __html: posts.content}} className="relative flex w-full h-fit py-[3rem] px-0 md:px-6 flex-wrap dark:text-gray-200 text-justify font-extralight te"/>
           </>
         ))
           )

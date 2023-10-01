@@ -10,7 +10,8 @@ export const Images= {
     loader:require('./loader.svg'),
     nodata:require('./noData.svg'),
     herosection:require('./herosection.jpg'),
-    green: require('./img3.jpg')
+    green: require('./img3.jpg'),
+    fallback:require('./fallback.jpg')
 
 
 }
