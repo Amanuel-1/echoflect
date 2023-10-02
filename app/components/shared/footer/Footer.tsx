@@ -9,10 +9,10 @@ import Logo from '../nav/Logo'
 
 const Footer = () => {
   return(
-    <section className="absolute">
-      
-    <footer className='footer-parent  bottom-1 w-full bg-gradient-to-t from-white  via-gray-100 to-gray-200 dark:bg-gradient-to-t dark:from-gray-900 dark:via-gray-950 dark:to-black'>
-        <div className="md:container lg:container  flex flex-col md:mx-auto lg:mx-1 bg-inherit">
+    <section className="absolute w-full">
+       
+    <footer className='footer-parent bottom-1 w-full'>
+        <div className=" container flex flex-col bg-gradient-to-t from-white  via-gray-100 to-gray-200 dark:bg-gradient-to-t dark:from-gray-900 dark:via-gray-950 dark:to-black">
             <div className='flex justify-center grayscale opacity-90 hover:grayscale-0 cursor-pointer rounded-3xl '><Logo isAtTop={false}/></div>
             <div className="body grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-2 w-full p-14 h-full bg-white dark:bg-gray-900 rounded-2xl">
 
