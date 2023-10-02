@@ -70,12 +70,13 @@ const Profile =() => {
      <div className="flex flex-col gap-1 justify-center pt-[100px] pb-[20px] h-fit w-full bg-gray-50 dark:bg-gray-900">
       <div className="name-bio w-full justify-center">
         <ul className="flex flex-col gap-2 w-full justify-center">
-          <li className="text-2xl font-bold text-center">{user?.email}</li>
+          <li className="text-2xl font-bold text-center">{user?.name}</li>
           <li className="text-sm font-extrabold text-center">#{user?.username}</li>
+          <li className="text-sm font-extralight italic text-center">📧 {user?.email}</li>
 
           <li className="flex gap-1 px-4 justify-center text-md  font-light text-center">
             <FaQuoteLeft size={20}/>
-              <i className='text-center self-center font-light'>{user?.bio}</i>
+              <i className='text-center self-center font-light px-3'>{user?.bio}</i>
             <FaQuoteRight size={20}/></li>
             <li className="actions w-full flex gap-6 justify-center ">
           <button className={`${styles.appButton} px-5 border`}>Friend</button>
