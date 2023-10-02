@@ -76,7 +76,7 @@ const Profile =() => {
 
           <li className="flex gap-1 px-4 justify-center text-md  font-light text-center">
             <FaQuoteLeft size={20}/>
-              <i className='text-center self-center font-light px-3'>{user?.bio}</i>
+              <i className='text-center self-center font-light px-3 '>{user?.bio}</i>
             <FaQuoteRight size={20}/></li>
             <li className="actions w-full flex gap-6 justify-center ">
           <button className={`${styles.appButton} px-5 border`}>Friend</button>

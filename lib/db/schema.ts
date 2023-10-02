@@ -24,6 +24,7 @@ export const users = pgTable("user", {
   username:text("username").unique().default(uniqueNamesGenerator({dictionaries: [colors,numberDictionary]})),
   bio:text("bio").default("A passionate writer😊✨😎"),
   emailVerified: timestamp("emailVerified", { mode: "date" }),
+  coverphoto:text("cover_photo"),
   image: text("image"),
   honor:decimal("honor",{precision:2 }).default("1.0").notNull(),
   createdAt:timestamp("created_at",{ mode:"date"}).defaultNow().notNull(),

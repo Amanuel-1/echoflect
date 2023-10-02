@@ -5,13 +5,16 @@ import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
 //styles for the components
 import styles from '@/styles/app.module.css'
 import { users } from '@/lib/db/schema'
+import { Usertype } from '@/lib/db/schemaTypes'
+import ImageWithFallback from './ImageWithFallBack'
+import { Images } from '@/public/resources'
 
-const ProfileCard=({ cover,bio,user}:{cover:string,bio:string,user:typeof users}) => {
+const ProfileCard=({ cover,bio,user}:{cover:string,bio:string,user:Usertype}) => {
   return (
-   <div className="flex flex-col gap-4">
-     <div className='relative w-full flex flex-col gap-4 justify-center items-center '>
+   <div className="flex flex-col gap-4 rounded-xl">
+     <div className='relative w-full flex flex-col gap-4 justify-center items-center h-[165px] '>
         
-        <Image src={cover} alt='Avatar' width={800} height={50} 
+        <ImageWithFallback fallbackSrc={Images.fallback} src={cover??""} alt='Avatar'        
         className={`z-0 w-full h-[10rem] rounded-t-xl 
         border-neutral-400
         dark:border-gray-800`}  />
@@ -25,8 +28,11 @@ const ProfileCard=({ cover,bio,user}:{cover:string,bio:string,user:typeof users}
         <div className="name-email flex flex-col gap-1">
           <h1 className="text-xl">{}</h1>
           <small className='font-semibold italic text-xl'>{user.name as any}</small>
+          <small className='font-semibold italic text-sm'>#{user.username as any}</small>
+          <small className='font-light italic text-sm'>📧{user.email as any}</small>
+
         </div>
-        <div className="bio flex gap-2 p-2 ">
+        <div className="bio flex gap-2 justify-center ">
           <FaQuoteLeft size={20}/>
           <i className='text-center self-center font-light'>{bio}</i>
           <FaQuoteRight size={20}/>

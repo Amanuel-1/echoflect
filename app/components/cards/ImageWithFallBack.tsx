@@ -7,15 +7,15 @@ const ImageWithFallback = (props:{src:string ,fallbackSrc:string,className?:stri
     const [imgSrc, setImgSrc] = useState(src);
 
     return (
-        <Image
-            className={twMerge("",rest.className)}
-            src={imgSrc}
+        <Image            
+            src={imgSrc??""}
             alt={rest.alt??""}
             onError={() => {
                 setImgSrc(fallbackSrc);
             }}
             layout="fill"
             objectFit="cover"
+            className={twMerge("",props.className)}
         />
     );
 };
