@@ -1,7 +1,7 @@
 import { InferInsertModel, InferSelectModel } from "drizzle-orm";
-import { categories, postCategories, posts } from "./schema";
+import { categories, postCategories, posts, users } from "./schema";
 
-
+export type Usertype = InferSelectModel<typeof users>
 export type IPost = InferSelectModel<typeof posts>
 export type ICreatePost = InferInsertModel<typeof posts>
 

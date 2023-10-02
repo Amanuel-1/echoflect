@@ -2,7 +2,7 @@
 import { eq } from "drizzle-orm";
 import { db } from "../db";
 import { categories, postCategories, posts, users } from "../db/schema";
-import { ICategory, IPost, IPostToCategory } from "../db/schemaTypes"; 
+import { ICategory, IPost, IPostToCategory, Usertype } from "../db/schemaTypes"; 
 import { getServerSession } from "next-auth";
 import { randomUUID } from "crypto";
 import { toast } from "react-toastify";
@@ -144,22 +144,26 @@ export async function getPost(slug:string){
 
 
 export async function getUserByUsername(username:string){
-    let result ;
-    let response:object = {message :"failed to fetch categories from the database"}
+    let result:Usertype;
+    let response:object = {message :"failed to fetch the user from the database"}
     let status = 400;
 
     try{
-        result = await db.query.users.findFirst({where:eq(users.username,username)})
+        [result]= await db
+        .select()
+        .from(users)
+        .where(eq(users.username, username)).limit(1)
 
+        if(result){
+            response=result;
+            status =200
+        }
     }
     catch(error){
         toast("🛑✋  an error occured while fetching 🛑✋" + error,{type:'error'})
         status  = 500;
     }
-    if(result){
-        response=result;
-        status =200
-    }
+    
 
 
     return {data:response,status:status}

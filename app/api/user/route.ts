@@ -1,3 +1,4 @@
+import { Usertype } from "@/lib/db/schemaTypes";
 import { getUserByUsername } from "@/lib/functions/dbfunctions";
 import { getDomain } from "@/lib/functions/utils";
 import { NextRequest, NextResponse } from "next/server";
@@ -11,7 +12,7 @@ export async function GET(req:NextRequest){
         result  = await getUserByUsername(username)
     
 
-    return NextResponse.json(result.data,{status:result.status})
+    return NextResponse.json(result.data as Usertype,{status:result.status})
     }
     else{
         return NextResponse.redirect(`${getDomain}/404`)

@@ -74,7 +74,7 @@ export const authOptions: NextAuthOptions = {
           }
         }
       }
-      console.log("🛑🎲✨ jwt callback ✨🎲🛑",session)
+      console.log("🛑🎲✨ session callback ✨🎲🛑",session)
       return session;
     },
   },

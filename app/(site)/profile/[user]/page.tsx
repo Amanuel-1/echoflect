@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useState} from 'react';
 import { useSession } from 'next-auth/react';
 import { AiOutlineCamera } from 'react-icons/ai';
@@ -21,23 +21,37 @@ import AccountSetting from '@/app/components/profiles/AccountSetting';
 import ActivityLog from '@/app/components/profiles/ActivityLog';
 import Story from '@/app/components/profiles/Story';
 import PostsTab from '@/app/components/profiles/Posts';
+import { getDomain } from '@/lib/functions/utils';
+import { useParams } from 'next/navigation';
+import { users } from '@/lib/db/schema';
+import { PgColumn } from 'drizzle-orm/pg-core';
+import { Usertype } from '@/lib/db/schemaTypes';
 
-const user  = {
-  name : "selam Woldeyes",
-  email: "selamwolde@gmail.com",
-  image: Images.author,
-  cover:Images.cover,
-  
-}
 
 
 
 const Profile =() => {
-
-
+  
+  
   const [selectedTab,setSelectedTab] = useState(0);
   const { data: session } = useSession();
+  const [user,setUser] =  useState<Usertype>()
+  const params = useParams()
+  const [isLoading,setIsLoading] = useState(true)
 
+  useEffect(()=>{
+    const getdata = async()=>{
+      
+      console.log("this is the user api url 🛑🔩🛑✨",`${getDomain()}/api/user?user=${params.user}`)
+     let result:any =await fetch(`${getDomain()}/api/user?user=${params.user}`,{cache:'no-cache'}).then((res)=>res.json())
+
+      if(result){
+        setIsLoading(false)
+        setUser(result)
+      }
+    }
+    getdata()
+  },[])
 
   return (
     <section className=" min-h-screen  md:px-20 text-gray-700 dark:text-gray-200">
@@ -56,10 +70,12 @@ const Profile =() => {
      <div className="flex flex-col gap-1 justify-center pt-[100px] pb-[20px] h-fit w-full bg-gray-50 dark:bg-gray-900">
       <div className="name-bio w-full justify-center">
         <ul className="flex flex-col gap-2 w-full justify-center">
-          <li className="text-2xl font-bold text-center">Selam Weldeyes</li>
+          <li className="text-2xl font-bold text-center">{user?.email}</li>
+          <li className="text-sm font-extrabold text-center">#{user?.username}</li>
+
           <li className="flex gap-1 px-4 justify-center text-md  font-light text-center">
             <FaQuoteLeft size={20}/>
-              <i className='text-center self-center font-light'>I am a passionate writer dedicated to creating captivating stories.</i>
+              <i className='text-center self-center font-light'>{user?.bio}</i>
             <FaQuoteRight size={20}/></li>
             <li className="actions w-full flex gap-6 justify-center ">
           <button className={`${styles.appButton} px-5 border`}>Friend</button>
