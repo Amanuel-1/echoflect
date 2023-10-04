@@ -59,7 +59,7 @@ const Profile =() => {
      <div className="relative flex flex-col gap-[4rem] container mx-auto w-full bg-stone-800 min-h-[15rem]">
           <ImageWithFallback fallbackSrc={Images.fallback} src={user?.coverphoto as string} alt='cover'/>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 md:left-1/6">
-            <Image className='relative rounded-full border-8 border-gray-700' src={session?.user?.image as string} alt='author' height={200} width={200}/>
+            <Image className='relative rounded-full border-8 border-gray-700' src={user?.image as string} alt='author' height={200} width={200}/>
           <button className='absolute bottom-2 left-1/2 -translate-x-1/2 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-800 via-[rgba(100,100,20,.1)] to-transparent p-[5rem] h-[1rem]  text-3xl text-white rounded-b-full transition-opacity duration-300 ease-in' ><AiOutlineCamera/></button>
           </div>
           <div className="absolute top-1 left-0 w-full flex gap-1 justify-end bg-transparent">
