@@ -12,10 +12,8 @@
   },
   "dependencies": {
     "@auth/core": "0.15.0",
-    "@auth/drizzle-adapter": "^0.3.2",
-    "@auth/supabase-adapter": "^0.1.2",
+    "@auth/drizzle-adapter": "^0.3.3",
     "@neondatabase/serverless": "^0.6.0",
-    "@supabase/supabase-js": "^2.33.1",
     "@types/node": "^20.6.2",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
