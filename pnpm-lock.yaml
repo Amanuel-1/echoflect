@@ -2798,6 +2798,10 @@ packages:
     resolution: {integrity: sha512-56ns1XlSI8d5V0t7hilPu8dMbE4YIwrTJU6e7bV1Abyu6oel4tSc4YmD742MoWV3U+vn7O0WlKpinzu2DP0HWw==}
     dev: false
 
+  /jose@4.15.1:
+    resolution: {integrity: sha512-CinpaEMmwb/59YG0N6SC3DY1imdTU5iNl08HPWR7NdyxACPeFuQbqjaocEjCDGq04KbnxSqQu702vL3ZTvKe5w==}
+    dev: false
+
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: false
@@ -3477,10 +3481,10 @@ packages:
       '@babel/runtime': 7.22.15
       '@panva/hkdf': 1.1.1
       cookie: 0.5.0
-      jose: 4.14.5
+      jose: 4.15.1
       next: 13.4.19(react-dom@18.2.0)(react@18.2.0)
       oauth: 0.9.15
-      openid-client: 5.5.0
+      openid-client: 5.6.0
       preact: 10.11.3
       preact-render-to-string: 5.2.3(preact@10.11.3)
       react: 18.2.0
@@ -3682,10 +3686,10 @@ packages:
       wrappy: 1.0.2
     dev: false
 
-  /openid-client@5.5.0:
-    resolution: {integrity: sha512-Y7Xl8BgsrkzWLHkVDYuroM67hi96xITyEDSkmWaGUiNX6CkcXC3XyQGdv5aWZ6dukVKBFVQCADi9gCavOmU14w==}
+  /openid-client@5.6.0:
+    resolution: {integrity: sha512-uFTkN/iqgKvSnmpVAS/T6SNThukRMBcmymTQ71Ngus1F60tdtKVap7zCrleocY+fogPtpmoxi5Q1YdrgYuTlkA==}
     dependencies:
-      jose: 4.14.5
+      jose: 4.15.1
       lru-cache: 6.0.0
       object-hash: 2.2.0
       oidc-token-hash: 5.0.3

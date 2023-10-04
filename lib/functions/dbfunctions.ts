@@ -168,3 +168,8 @@ export async function getUserByUsername(username:string){
 
     return {data:response,status:status}
 }
+
+
+export async function getPostsByUsername(username: string){
+    
+}

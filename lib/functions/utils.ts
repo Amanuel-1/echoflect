@@ -6,6 +6,9 @@ import remarkHtml from 'remark-html';
 
 import {unified} from 'unified'
 import remarkParse from 'remark-parse'
+import { db } from '../db';
+import { eq } from 'drizzle-orm';
+import { users } from '../db/schema';
 
 
 
@@ -66,3 +69,19 @@ export function wrapImages(content:string,setter:Function) {
   setter(content.replace(imageRegex,(match,attributes)=>(`<Image ${attributes} />`)));
 }
 
+export async function generateUniqueUsername(): Promise<string> {
+  // Generate a random username.
+  const username = `${Math.random().toString(36).substring(7)}`;
+
+  // Check if the username is already in use.
+  const user = await db.query.users.findFirst(
+    {where:eq(users.username,username)}
+  )
+  if (user) {
+    // If the username is already in use, generate a new one.
+    return generateUniqueUsername();
+  }
+
+  // Return the unique username.
+  return username;
+}
