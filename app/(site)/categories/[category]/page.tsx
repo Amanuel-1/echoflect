@@ -57,14 +57,14 @@ const CategoryPage = () => {
       <Box className=' columns-2xs  gap-4  dark:bg-gray-950 border-none'>
        {
         postData && postData.map(({posts,user}:{posts:IPost,user:typeof users},i)=>(
-          <Link key={i} href={`/posts/${posts.slug}`} >
+          
             <div key={i+2} className='mt-2 min-w-[17rem] break-inside-avoid-column flex flex-col justify-center dark:bg-gray-950   rounded-[15px] border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 cursor-pointer hover:grayscale'>
           
           <div className="relative min-h-[18rem] bg-stone-800 rounded-t-[15px]">
           <div style={roboto.style} className="absolute z-30 bottom-0 py-1 left-1/2 -translate-x-1/2 w-full bg-[rgba(0,0,0,.5)] backdrop-blur-sm flex gap-3 justify-center items-center ">
-              <button className='flex gap-1 items-center text-gray-500 dark:text-gray-700'><AiFillEye size={25}/> <p>2K</p></button>
-              <button className='flex gap-1 items-center text-gray-500 dark:text-gray-700'><AiFillHeart size={25}/> <p>2K</p></button>
-              <button className='flex gap-1 items-center text-gray-500 dark:text-gray-700'><AiFillDislike size={25}/> <p>2K</p></button>
+              <button className='flex gap-1 items-center text-gray-200 dark:text-gray-500'><AiFillEye size={25}/> <p>2K</p></button>
+              <button className='flex gap-1 items-center text-gray-200 dark:text-gray-500'><AiFillHeart size={25}/> <p>2K</p></button>
+              <button className='flex gap-1 items-center text-gray-200 dark:text-gray-500'><AiFillDislike size={25}/> <p>2K</p></button>
           </div>
           <ImageWithFallback className='rounded-t-[15px] text-center ' fallbackSrc={Images.fallback} src={posts.thumbnail.startsWith('cover')?'':posts.thumbnail} alt={posts.title} />
           </div>
@@ -79,12 +79,14 @@ const CategoryPage = () => {
             }
           </h1>
           <div className='absolute bottom-0 left-0 flex justify-center items-end w-full h-full rounded-b-[15px] bg-gradient-to-t from-white via-[rgba(255,255,255,.9)] dark:from-[rgba(5,5,10,1)]  dark:via-[rgba(6,10,20,.98)] dark:to-transparent'>
-                <button className='py-5 text-neutral-500 font-extralight italic'>continue reading</button>
+              <Link key={i} href={`/posts/${posts.slug}`} >
+                <button className='py-5 text-neutral-500 font-extralight italic hover:text-blue-700'>continue reading</button>
+              </Link>
           </div>
           </div>
           
         </div>
-          </Link>
+          
        
         ))
        }

@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { posts, users } from "@/lib/db/schema";
-import { AddPost, getAllPosts, getPost } from "@/lib/functions/dbfunctions";
+import { AddPost, getAllPosts, getPost, getPostsByUsername } from "@/lib/functions/dbfunctions";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req:NextRequest){
@@ -8,9 +8,11 @@ export async function GET(req:NextRequest){
   const url  = new URL(req.url)
   const href  = url.searchParams.get('categ')
   const slug =  url.searchParams.get('slug')
+  const user =  url.searchParams.get('user')
 
   console.log("this is the query params 🎯 ",href)
   console.log("this is the slug param 🎯 ",slug)
+  console.log("this is the user param 🎯 ",user)
 
   let result:{data:any,status:any}
 
@@ -19,6 +21,9 @@ export async function GET(req:NextRequest){
   }
   else if(slug){
       result = await getPost(slug)
+  }
+  else if (user){
+      result = await getPostsByUsername(user)
   }
   else{
      result = await getAllPosts()  

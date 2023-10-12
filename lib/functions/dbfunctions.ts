@@ -151,8 +151,7 @@ export async function getUserByUsername(username:string){
     try{
         [result]= await db
         .select()
-        .from(users)
-        .where(eq(users.username, username)).limit(1)
+        .from(users).where(eq(users.username, username)).limit(1)
 
         if(result){
             response=result;
@@ -171,5 +170,22 @@ export async function getUserByUsername(username:string){
 
 
 export async function getPostsByUsername(username: string){
-    
+    let result ;
+    let response:object = {message :"failed to fetch users post from the database"}
+    let status = 400;
+
+    try{
+        result = await db.select().from(users).where(eq(users.username,username)).innerJoin(posts,eq(posts.authorId,users.id))
+
+    }
+    catch(error){
+        console.log("🛑✋  an error occured while fetching user's post 🛑✋",error)
+    }
+    if(result){
+        response=result;
+        status =200
+    }
+
+
+    return {data:response,status:status}
 }

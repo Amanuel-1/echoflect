@@ -43,7 +43,7 @@ const Profile =() => {
   useEffect(()=>{
     const getdata = async()=>{
       
-      console.log("this is the user api url 🛑🔩🛑✨",`${getDomain()}/api/user?user=${params.user}`)
+      console.log("this is the user-posts api url 🛑🔩🛑✨",`${getDomain()}/api/user?user=${params.user}`)
      let result:any =await fetch(`${getDomain()}/api/user?user=${params.user}`,{cache:'no-cache'}).then((res)=>res.json())
 
       if(result){
@@ -113,7 +113,7 @@ const Profile =() => {
          <AccountSetting open= {selectedTab==0}/>
          <ActivityLog open= {selectedTab==1}/>
          <Story open= {selectedTab==2}/>
-         <PostsTab open= {selectedTab==3}/>
+         <PostsTab username={user?.username as string} open= {selectedTab==3}/>
        </Box>
      </div>
      

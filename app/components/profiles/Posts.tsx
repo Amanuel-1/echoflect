@@ -14,6 +14,7 @@ import { NextResponse } from 'next/server';
 import { AddPost } from '@/lib/functions/dbfunctions';
 import { db } from '@/lib/db';
 import { toast } from 'react-toastify';
+import PostsList from '../cards/PostsList';
 
 
 const QuillEditor = dynamic(() => import('react-quill'),
@@ -21,8 +22,11 @@ const QuillEditor = dynamic(() => import('react-quill'),
   loading:()=>(<Loading isloading className='backdrop-blur-sm'/>) 
  });
 
+ type postListProps  = {
+  username :string
+ }
 
-const PostsTab:React.FC<tabsProps> = ({open}) => {
+const PostsTab:React.FC<tabsProps & postListProps> = ({open,username}) => {
   const [content, setContent] = useState('');
   const [addPost ,setAddPost] = useState(false);
   const [title,setTitle] = useState('');
@@ -164,6 +168,10 @@ const PostsTab:React.FC<tabsProps> = ({open}) => {
                       </div>
                       <button type='submit' className={`${styles.appButton} px-5 ${styles.filled} `}>Submit</button>
             </form>
+
+            <PostsList username={username} />
+
+
             
   </div> 
 
