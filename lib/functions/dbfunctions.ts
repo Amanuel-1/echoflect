@@ -184,6 +184,7 @@ export async function getPostsByUsername(username: string){
     if(result){
         response=result;
         status =200
+        console.log("🔼🔼🔼🔼this is the correct fetched posts of the user▶▶▶",result.length)
     }
 
 

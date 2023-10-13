@@ -113,7 +113,7 @@ const Profile =() => {
          <AccountSetting open= {selectedTab==0}/>
          <ActivityLog open= {selectedTab==1}/>
          <Story open= {selectedTab==2}/>
-         <PostsTab username={user?.username as string} open= {selectedTab==3}/>
+         <PostsTab username={params.user as string} open= {selectedTab==3}/>
        </Box>
      </div>
      

@@ -26,7 +26,7 @@ const QuillEditor = dynamic(() => import('react-quill'),
   username :string
  }
 
-const PostsTab:React.FC<tabsProps & postListProps> = ({open,username}) => {
+const PostsTab= ({open,username}:{open:boolean,username:string}) => {
   const [content, setContent] = useState('');
   const [addPost ,setAddPost] = useState(false);
   const [title,setTitle] = useState('');
