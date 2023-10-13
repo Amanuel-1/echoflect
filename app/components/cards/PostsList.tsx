@@ -12,7 +12,7 @@ const PostsList = ({username}:{username:string}) => {
   useEffect(()=>{
     const getdata = async()=>{
       
-      console.log("this is the user-posts api url 🛑🔩🛑✨",`${getDomain()}/api/user?user=${username}`)
+      console.log("this is the user-posts api url 🛑🔩🛑✨",`${getDomain()}/api/post?user=${username}`)
      let result:any =await fetch(`${getDomain()}/api/post?user=${username}`,{cache:'no-cache'}).then((res)=>res.json())
 
       if(result){
