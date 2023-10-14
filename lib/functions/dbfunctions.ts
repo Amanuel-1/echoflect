@@ -159,7 +159,7 @@ export async function getUserByUsername(username:string){
         }
     }
     catch(error){
-        toast("🛑✋  an error occured while fetching 🛑✋" + error,{type:'error'})
+      //  toast("🛑✋  an error occured while fetching 🛑✋" + error,{type:'error'})
         status  = 500;
     }
     

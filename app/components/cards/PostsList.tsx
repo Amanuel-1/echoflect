@@ -3,8 +3,9 @@ import {getPostsByUsername } from '@/lib/functions/dbfunctions'
 import React, { useEffect, useState } from 'react'
 import ImageWithFallback from './ImageWithFallBack'
 import { Images } from '@/public/resources'
-import { getDomain } from '@/lib/functions/utils'
+import { getDomain, shortener } from '@/lib/functions/utils'
 import Loading from '../shared/Loading'
+import Link from 'next/link'
 
 const PostsList = ({username}:{username:string}) => {
   const [userPosts,setUserPosts] = useState([])
@@ -29,15 +30,18 @@ const PostsList = ({username}:{username:string}) => {
     <div className='w-full gap-4 p-2 border-1 border-gray-500 dark:border-stone-700'>
         {        
           userPosts.length? (userPosts.map(({posts,user}:{posts:IPost,user:Usertype},i:number)=>(
-                  <div key={i} className="grid grid-cols-6 gap-4 m-3">
-                    <div className=" relative w-full h-full col-span-2">
-                      <div className="relative h-[25rem] w-[25rem]">
+                  <div key={i} className="grid grid-cols-6 gap-6 mb-[2rem] p-4 border-b border-b-stone-600">
+                    <div className="relative w-full h-full col-span-2">
+                      <div className="relative min-h-[10rem] h-full w-full">
                       <ImageWithFallback src={posts.thumbnail} fallbackSrc={Images.fallback} alt={posts.title}/>
                       </div>
                     </div>
-                    <div className="user">{user.name}</div>
-                    <div className="user max-w-md max-h-md flex flex-wrap overflow-x-scroll">{posts.description}</div>
-                    <div className="user">{posts.views}</div>
+                   
+                    <div className="col-span-4  w-full flex flex-col ">
+                      <Link href={`${getDomain()}/posts/${posts.slug}`}><h3 className='text-xl font-semibold text-stone-900 hover:text-amber-700'>{posts.title}</h3></Link>
+                      <p>{shortener(posts.description,200)}</p>
+                      </div>
+                    
                   </div>
           ))):(
               <div>
