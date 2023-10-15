@@ -9,7 +9,7 @@ dark:Mode
 feel free to contribute to my repo and follow the following steps:
 - Clone the repository
   
-                git clone https://github.com/Amanuel-1/echoflect
+		git clone https://github.com/Amanuel-1/echoflect
 - Install the node packages
 	> Better to use pnpm but you can use both npm or pnpm
 
