@@ -35,7 +35,7 @@ const User = () => {
             onClick={handleDropdownToggle}
           >
             <Image
-              className="rounded-full border-2 border-gray-200 dark:border-gray-900"
+              className="rounded-full border-2 border-stone-200 dark:border-stone-900"
               src={session.user?.image ?? ''}
               alt="avatar"
               width={40}
@@ -45,7 +45,7 @@ const User = () => {
           </button>
 
           {isDropdownOpen && (
-            <div ref={menuRef} className="absolute right-0 mt-2 py-2 w-[210px] bg-white dark:bg-gray-800 rounded shadow-lg overflow-hidden">
+            <div ref={menuRef} className="absolute right-0 mt-2 py-2 w-[210px] bg-white dark:bg-stone-800 rounded shadow-lg overflow-hidden">
               <button className="flex gap-1 items-center text-sm w-full px-2 py-2 border-spacing-3 border-b">
                 
                 <p className="italic">signed in as </p>

@@ -148,8 +148,8 @@ const PostsTab= ({open,username}:{open:boolean,username:string}) => {
 
               <form className={`${!addPost?'hidden':'mt-5'} flex flex-col gap-6`} onSubmit={(e)=>handleSubmit(e as any)}>
                       <div className="metadata flex flex-col gap-6">
-                      <input className=' w-full  py-4 px-6  rounded-l-[10px] bg-[#ffffff] dark:bg-gray-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2' type='text' placeholder='Post Title' value={title} onChange={(e)=>handleChange(e,setTitle)}/>
-                      <textarea className=' w-full h-[10rem] py-4 px-6   rounded-l-[10px] bg-[#ffffff] dark:bg-gray-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2'  placeholder='Write your post metadata description' value={description} onChange={(e)=>handleChange(e,setDescription)} />
+                      <input className=' w-full  py-4 px-6  rounded-l-[10px] bg-[#ffffff] dark:bg-stone-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2' type='text' placeholder='Post Title' value={title} onChange={(e)=>handleChange(e,setTitle)}/>
+                      <textarea className=' w-full h-[10rem] py-4 px-6   rounded-l-[10px] bg-[#ffffff] dark:bg-stone-900 outline-none  border-neutral-100 dark:border-stone-900 focus:bg-neutral-50 border-2'  placeholder='Write your post metadata description' value={description} onChange={(e)=>handleChange(e,setDescription)} />
                       <input className='block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-pink-50 file:text-stone-700 hover:file:bg-stone-100"' type='file' multiple={false} placeholder='Cover Image' onChange={(e)=>handleFileChange(e)}/>
 
                       </div>

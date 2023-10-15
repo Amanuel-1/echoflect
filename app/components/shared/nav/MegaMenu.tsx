@@ -26,17 +26,17 @@ const MegaMenu = (props:megaMenuProps) => {
 
   return (
           <>
-              <div ref={menuRef} className="absolute hidden md:block z-10 container mx-auto  top-[110%] left-0 w-full mr-5">
-                  <div className="body grid grid-cols-4 gap-2 w-full p-14 mb-10 h-full bg-white dark:bg-gray-950 shadow-lg rounded-b-2xl">
+              <div ref={menuRef} className="absolute hidden md:block z-10 container mx-auto  top-[110%] left-0 w-full mr-5 ">
+                  <div className="body grid grid-cols-4 gap-2 w-full p-14 mb-10 h-full bg-white dark:bg-stone-950 shadow-lg rounded-b-2xl dark:border dark:border-stone-900">
                         <div className="col-span-3 grid grid-cols-3">
                         {
                         [...props.data].map((category,index)=>(
 
-                            <div key={index} className="col-span-1 text-gray-700 dark:text-gray-300">{
+                            <div key={index} className="col-span-1 text-stone-700 dark:text-stone-300">{
                                 <ul className='flex flex-col gap-3'>
                                 
 
-                                    <li className='hover:bg-slate-100 dark:hover:bg-inherit hover:text-gray-800 rounded-lg p-2 cursor-pointer transition-all duration-500 ease-in-out' key={index}>
+                                    <li className='hover:bg-slate-100 dark:hover:bg-inherit hover:text-stone-800 rounded-lg p-2 cursor-pointer transition-all duration-500 ease-in-out' key={index}>
                                       <Link href={category.href}>
                                         <h1 className='text-2xl font-bold' key={index*7}>{category.title}</h1>
                                         <p className='text-sm font-light' key={index*3}>{category.description}</p>
@@ -52,7 +52,7 @@ const MegaMenu = (props:megaMenuProps) => {
                       }
                         </div>
                      
-                      <div className="relative col-span-1 w-full h-full text-gray-700 dark:text-gray-300 hover:grayscale transition-all duration-700 ease-in-out">{
+                      <div className="relative col-span-1 w-full h-full text-stone-700 dark:text-stone-300 hover:stonescale transition-all duration-700 ease-in-out">{
                           <Image className='rounded-xl' src="/resources/avatar.jpg" alt ="menuImage" layout='fill' objectFit='cover'/>
                       }
                       </div>

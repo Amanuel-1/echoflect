@@ -32,7 +32,7 @@ import { navItemsProps } from '@/lib/types'
    return (
 
         <Link href={!props.children?(props.link??''):''}>
-            <div className={`cursor-pointer ${pathname==props.link?'text-amber-800  dark:text-amber-600 md:hover:text-amber-600':'text-gray-700  dark:text-gray-300 md:hover:text-gray-800'} overflow-y-auto`} onClick={()=>props.setOpen(!props.open)}>
+            <div className={`cursor-pointer ${pathname==props.link?'text-amber-800  dark:text-amber-600 md:hover:text-amber-600':'text-stone-700  dark:text-stone-300 md:hover:text-stone-800'} overflow-y-auto`} onClick={()=>props.setOpen(!props.open)}>
                 <ul style={roboto.style} className="flex gap-1 text-xl items-center">
                     <li className={`${props.open && props.children ? 'rotate-180':''}  transition-all duration-700 ease-in-out`}>{props.icon}</li>
                     <li className='text z-40' >{props.text}</li>

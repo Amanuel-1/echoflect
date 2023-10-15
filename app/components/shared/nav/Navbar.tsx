@@ -28,14 +28,14 @@ const Navbar = (props:navbarProps) => {
 
     const [open,setOpen] = useState(false);
     const [mobileView,setMobileView] = useState(false);
-    const genericHamburgerLine =twMerge(`h-1 w-8 my-1 rounded-full bg-gray-900 dark:bg-gray-100 transition ease-in transform duration-300`,mobileView&&'bg-gray-100 dark:bg-gray-100') ;
+    const genericHamburgerLine =twMerge(`h-1 w-8 my-1 rounded-full bg-stone-900 dark:bg-stone-100 transition ease-in transform duration-300`,mobileView&&'bg-stone-100 dark:bg-stone-100') ;
     
 
 
 
     return (                         
         <>
-           <div className=" fixed flex justify-center top-0 w-full mx-auto py-2 z-20 bg-[rgba(250,250,250,0.68)] dark:bg-[rgba(3,7,18,0.68)] backdrop-blur-md">
+           <div className=" fixed flex justify-center top-0 w-full mx-auto py-2 z-20 bg-[rgba(250,250,250,0.68)] dark:bg-[rgba(18,15,13,0.8)] backdrop-blur-md">
            <nav className="lg:container lg:mx-auto w-full bg-white dark:bg-transparent md:rounded-2xl">
                 <div className="parent flex  md:justify-between items-center rounded-2xl mt-2 py-2 border-0 shadow-lg  shadow-brown-100  ">
                     <Logo isAtTop={true}/>
@@ -58,8 +58,8 @@ const Navbar = (props:navbarProps) => {
                                     <div
                                     className={`${genericHamburgerLine} ${
                                     mobileView
-                                    ? "rotate-45 translate-y-3 opacity-50 group-hover:opacity-100 bg-gray-100"
-                                    : "opacity-50 group-hover:opacity-100 bg-gray-900"
+                                    ? "rotate-45 translate-y-3 opacity-50 group-hover:opacity-100 bg-stone-100"
+                                    : "opacity-50 group-hover:opacity-100 bg-stone-900"
                                     }`}
                                     />
                                     <div
@@ -70,7 +70,7 @@ const Navbar = (props:navbarProps) => {
                                     <div
                                     className={`${genericHamburgerLine} ${
                                     mobileView
-                                    ? "-rotate-45 -translate-y-3 opacity-50 group-hover:opacity-100 bg-gray-100"
+                                    ? "-rotate-45 -translate-y-3 opacity-50 group-hover:opacity-100 bg-stone-100"
                                     : "opacity-50 group-hover:opacity-100 "
                                     }`}
                                     />

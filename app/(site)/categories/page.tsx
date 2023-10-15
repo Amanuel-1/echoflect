@@ -51,13 +51,13 @@ const Categories = () => {
               categoryList.map((category:ICategory,index)=>(
                 
                 
-                    <Box  key={index} className='lg:max-w-[40%] h-full flex items-stretch dark:bg-gray-950 hover:hue-rotate-[180deg] cursor-pointer rounded-md border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950'>
+                    <Box  key={index} className='lg:max-w-[40%] h-full flex items-stretch dark:bg-stone-950 hover:hue-rotate-[180deg] cursor-pointer rounded-md border border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950'>
                         <Link className='grid grid-cols-3 ' href={`/categories/${category.name}`} >
-                        <div  key={index*2}  className="relative col-span-1 flex items-center category-image py-[0.04rem] bg-gray-300 dark:bg-gray-900 ">
+                        <div  key={index*2}  className="relative col-span-1 flex items-center category-image py-[0.04rem] bg-stone-300 dark:bg-stone-900 ">
                           <Image className='rounded-l-md' src={category.thumbnail} alt={category.id} layout="fill" objectFit="cover" />
                         </div>
                         <div className="col-span-2 p-3 flex flex-col gap-4 justify-spread">
-                          <h1 className="text-left text-lg md:text-3xl font-semibold dark:text-gray-500">
+                          <h1 className="text-left text-lg md:text-3xl font-semibold dark:text-stone-500">
                             {category.name}
                           </h1> 
                           <ul className="flex gap-2">

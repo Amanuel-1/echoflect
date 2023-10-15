@@ -11,12 +11,12 @@
 
 .button_Login{
     @apply w-full bg-amber-950 rounded-[10px];
-    @apply py-3 text-gray-50 text-lg font-semibold hover:hue-rotate-60
+    @apply py-3 text-stone-50 text-lg font-semibold hover:hue-rotate-60
 }
 
 
 .button_custom{
- @apply w-full rounded-[10px] border py-3 flex justify-center gap-2 hover:hue-rotate-[20deg] text-gray-100 text-lg font-semibold ;
+ @apply w-full rounded-[10px] border py-3 flex justify-center gap-2 hover:hue-rotate-[20deg] text-stone-100 text-lg font-semibold ;
 }
 
 .input_text + *{

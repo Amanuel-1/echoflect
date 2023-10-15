@@ -120,7 +120,7 @@ const PostDetail = () => {
   return (
     <div className="relative grid grid-cols-3 gap-4 md:container mx-3 md:mx-auto">
 
-    <div className="relative postContent col-span-3 md:col-span-2 w-full min-h-[25rem] py-2 px-0 md:px-2 md:border-r border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 ">
+    <div className="relative postContent col-span-3 md:col-span-2 w-full min-h-[25rem] py-2 px-0 md:px-2 md:border-r border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 ">
     <Loading isloading={loading} className='h-[25rem] mb-[5rem]' />
       <div className={`${styles.postContent} flex flex-col gap-y-4 w-full`}>
         
@@ -133,18 +133,18 @@ const PostDetail = () => {
             <Image src={posts.thumbnail} alt={posts.title} objectFit='cover' layout='fill' />
 
            <div className="absolute flex w-full h-[20rem] justify-center bg-gradient-to-t from-[rgba(0,0,0,1)] via-[rgba(0,0,0,.8)] to-transparent dark:from-stone-950 dark:via-[rgba(8,8,8,0.8)] dark:to-transparent ">
-              <h3 className="absolute z-50 w-full bottom-4 left-0 text-center  text-gray-200">{posts.title}</h3>
+              <h3 className="absolute z-50 w-full bottom-4 left-0 text-center  text-stone-200">{posts.title}</h3>
            </div>
           </div>
-          <div key={i} style={styles} dangerouslySetInnerHTML={{ __html: posts.content}} className="relative flex w-full h-fit py-[3rem] px-0 md:px-6 flex-wrap dark:text-gray-200 text-justify font-extralight te"/>
+          <div key={i} style={styles} dangerouslySetInnerHTML={{ __html: posts.content}} className="relative flex w-full h-fit py-[3rem] px-0 md:px-6 flex-wrap dark:text-stone-200 text-justify font-extralight te"/>
           </>
         ))
           )
           :(
             !loading && <div className="absolute h-full w-full">
-                <div className="flex flex-col gap-1 justify-center items-center w-full h-full grayscale hue-rotate-[50deg]">
+                <div className="flex flex-col gap-1 justify-center items-center w-full h-full stonescale hue-rotate-[50deg]">
                 <Image src={Images.nodata} alt="no data" width={150} height={150}/>
-                <p className="text-2xl text-gray-700 text-center">
+                <p className="text-2xl text-stone-700 text-center">
                   No Data
                 </p>
                 </div>
@@ -155,14 +155,14 @@ const PostDetail = () => {
     </div>
     <div className="hidden h-fit md:flex col-span-1 ">
       {
-        user?(<Box className=' border  border-gray-200 w-full rounded-xl dark:border-[#47291b81] shadow-sm dark:shadow-none drop-shadow-lg shadow-gray-200'>
+        user?(<Box className=' border  border-stone-200 w-full rounded-xl dark:border-[#47291b81] shadow-sm dark:shadow-none drop-shadow-lg shadow-stone-200'>
         <ProfileCard cover={user.coverphoto as string} user={user as Usertype} bio={user.bio as string} />
         </Box>
         ):(
           !loading && <div className=" w-full h-full py-[3rem]">
-                  <div className="flex flex-col gap-1 h-full w-full justify-center items-center grayscale hue-rotate-[50deg]">
+                  <div className="flex flex-col gap-1 h-full w-full justify-center items-center stonescale hue-rotate-[50deg]">
                   <Image src={Images.nodata} alt="no data" width={100} height={100}/>
-                  <h1 className="text-xs text-gray-700 text-center">
+                  <h1 className="text-xs text-stone-700 text-center">
                     No Author Found
                   </h1>
                   </div>

@@ -27,7 +27,7 @@ const PostsList = ({username}:{username:string}) => {
 
 
   return (
-    <div className='w-full gap-4 p-2 border-1 border-gray-500 dark:border-stone-700'>
+    <div className='w-full gap-4 p-2 border-1 border-stone-500 dark:border-stone-700'>
         {        
           userPosts.length? (userPosts.map(({posts,user}:{posts:IPost,user:Usertype},i:number)=>(
                   <div key={i} className="grid grid-cols-6 gap-6 mb-[2rem] p-4 border-b border-b-stone-600">

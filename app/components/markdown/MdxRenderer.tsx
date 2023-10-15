@@ -97,7 +97,7 @@
 //   return (
 //     <div className="relative grid grid-cols-3 gap-4 container mx-auto">
 
-//     <div className="relative col-span-3 md:col-span-2 p-2 min-h-screen w-full md:border border-gray-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 rounded-xl">
+//     <div className="relative col-span-3 md:col-span-2 p-2 min-h-screen w-full md:border border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 rounded-xl">
 //     <Loading isloading={loading} />
 //       <Box className='flex flex-col gap-y-4'>
         
@@ -110,9 +110,9 @@
         
 //           ):(
 //             <div className="absolute flex justify-center items-center w-full h-full">
-//                 <div className="flex flex-col gap-1 justify-center items-center grayscale hue-rotate-[50deg]">
+//                 <div className="flex flex-col gap-1 justify-center items-center stonescale hue-rotate-[50deg]">
 //                 <Image src={Images.nodata} alt="no data" width={300} height={300}/>
-//                 <h1 className="text-2xl text-gray-700 text-center">
+//                 <h1 className="text-2xl text-stone-700 text-center">
 //                   No Data
 //                 </h1>
 //                 </div>
@@ -122,7 +122,7 @@
 //       </Box>
 //     </div>
 //     <div className="hidden h-fit md:flex col-span-1 ">
-//       <Box className=' border  border-gray-200 rounded-xl dark:border-[#47291b81] shadow-sm dark:shadow-none drop-shadow-lg shadow-gray-200'>
+//       <Box className=' border  border-stone-200 rounded-xl dark:border-[#47291b81] shadow-sm dark:shadow-none drop-shadow-lg shadow-stone-200'>
 //       <ProfileCard cover={author.cover} avatar={author.avatar} bio={author.bio}
 //                 role={author.role} email={author.email} followers={author.followers} likes={author.likes}/>
 //       </Box>

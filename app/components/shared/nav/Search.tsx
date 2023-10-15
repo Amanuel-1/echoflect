@@ -37,7 +37,7 @@ const Search = () => {
   return (
     <div className="">
       <button
-        className="bg-gray-200 dark:bg-gray-900 text-gray-700 dark:text-gray-500 font-bold p-2 rounded-full flex items-center"
+        className="bg-stone-200 dark:bg-stone-900 text-stone-700 dark:text-stone-500 font-bold p-2 rounded-full flex items-center"
         onClick={handleDropdownClick}
       >
        <AiOutlineSearch size={18}/>
@@ -45,7 +45,7 @@ const Search = () => {
       </button>
       {isOpen && (
         <div className='absolute z-0 right-4 mt-6 p-2 w-2/5 rounded-xl bg-[rgba(200,200,200,0.5)] dark:bg-[rgba(6,6,6,0.5)]  border dark:border-none backdrop-blur-sm  '>
-          <input className='w-[100%] py-4 px-6 border rounded-xl bg-[#ffffff] dark:bg-gray-900 focus:outline-none border-none' type='text' placeholder='search here ' />
+          <input className='w-[100%] py-4 px-6 border rounded-xl bg-[#ffffff] dark:bg-stone-900 focus:outline-none border-none' type='text' placeholder='search here ' />
         </div>
       )}
     </div>

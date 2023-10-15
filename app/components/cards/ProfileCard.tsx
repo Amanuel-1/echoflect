@@ -17,7 +17,7 @@ const ProfileCard=({ cover,bio,user}:{cover:string,bio:string,user:Usertype}) =>
         <ImageWithFallback fallbackSrc={Images.fallback} src={cover??""} alt='Avatar'        
         className={`z-0 w-full h-[10rem] rounded-t-xl 
         border-neutral-400
-        dark:border-gray-800`}  />
+        dark:border-stone-800`}  />
         <Image src={user.image as any} alt='Avatar' width={150} height={150} 
         className={`absolute top-[80px] z-10 rounded-full border-8
         border-neutral-400

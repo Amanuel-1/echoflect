@@ -57,31 +57,31 @@ const ThemeSelector = (props: themeSelectorProps) => {
   return (
     <div className="relative">
       <button
-        className="bg-gray-200 dark:bg-gray-900 text-gray-700 dark:text-gray-500 p-2 rounded-full flex items-center"
+        className="bg-stone-200 dark:bg-stone-900 text-stone-700 dark:text-stone-500 p-2 rounded-full flex items-center"
         onClick={handleDropdownClick}
       >
         {renderIcon(selectedTheme) || renderIcon(system)}
        
       </button>
       {isDropdownOpen && (
-        <div className="absolute z-50 right-0 mt-2 bg-white dark:bg-gray-900 border  border-gray-200 dark:border-gray-800 rounded-md shadow-lg">
+        <div className="absolute z-50 right-0 mt-2 bg-white dark:bg-stone-900 border  border-stone-200 dark:border-stone-800 rounded-md shadow-lg">
           <ul>
             <li
-              className="block px-4 py-2 text-sm text-gray-500 hover:bg-gray-800 cursor-pointer flex items-center"
+              className="block px-4 py-2 text-sm text-stone-500 hover:bg-stone-800 cursor-pointer flex items-center"
               onClick={() => handleOptionClick(light)}
             >
               <FiSun className="mr-2" />
               Light
             </li>
             <li
-              className="block px-4 py-2 text-sm text-gray-500 hover:bg-gray-800 cursor-pointer flex items-center"
+              className="block px-4 py-2 text-sm text-stone-500 hover:bg-stone-800 cursor-pointer flex items-center"
               onClick={() => handleOptionClick(dark)}
             >
               <FiMoon className="mr-2" />
               Dark
             </li>
             <li
-              className="block px-4 py-2 text-sm text-gray-500 hover:bg-gray-800 cursor-pointer flex items-center"
+              className="block px-4 py-2 text-sm text-stone-500 hover:bg-stone-800 cursor-pointer flex items-center"
               onClick={() => handleOptionClick(system)}
             >
               <FiSettings className="mr-2" />

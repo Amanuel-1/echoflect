@@ -14,7 +14,7 @@ const Logo = (props:logoProps) => {
         <Image src={"/resources/logo.png"} alt="Echoflect" width={props.isAtTop ?50 :30} height={props.isAtTop ?50 :30}/>
         </div>
         <div style={pacific.style} className="logoText hidden md:inline-block">
-            <h3   className={`${props.isAtTop?'text-2xl text-yellow-900 dark:text-yellow-700 ':'text-lg text-gray-500 '}`}>Echoflect</h3>
+            <h3   className={`${props.isAtTop?'text-2xl text-yellow-900 dark:text-yellow-700 ':'text-lg text-stone-500 '}`}>Echoflect</h3>
         </div>
     </div>
     </Link>

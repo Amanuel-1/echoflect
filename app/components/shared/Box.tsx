@@ -7,7 +7,7 @@ type boxProps = {
 }
 const Box:React.FC<boxProps> = ({className,children}) => {
   return (
-    <div className={twMerge(" border  border-gray-200 rounded-xl dark:border-[#47291b81] shadow-sm dark:shadow-none drop-shadow-lg shadow-gray-200",className)}>
+    <div className={twMerge(" border  border-stone-200 rounded-xl dark:border-[#47291b81] shadow-sm dark:shadow-none drop-shadow-lg shadow-stone-200",className)}>
         {children}
     </div>
   )

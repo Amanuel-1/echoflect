@@ -61,7 +61,7 @@
   width:100%;
 }
 .postContent blockquote{
-@apply w-full border-l-8 border-l-gray-600 px-4 py-2 bg-[rgba(139,64,34,0.22)] rounded-r-[15px] italic
+@apply w-full border-l-8 border-l-stone-600 px-4 py-2 bg-[rgba(139,64,34,0.22)] rounded-r-[15px] italic
 }
 
 .postcontent > .ql-align-right {
