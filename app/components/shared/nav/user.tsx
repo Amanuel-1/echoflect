@@ -75,7 +75,7 @@ const User = () => {
         <div className="flex gap-2 items-center">
           
            
-           <button onClick={()=>signIn()} className="px-3 py-3 md:py-1 rounded-full text-xs md:text-lg font-light text-white bg-gradient-to-tr from-stone-500 to-stone-800 ">
+           <button onClick={()=>signIn()} className="px-3 py-3 md:py-1 rounded-full text-xs md:text-lg font-light text-stone-100 bg-gradient-to-tr from-stone-500 to-stone-800 ">
               <p className='hidden md:flex'>signIn</p>
               
             </button>

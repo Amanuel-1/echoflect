@@ -162,7 +162,7 @@ const PostsTab= ({open,username}:{open:boolean,username:string}) => {
                         modules={quillModules}
                                   
                         formats={quillFormats} 
-                        className="w-full min-h-[110%] h-fit mt-6 bg-white dark:bg-stone-950 dark:outline-none dark:text-white border-none"
+                        className="w-full min-h-[110%] h-fit mt-6 bg-white dark:bg-stone-950 dark:outline-none dark:text-stone-100 border-none"
                       />
 
                       </div>

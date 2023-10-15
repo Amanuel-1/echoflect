@@ -64,7 +64,7 @@ const [content, setContent] = useState('');
             onChange={handleEditorChange}
             modules={quillModules}
             formats={quillFormats}
-            className="w-full h-[20rem] mt-10 bg-white dark:bg-stone-950 dark:outline-none dark:text-white"
+            className="w-full h-[20rem] mt-10 bg-white dark:bg-stone-950 dark:outline-none dark:text-stone-100"
           />
         
       </div>

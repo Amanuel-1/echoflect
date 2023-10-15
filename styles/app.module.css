@@ -5,7 +5,7 @@
 }
 
 .filled {
-   @apply bg-gradient-to-br from-yellow-900 to-yellow-700 text-white
+   @apply bg-gradient-to-br from-yellow-900 to-yellow-700 text-stone-100
 }
 
 .outline {

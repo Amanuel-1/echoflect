@@ -142,7 +142,7 @@ const PostDetail = () => {
           )
           :(
             !loading && <div className="absolute h-full w-full">
-                <div className="flex flex-col gap-1 justify-center items-center w-full h-full stonescale hue-rotate-[50deg]">
+                <div className="flex flex-col gap-1 justify-center items-center w-full h-full grayscale hue-rotate-[50deg]">
                 <Image src={Images.nodata} alt="no data" width={150} height={150}/>
                 <p className="text-2xl text-stone-700 text-center">
                   No Data
@@ -160,7 +160,7 @@ const PostDetail = () => {
         </Box>
         ):(
           !loading && <div className=" w-full h-full py-[3rem]">
-                  <div className="flex flex-col gap-1 h-full w-full justify-center items-center stonescale hue-rotate-[50deg]">
+                  <div className="flex flex-col gap-1 h-full w-full justify-center items-center grayscale hue-rotate-[50deg]">
                   <Image src={Images.nodata} alt="no data" width={100} height={100}/>
                   <h1 className="text-xs text-stone-700 text-center">
                     No Author Found

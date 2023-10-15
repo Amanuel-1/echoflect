@@ -60,11 +60,11 @@ const Profile =() => {
           <ImageWithFallback fallbackSrc={Images.fallback} src={user?.coverphoto as string} alt='cover'/>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 md:left-1/6">
             <Image className='relative rounded-full border-8 border-stone-700' src={user?.image as string} alt='author' height={200} width={200}/>
-          <button className='absolute bottom-2 left-1/2 -translate-x-1/2 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-800 via-[rgba(100,100,20,.1)] to-transparent p-[5rem] h-[1rem]  text-3xl text-white rounded-b-full transition-opacity duration-300 ease-in' ><AiOutlineCamera/></button>
+          <button className='absolute bottom-2 left-1/2 -translate-x-1/2 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-800 via-[rgba(100,100,20,.1)] to-transparent p-[5rem] h-[1rem]  text-3xl text-stone-100 rounded-b-full transition-opacity duration-300 ease-in' ><AiOutlineCamera/></button>
           </div>
           <div className="absolute top-1 left-0 w-full flex gap-1 justify-end bg-transparent">
-            <button className={`p-4 text-white font-extrabold text-3xl hover:bg-[rgba(30,30,30,.5)] rounded-full`}><FiEdit2/></button>
-            <button className={`p-4 text-white font-extrabold text-3xl hover:bg-[rgba(30,30,30,.5)] rounded-full`}><HiDotsVertical/></button>
+            <button className={`p-4 text-stone-100 font-extrabold text-3xl hover:bg-[rgba(30,30,30,.5)] rounded-full`}><FiEdit2/></button>
+            <button className={`p-4 text-stone-100 font-extrabold text-3xl hover:bg-[rgba(30,30,30,.5)] rounded-full`}><HiDotsVertical/></button>
           </div>
      </div>
 

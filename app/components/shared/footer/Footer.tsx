@@ -9,11 +9,11 @@ import Logo from '../nav/Logo'
 
 const Footer = () => {
   return(
-    <section className="absolute w-full">
+    <section className="absolute w-full overflow-x-hidden bg-gradient-to-t from-white  via-stone-100 to-stone-200 ">
        
-    <footer className='footer-parent bottom-1 w-full m-0 p-0'>
-        <div className=" contaner flex flex-col bg-gradient-to-t from-white  via-stone-100 to-stone-200 dark:bg-gradient-to-t dark:from-stone-900 dark:via-stone-950 dark:to-black">
-            <div className='flex justify-center stonescale opacity-90 hover:stonescale-0 cursor-pointer rounded-3xl '><Logo isAtTop={false}/></div>
+    <footer className='footer-parent bottom-1 w-full container overflow-x-hidden'>
+        <div className=" contaner w-full flex flex-col dark:bg-gradient-to-t dark:from-stone-900 dark:via-stone-950 dark:to-black">
+            <div className='flex w-full justify-center grayscale opacity-90 hover:grayscale-0 cursor-pointer rounded-3xl '><Logo isAtTop={false}/></div>
             <div className="body grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-2 w-full p-5 md:p-14 h-full bg-white dark:bg-stone-900 rounded-2xl">
 
             <div className="col-span-1 text-stone-700 flex items-center transition-all duration-700 ease-in-out">{

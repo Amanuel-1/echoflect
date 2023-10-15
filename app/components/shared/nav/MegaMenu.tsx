@@ -52,7 +52,7 @@ const MegaMenu = (props:megaMenuProps) => {
                       }
                         </div>
                      
-                      <div className="relative col-span-1 w-full h-full text-stone-700 dark:text-stone-300 hover:stonescale transition-all duration-700 ease-in-out">{
+                      <div className="relative col-span-1 w-full h-full text-stone-700 dark:text-stone-300 hover:grayscale transition-all duration-700 ease-in-out">{
                           <Image className='rounded-xl' src="/resources/avatar.jpg" alt ="menuImage" layout='fill' objectFit='cover'/>
                       }
                       </div>

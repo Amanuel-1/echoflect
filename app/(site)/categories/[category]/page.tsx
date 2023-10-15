@@ -58,7 +58,7 @@ const CategoryPage = () => {
        {
         postData && postData.map(({posts,user}:{posts:IPost,user:typeof users},i)=>(
           
-            <div key={i+2} className='mt-2 min-w-[17rem] break-inside-avoid-column flex flex-col justify-center dark:bg-stone-950   rounded-[15px] border border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 cursor-pointer hover:stonescale'>
+            <div key={i+2} className='mt-2 min-w-[17rem] break-inside-avoid-column flex flex-col justify-center dark:bg-stone-950   rounded-[15px] border border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 cursor-pointer hover:grayscale'>
           
           <div className="relative min-h-[18rem] bg-stone-800 rounded-t-[15px]">
           <div style={roboto.style} className="absolute z-30 bottom-0 py-1 left-1/2 -translate-x-1/2 w-full bg-[rgba(0,0,0,.5)] backdrop-blur-sm flex gap-3 justify-center items-center ">

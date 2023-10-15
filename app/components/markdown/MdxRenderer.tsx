@@ -110,7 +110,7 @@
         
 //           ):(
 //             <div className="absolute flex justify-center items-center w-full h-full">
-//                 <div className="flex flex-col gap-1 justify-center items-center stonescale hue-rotate-[50deg]">
+//                 <div className="flex flex-col gap-1 justify-center items-center grayscale hue-rotate-[50deg]">
 //                 <Image src={Images.nodata} alt="no data" width={300} height={300}/>
 //                 <h1 className="text-2xl text-stone-700 text-center">
 //                   No Data
