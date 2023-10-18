@@ -23,5 +23,9 @@ now if you want to be one of the users , you can just signin to the site, the mo
 
 
 
-Thank you :☺for visiting this repo. i would appretiate if you give it a star , recommend new features  and add issues.
+Thank you :☺for visiting this repo. i would appretiate if you give it a star , recommend new features,contribure  and add issues.
+
+
+
+
 
