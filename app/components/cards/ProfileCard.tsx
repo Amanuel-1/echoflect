@@ -38,7 +38,7 @@ const ProfileCard=({ cover,bio,user}:{cover:string,bio:string,user:Usertype}) =>
           <FaQuoteRight size={20}/>
         </div>
         <div className="actions w-full flex gap-6 justify-center ">
-          <button className={`${styles.appButton} ${styles.outline}`}>Friend</button>
+          <button className={`${styles.appButton} ${styles.outline}`}>subscribe</button>
           <button className={`${styles.appButton} ${styles.filled}`}>Message</button>
         </div>
         

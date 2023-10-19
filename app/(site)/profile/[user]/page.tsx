@@ -80,7 +80,7 @@ const Profile =() => {
               <i className='text-center self-center font-light px-3 '>{user?.bio}</i>
             <FaQuoteRight size={20}/></li>
             <li className="actions w-full flex gap-6 justify-center ">
-          <button className={`${styles.appButton} px-5 border`}>Friend</button>
+          <button className={`${styles.appButton} px-5 border`}>subscribe</button>
           <button className={`${styles.appButton} px-5 ${styles.filled}`}>Message</button>
         </li>
         </ul>
