@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react'
 import Footer from '../components/shared/footer/Footer'
 import Navbar from '../components/shared/nav/Navbar'
 import {SessionProvider} from 'next-auth/react'
-import {toast,ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -49,7 +49,7 @@ export default function RootLayout({
   },[]);
 
   return (
-    <html lang="en">
+    <html data-theme="cupcake" lang="en">
       <body style={inter.style} className='all overflow-x-hidden'>
        
           <SessionProvider>
