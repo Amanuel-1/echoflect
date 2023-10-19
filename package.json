@@ -56,6 +56,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "daisyui": "^3.6.5",
     "@types/pg": "^8.10.2"
   }
 }
