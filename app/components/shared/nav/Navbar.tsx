@@ -35,9 +35,9 @@ const Navbar = (props:navbarProps) => {
 
     return (                         
         <>
-           <div className=" fixed flex justify-center top-0 w-full mx-auto py-2 z-20 bg-[rgba(250,250,250,0.68)] dark:bg-[rgba(18,15,13,0.8)] backdrop-blur-md">
-           <nav className="lg:container lg:mx-auto w-full bg-white dark:bg-transparent md:rounded-2xl">
-                <div className="parent flex  md:justify-between items-center rounded-2xl mt-2 py-2 border-0 shadow-lg  shadow-brown-100  ">
+           <div className=" fixed flex justify-center top-0 w-full py-2 z-20  bg-[rgba(255,255,255,.7)] dark:bg-[rgba(30,30,30,.7)] backdrop-blur-md ">
+           <nav className="md:mx-[20px]  w-full bg-transparent ">
+                <div className="parent flex  md:justify-between items-center mt-2 py-2 border-0   ">
                     <Logo isAtTop={true}/>
                     <div className="hidden md:flex gap-4 ">
                     
