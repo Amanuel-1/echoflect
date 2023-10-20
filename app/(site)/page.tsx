@@ -1,11 +1,13 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
 import { db } from '@/lib/db'
 import * as schema from "@/lib/db/schema"
 import { IPost } from '@/lib/db/schemaTypes'
 import { getDomain } from '@/lib/functions/utils'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { CardDemo } from '../components/cards/test'
 
 const meta = {
   title:'Login',
@@ -60,6 +62,8 @@ export default  function Home() {
     <span>Message sent successfully.</span>
   </div>
 </div>
+<CardDemo/>
+<Button>Click me</Button>
 
           <div className="mockup-code">
               <pre data-prefix="$"><code>npm i daisyui</code></pre>
