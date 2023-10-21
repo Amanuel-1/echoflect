@@ -11,7 +11,7 @@ import { CardDemo } from '../components/cards/test'
 import { Images } from '@/public/resources'
 import ImageWithFallback from '../components/cards/ImageWithFallBack'
 
-import { roboto } from '@/public/Fonts'
+import { noto, roboto } from '@/public/Fonts'
 const meta = {
   title:'Login',
   description:'Welcome to the login page. please log in to your echoflect account or register.'
@@ -56,7 +56,7 @@ export default  function Home() {
         <div className=" announcement w-fit py-2 px-8 rounded-[50px] bg-[rgba(20,30,20,.2)] backdrop-blur-sm border border-stone-400 font-semibold hover:scale-95 transition-all duration-500 cursor-pointer">
           🎉 new changes coming a head. it will be awesome when finished
         </div>
-        <h1 style={roboto.style} className='text-2xl md:text-6xl font-extrabold w-[80%] md:w-[60%]'>
+        <h1 style={noto.style} className='text-2xl md:text-6xl font-extrabold w-[80%] md:w-[60%]'>
           A Mirror Reflection of your Thoughts To Reach Every Corner Of The World
         </h1>
       </div>
