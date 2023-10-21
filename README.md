@@ -1,5 +1,5 @@
 
-**Echoflect** , 
+##**Echoflect** , 
 a place where writers reach out to their audiences, and share their imaginations like never before.
 
 ![image](https://github.com/Amanuel-1/echoflect/assets/71079278/83ef742b-12c2-42b1-8e80-8375899ed795)
