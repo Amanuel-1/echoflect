@@ -26,7 +26,7 @@ const MegaMenu = (props:megaMenuProps) => {
 
   return (
           <>
-              <div ref={menuRef} className="absolute hidden md:block z-10 container mx-auto  top-[110%] left-0 w-full mr-5 ">
+              <div ref={menuRef} className="absolute hidden md:block z-40 container mx-auto  top-[110%] left-0 w-full mr-5 ">
                   <div className="body grid grid-cols-4 gap-2 w-full p-14 mb-10 h-full bg-white dark:bg-stone-950 shadow-lg rounded-b-2xl dark:border dark:border-stone-900">
                         <div className="col-span-3 grid grid-cols-3">
                         {

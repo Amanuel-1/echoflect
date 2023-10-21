@@ -54,7 +54,7 @@ export default function RootLayout({
        
           <SessionProvider>
               <ToastContainer/>
-              <Navbar className="bg-transparent border-none " darkMode={darkMode} setDarkMode ={setDarkMode}/>
+              <Navbar className="bg-yellow-500 border-none " darkMode={darkMode} setDarkMode ={setDarkMode}/>
               <section className='py-24 px-0 mx-0'>
               {children}
               </section>
