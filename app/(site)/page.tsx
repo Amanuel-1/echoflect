@@ -52,7 +52,8 @@ export default  function Home() {
       <div className="z-10 absolute top-[10%] left-1/4 -translate-x-1/2 w-[35rem] h-[35rem] rounded-full bg-amber-300 dark:bg-[rgba(85,22,22,0.5)] blur-[110px]"></div>
       </div>
       <div className="landingPage z-10 flex flex-col gap-[6rem] justify-center items-center  text-stone-700">
-      <div className="z-10 w-full hero flex flex-wrap-reverse justify-center py-[10rem] text-stone-700 dark:text-stone-300 text-center">
+      <div className="z-10 w-full hero flex flex-wrap gap-4 justify-center py-[10rem] text-stone-700 dark:text-stone-300 text-center">
+        <div className=" announcement w-full py-2 px-8 rounded-full bg-[rgba(20,30,20,.6)] backdrop-blur-sm border border-stone-400"></div>
         <h1 style={roboto.style} className='text-2xl md:text-6xl font-extrabold w-[80%] md:w-[60%]'>
           A Mirror Reflection of your Thoughts To Reach Every Corner Of The World
         </h1>
