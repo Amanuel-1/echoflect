@@ -8,6 +8,7 @@ import { getDomain } from '@/lib/functions/utils'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { CardDemo } from '../components/cards/test'
+import { Images } from '@/public/resources'
 
 const meta = {
   title:'Login',
@@ -37,38 +38,13 @@ export default  function Home() {
   
 
   return ( 
-    <main className="flex min-h-screen flex-col items-center justify-between p-32 overflow-x-hidden">
-              <div className="drawer">
-          <input id="my-drawer" type="checkbox" className="drawer-toggle z-50" />
-          <div className="drawer-content">
-          {/* Page content here */}
-          <label htmlFor="my-drawer" className="btn btn-primary drawer-button">Open drawer</label>
-          </div> 
-          <div className="drawer-side">
-          <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-            {/* Sidebar content here */}
-            <li><a>Sidebar Item 1</a></li>
-            <li><a>Sidebar Item 2</a></li>
-            
-          </ul>
-          </div>
-          </div>
-          <div className="toast toast-top toast-start">
-  <div className="alert alert-info">
-    <span>New mail arrived.</span>
-  </div>
-  <div className="alert alert-success">
-    <span>Message sent successfully.</span>
-  </div>
-</div>
-<CardDemo/>
-<Button>Click me</Button>
-
-          <div className="mockup-code">
-              <pre data-prefix="$"><code>npm i daisyui</code></pre>
-          </div>
-    </main>
+    // <main className="relative flex min-h-screen flex-col items-center justify-between overflow-x-hidden ">
+    //     <section className='heroSection flex justify-center '>
+    //     <div className="  absolute -top-1/2 w-[30rem] h-[30rem] animate-spin duration-700 rounded-full bg-amber-600 blur-[140px]"></div>
+    //     <div className="  absolute -top-[5rem] left-[4rem] w-[10rem] h-[30rem] animate-spin duration-700 rounded-full bg-yellow-600 blur-[200px]"></div>
+    //     </section>
+    // </main>
+    <div className=""></div>
   )
 }
 

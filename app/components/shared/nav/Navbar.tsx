@@ -30,14 +30,14 @@ const Navbar = (props:navbarProps) => {
     const [mobileView,setMobileView] = useState(false);
     const genericHamburgerLine =twMerge(`h-1 w-8 my-1 rounded-full bg-stone-900 dark:bg-stone-100 transition ease-in transform duration-300`,mobileView&&'bg-stone-100 dark:bg-stone-100') ;
     
-
+// " fixed flex justify-center top-0 w-full py-2 z-20  bg-[rgba(255,255,255,.7)] dark:bg-[rgba(30,30,30,.7)] backdrop-blur-md "
 
 
     return (                         
         <>
-           <div className=" fixed flex justify-center top-0 w-full py-2 z-20  bg-[rgba(255,255,255,.7)] dark:bg-[rgba(30,30,30,.7)] backdrop-blur-md ">
-           <nav className="md:mx-[20px]  w-full bg-transparent ">
-                <div className="parent flex  md:justify-between items-center mt-2 py-2 border-0   ">
+           <div className={twMerge(" fixed flex justify-center top-0 w-full py-2 z-20  bg-[rgba(255,255,255,.7)] dark:bg-[rgba(30,30,30,.7)] backdrop-blur-md ",props.className )}>
+           <nav className={twMerge("md:mx-[20px]  w-full bg-transparent ",props.className)}>
+                <div className={twMerge("parent flex  md:justify-between items-center mt-2 py-2 border-0  ",props.className)}>
                     <Logo isAtTop={true}/>
                     <div className="hidden md:flex gap-4 ">
                     

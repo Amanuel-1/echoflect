@@ -56,6 +56,7 @@ export type megaMenuProps = {
 export type navbarProps  ={
 darkMode: boolean,
 setDarkMode: Function
+className:string
 }
 
 export type navButtonsProps = {

@@ -11,7 +11,8 @@ export const Images= {
     nodata:require('./noData.svg'),
     herosection:require('./herosection.jpg'),
     green: require('./img3.jpg'),
-    fallback:require('./fallback.jpg')
+    fallback:require('./fallback.jpg'),
+    smile:require('./smile.webp')
 
 
 }
