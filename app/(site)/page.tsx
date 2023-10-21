@@ -56,7 +56,7 @@ export default  function Home() {
         <div className=" announcement w-fit py-2 px-8 rounded-[50px] bg-[rgba(20,30,20,.2)] backdrop-blur-sm border border-stone-400 font-semibold hover:scale-95 transition-all duration-500 cursor-pointer">
           {shortener("🎉 new changes coming a head. it will be awesome when finished",50)}
         </div>
-        <h1 style={noto.style} className='text-2xl md:text-6xl font-extrabold w-[80%] md:w-[60%] text-center'>
+        <h1 style={noto.style} className='text-2xl md:text-6xl font-extrabold w-[80%] md:w-full md:px-[15rem] text-center text-wrap'>
           A Mirror Reflection of your Thoughts To Reach Every Corner Of The World
         </h1>
       </div>
@@ -85,7 +85,7 @@ export default  function Home() {
             <div className="stat-figure text-secondary text-stone-300">
               <div className="avatar online">
                 <div className="w-16 rounded-full">
-                  <ImageWithFallback fallbackSrc={Images.fallback} src={Images.author}  alt='test' className='rounded-full'/>
+                  <ImageWithFallback fallbackSrc={Images.fallback} src={Images.smile}  alt='test' className='rounded-full'/>
                 </div>
               </div>
             </div>
