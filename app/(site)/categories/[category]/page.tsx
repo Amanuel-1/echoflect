@@ -80,7 +80,7 @@ const CategoryPage = () => {
           </h1>
           <div className='absolute bottom-0 left-0 flex justify-center items-end w-full h-full rounded-b-[15px] bg-gradient-to-t from-white via-[rgba(255,255,255,.9)] dark:from-black  dark:via-[rgb(8,5,3,.6)] dark:to-transparent'>
               <Link key={i} href={`/posts/${posts.slug}`} >
-                <button className='py-5 text-neutral-500 font-extralight italic hover:text-blue-700'>continue reading</button>
+                <button className='py-5 text-neutral-500 font-extralight italic hover:text-blue-700 bg-stone-700 px-6 rounded-full text-white'>continue reading</button>
               </Link>
           </div>
           </div>
