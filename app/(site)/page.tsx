@@ -98,14 +98,14 @@ export default  function Home() {
         </div>
         
         <div className="grid grid-cols-4 gap-[2rem] w-full  justify-center">
-              <div className="heroText col-span-2 h-full w-full flex justify-center align-middle items-center text-center">
+              <div className="heroText col-span-4 md:col-span-2 h-full w-full flex justify-center align-middle items-center text-center">
                 <h1 className='text-2xl w-[80%] flex items-center '>A place where you can showcase your literature works and growup audiences</h1>
               </div>
-              <div className="mockup-browser col-span-2 border bg-base-300 w-[90%] dark:bg-stone-800">
+              <div className="mockup-browser flex flex-col justify-center items-center w-[95%] ml-[2.5%] col-span-4 md:col-span-2 border bg-base-300 md:w-[90%] dark:bg-stone-800">
               <div className="mockup-browser-toolbar dark:bg-stone-800 ">
               <div className="px-5 w-full rounded-full bg-stone-300 dark:bg-stone-500">https://echoflect.vercel.app</div>
             </div>
-            <div className="flex justify-center px-4 py-16 bg-base-200 dark:bg-stone-900">
+            <div className="flex justify-center px-4 py-16 w-full bg-base-200 dark:bg-stone-900">
                 <div className="flex w-full max-w-md mx-auto overflow-hidden bg-white rounded-lg shadow-lg animate-pulse dark:bg-gray-800">
                     <div className="w-1/3 bg-gray-300 dark:bg-gray-600"></div>
 
