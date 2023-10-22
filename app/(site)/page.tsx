@@ -48,7 +48,7 @@ export default  function Home() {
     // </main>
     <div className="relative flex flex-col justify-center  min-h-screen">
       <div className="background absolute z-0 top-0 left-0 w-full h-full">
-      <div className="z-10 absolute top-[5%] left-1/2 -translate-x-1/2 w-[35rem] h-[15rem] rounded-full bg-red-300 dark:bg-[rgba(32,96,49,0.56)] blur-[90px]"></div>
+      <div className="z-10 absolute top-[5%] left-1/2 -translate-x-1/2 w-[10rem] md:w-[35rem] h-[15rem] rounded-full bg-red-300 dark:bg-[rgba(32,96,49,0.56)] blur-[90px]"></div>
       <div className="z-10 absolute top-[10%] left-1/4 -translate-x-1/2 w-[35rem] h-[35rem] rounded-full bg-amber-300 dark:bg-[rgba(85,22,22,0.5)] blur-[110px]"></div>
       </div>
       <div className="landingPage z-10 flex flex-col gap-[6rem] justify-center items-center  text-stone-700">
