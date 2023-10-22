@@ -52,7 +52,7 @@ export default  function Home() {
       <div className="z-10 absolute top-[10%] left-1/4 -translate-x-1/2 w-[35rem] h-[35rem] rounded-full bg-amber-300 dark:bg-[rgba(85,22,22,0.5)] blur-[110px]"></div>
       </div>
       <div className="landingPage z-10 flex flex-col gap-[6rem] justify-center items-center  text-stone-700">
-      <div className="z-10 w-full hero flex  flex-col flex-wrap gap-4 justify-center py-[10rem] text-stone-700 dark:text-stone-300 text-center">
+      <div className="z-10 w-full hero flex  flex-col flex-wrap gap-4 py-[10rem] text-stone-700 dark:text-stone-300 text-center">
         <div className=" announcement w-fit py-2 px-8 rounded-[50px] bg-[rgba(20,30,20,.2)] backdrop-blur-sm border border-stone-400 font-semibold hover:scale-95 transition-all duration-500 cursor-pointer">
           {shortener("🎉 new changes coming a head. it will be awesome when finished",50)}
         </div>
@@ -67,7 +67,7 @@ export default  function Home() {
             <div className="stat-figure text-primary">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
             </div>
-            <div className="stat-title">Total Likes</div>
+            <div className="stat-title ">Total Likes</div>
             <div className="stat-value text-primary">25.6K</div>
             <div className="stat-desc">21% more than last month</div>
           </div>
@@ -103,10 +103,32 @@ export default  function Home() {
               </div>
               <div className="mockup-browser col-span-2 border bg-base-300 w-[90%] dark:bg-stone-800">
               <div className="mockup-browser-toolbar dark:bg-stone-800 ">
-              <div className="px-5 w-full rounded-full bg-stone-300 dark:bg-stone-500">https://daisyui.com</div>
+              <div className="px-5 w-full rounded-full bg-stone-300 dark:bg-stone-500">https://echoflect.vercel.app</div>
             </div>
             <div className="flex justify-center px-4 py-16 bg-base-200 dark:bg-stone-900">
-              
+                <div className="flex w-full max-w-md mx-auto overflow-hidden bg-white rounded-lg shadow-lg animate-pulse dark:bg-gray-800">
+                    <div className="w-1/3 bg-gray-300 dark:bg-gray-600"></div>
+
+                    <div className="w-2/3 p-4 md:p-4">
+                        <h1 className="w-40 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+
+                        <p className="w-48 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+
+                        <div className="flex mt-4 item-center gap-x-2">
+                            <p className="w-5 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                            <p className="w-5 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                            <p className="w-5 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                            <p className="w-5 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                            <p className="w-5 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                        </div>
+
+                        <div className="flex justify-between mt-6 item-center">
+                            <h1 className="w-10 h-2 bg-gray-200 rounded-lg dark:bg-gray-700"></h1>
+
+                            <div className="h-4 bg-gray-200 rounded-lg w-28 dark:bg-gray-700"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
               </div>
         </div>
