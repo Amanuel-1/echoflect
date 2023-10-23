@@ -53,13 +53,21 @@ export default  function Home() {
       </div>
       <div className="landingPage z-10 flex flex-col gap-[6rem] justify-center items-center  text-stone-700">
       <div className="z-10 w-full hero flex  flex-col flex-wrap gap-4 pt-[5rem] pb-[10rem] text-stone-700 dark:text-stone-300 text-center">
-        <div className=" announcement w-fit py-2 px-8 rounded-[50px] bg-[rgba(20,30,20,.2)] backdrop-blur-sm border border-stone-400 font-semibold hover:scale-95 transition-all duration-500 cursor-pointer">
-          {shortener("🎉 new changes coming a head. it will be awesome when finished",50)}
-        </div>
-        <h1 style={noto.style} className='text-2xl md:text-6xl font-extrabold w-[80%] md:w-full md:px-[15rem] text-center text-wrap bg-clip-text text-transparent bg-gradient-to-tr from-zinc-950 to-stone-700 via-amber-600 animate-gradient-xy'>
+        <div className="announcement w-fit py-2 px-8 rounded-[50px] bg-[rgba(20,30,20,.2)] backdrop-blur-sm font-semibold hover:scale-95 transition-all duration-500 cursor-pointer relative">
+  <div className="border-gradient-animation relative overflow-hidden">
+    {shortener("🎉 new changes coming ahead. It will be awesome when finished", 50)}
+  </div>
+</div>
+        <h1 style={noto.style} className='text-2xl md:text-6xl font-extrabold w-[80%] md:w-full md:px-[15rem] text-center text-wrap bg-clip-text text-transparent bg-gradient-to-tr from-zinc-950 to-stone-700 via-amber-600 bg-300% animate-gradient'>
           A Mirror Reflection of your Thoughts To Reach Every Corner Of The World
         </h1>
       </div>
+
+      <span
+  className="text-2xl font-bold bg-gradient-to-r from-zinc-700 via-amber-600 to-stone-600 text-transparent bg-clip-text bg-300% animate-gradient"
+>
+  My gradient text
+</span>
       
         <div className="stats shadow w-full md:w-[60%] dark:bg-stone-900  ">
           
@@ -135,6 +143,18 @@ export default  function Home() {
 
 
       </div>
+      <div className="flex h-screen items-center">
+  <div className="group relative mx-auto w-96 overflow-hidden rounded-[16px] bg-gray-300 p-[1px] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500">
+    <div className="group-hover:animate-spin-slow invisible absolute -top-40 -bottom-40 left-10 right-10 bg-gradient-to-r from-transparent via-white/90 to-transparent group-hover:visible"></div>
+    <div className="relative rounded-[15px] bg-white p-6">
+      <div className="space-y-4">
+        <ImageWithFallback fallbackSrc={Images.fallback} src={Images.fallback} alt="" />
+        <p className="text-lg font-semibold text-slate-800">Hover me!</p>
+        <p className="font-md text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam delectus temporibus est ut nisi nam at adipisci sunt dolore quibusdam.</p>
+      </div>
+    </div>
+  </div>
+</div>
     </div> 
   )
 }
