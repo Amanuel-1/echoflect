@@ -52,7 +52,7 @@ export default  function Home() {
       <div className="z-10 absolute top-[10%] left-1/4 -translate-x-1/2 2-[8rem] md:w-[35rem] h-[35rem] rounded-full bg-amber-300 dark:bg-[rgba(85,22,22,0.5)] blur-[110px]"></div>
       </div>
       <div className="landingPage z-10 flex flex-col gap-[6rem] justify-center items-center  text-stone-700">
-      <div className="z-10 w-full hero flex  flex-col flex-wrap gap-4 py-[10rem] text-stone-700 dark:text-stone-300 text-center">
+      <div className="z-10 w-full hero flex  flex-col flex-wrap gap-4 pt-[5rem] pb-[10rem] text-stone-700 dark:text-stone-300 text-center">
         <div className=" announcement w-fit py-2 px-8 rounded-[50px] bg-[rgba(20,30,20,.2)] backdrop-blur-sm border border-stone-400 font-semibold hover:scale-95 transition-all duration-500 cursor-pointer">
           {shortener("🎉 new changes coming a head. it will be awesome when finished",50)}
         </div>
@@ -61,7 +61,7 @@ export default  function Home() {
         </h1>
       </div>
       
-        <div className="stats shadow w-full md:w-[60%] dark:bg-stone-900 ">
+        <div className="stats shadow w-full md:w-[60%] dark:bg-stone-900  ">
           
           <div className="stat">
             <div className="stat-figure text-primary">
