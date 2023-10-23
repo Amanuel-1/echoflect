@@ -22,11 +22,11 @@ const QuillEditor = dynamic(() => import('react-quill'),
   loading:()=>(<Loading isloading className='backdrop-blur-sm'/>) 
  });
 
- type postListProps  = {
+ interface postListProps {
   username :string
  }
 
- const Page= ({username}:postListProps) => {
+ export default function Page({username}:postListProps){
   const [content, setContent] = useState('');
   const [addPost ,setAddPost] = useState(false);
   const [title,setTitle] = useState('');
@@ -178,5 +178,4 @@ const QuillEditor = dynamic(() => import('react-quill'),
  );
 }
 
-export default Page
 
