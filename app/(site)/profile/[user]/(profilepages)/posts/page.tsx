@@ -26,7 +26,7 @@ const QuillEditor = dynamic(() => import('react-quill'),
   username :string
  }
 
-export const Page= ({username}:postListProps) => {
+ const Page= ({username}:postListProps) => {
   const [content, setContent] = useState('');
   const [addPost ,setAddPost] = useState(false);
   const [title,setTitle] = useState('');
