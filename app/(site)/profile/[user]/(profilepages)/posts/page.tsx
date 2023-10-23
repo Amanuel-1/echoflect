@@ -15,6 +15,7 @@ import { db } from '@/lib/db';
 import { toast } from 'react-toastify';
 import Loading from '@/app/components/shared/Loading';
 import PostsList from '@/app/components/cards/PostsList';
+import { useParams } from 'next/navigation';
 
 
 const QuillEditor = dynamic(() => import('react-quill'),
@@ -24,7 +25,7 @@ const QuillEditor = dynamic(() => import('react-quill'),
 
 
 
- export default function Page({username}:{username:string}){
+ export default function Page(){
   const [content, setContent] = useState('');
   const [addPost ,setAddPost] = useState(false);
   const [title,setTitle] = useState('');
@@ -33,6 +34,7 @@ const QuillEditor = dynamic(() => import('react-quill'),
   const [categories,setCategories] = useState([]);
   const [cover,setCover] = useState('');
   const [isLoading,setIsLoading] = useState(false);
+  const params = useParams()
   
 
 
@@ -167,7 +169,7 @@ const QuillEditor = dynamic(() => import('react-quill'),
                       <button type='submit' className={`${styles.appButton} px-5 ${styles.filled} `}>Submit</button>
             </form>
 
-            {/* <PostsList username={username} /> */}
+            <PostsList username={params.user as string} />
 
 
             
