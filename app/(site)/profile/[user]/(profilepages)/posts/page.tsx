@@ -1,7 +1,7 @@
 'use client'
 
 
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import {tabsProps} from '@/lib/types'
 import styles from '@/styles/app.module.css'
 import dynamic from 'next/dynamic';
@@ -26,7 +26,7 @@ const QuillEditor = dynamic(() => import('react-quill'),
   username :string
  }
 
-const PostsTab= ({username}:{username:string}) => {
+export const PostsTab:FC<postListProps>= ({username}:{username:string}) => {
   const [content, setContent] = useState('');
   const [addPost ,setAddPost] = useState(false);
   const [title,setTitle] = useState('');
@@ -178,4 +178,3 @@ const PostsTab= ({username}:{username:string}) => {
  );
 }
 
-export default PostsTab
