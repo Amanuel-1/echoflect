@@ -1,9 +1,9 @@
 import { tabsProps } from '@/lib/types'
 import React from 'react'
 
-const ActivityLog:React.FC<tabsProps> = ({open}) => {
+const ActivityLog = () => {
   return (
-    open && <div>ActivityLog</div>
+   <div>ActivityLog</div>
   )
 }
 

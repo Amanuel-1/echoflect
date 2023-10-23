@@ -7,14 +7,14 @@ import styles from '@/styles/app.module.css'
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css'; // Import Quill styles
 import Image from 'next/image'
-import Loading from '../shared/Loading';
-import { bookmarks, categories } from '../../../lib/db/schema';
+
 import { getDomain, toBase64 } from '@/lib/functions/utils';
 import { NextResponse } from 'next/server';
 import { AddPost } from '@/lib/functions/dbfunctions';
 import { db } from '@/lib/db';
 import { toast } from 'react-toastify';
-import PostsList from '../cards/PostsList';
+import Loading from '@/app/components/shared/Loading';
+import PostsList from '@/app/components/cards/PostsList';
 
 
 const QuillEditor = dynamic(() => import('react-quill'),

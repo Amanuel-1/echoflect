@@ -27,12 +27,15 @@ import { users } from '@/lib/db/schema';
 import { PgColumn } from 'drizzle-orm/pg-core';
 import { Usertype } from '@/lib/db/schemaTypes';
 import ImageWithFallback from '@/app/components/cards/ImageWithFallBack';
-import Link from 'next/link';
 
 
 
 
-const Profile =() => {
+const Profile =({
+    children,
+  }: {
+    children: React.ReactNode
+  }) => {
   
   
   const [selectedTab,setSelectedTab] = useState(0);
@@ -40,7 +43,8 @@ const Profile =() => {
   const [user,setUser] =  useState<Usertype>()
   const params = useParams()
   const [isLoading,setIsLoading] = useState(true)
-  const router = useRouter()
+
+  const navigate  =  useRouter()
 
   useEffect(()=>{
     const getdata = async()=>{
@@ -92,12 +96,9 @@ const Profile =() => {
      <div className="py-6 grid grid-cols-4 gap-4 lg:gap-">
        <Box className=" col-span-4 md:col-span-1 px-2 py-4 w-full h-fit ">
           <ul className="flex flex-wrap md:flex-col gap-4 w-full p-2 justify-around md:justify-center">
-              <li className={`flex gap-2 lg:gap-4 md:w-full py-2 justify-start ${selectedTab==0?'text-amber-600':''} text-md font-bold hover:bg-[rgba(170,123,93,0.05)] cursor-pointer items-center text-center`}>
-                <Link className='flex gap-2 items-center' href={`/profile/${user?.username}/user-posts`}>
-                    <MdOutlineManageAccounts size={30}/>
-                    <p className="hidden md:flex">Account Setting</p>                  
-                </Link>
-
+              <li onClick={()=>navigate.push(`/profile/${user?.username}/user-posts`)} className={`flex gap-2 lg:gap-4 md:w-full py-2 justify-start ${selectedTab==0?'text-amber-600':''} text-md font-bold hover:bg-[rgba(170,123,93,0.05)] cursor-pointer items-center text-center`}>
+                <MdOutlineManageAccounts size={30}/>
+                <p className="hidden md:flex">Account Setting</p>
               </li>
               <li onClick={()=>setSelectedTab(1)} className={`flex gap-2 lg:gap-4 md:w-full py-2 justify-start ${selectedTab==1?'text-amber-600':''} text-md font-bold hover:bg-[rgba(170,123,93,0.05)] cursor-pointer items-center text-center`}>
                 <MdOutlineManageHistory size={30}/>
@@ -108,17 +109,14 @@ const Profile =() => {
                 <p className="hidden md:flex">Stories</p>
               </li>
               <li onClick={()=>setSelectedTab(3)} className={`flex gap-2 lg:gap-4 md:w-full py-2 justify-start ${selectedTab==3?'text-amber-600':''} text-md font-bold hover:bg-[rgba(170,123,93,0.05)] cursor-pointer items-center text-center`}>
-              <Link className='flex gap-2 items-center' href={`/profile/${user?.username}/posts`}>
                 <MdOutlinePostAdd size={30}/>
                 <p  className="hidden md:flex">Posts</p>
-                </Link>
               </li>
-
           </ul>
        </Box>
 
        <Box className="col-span-4 md:col-span-3 px-2 py-4 w-full h-fit transition-all duration-500 ease-in-out">
-         this is a test box
+         {children}
        </Box>
      </div>
      

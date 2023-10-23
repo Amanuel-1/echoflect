@@ -1,9 +1,9 @@
 import { tabsProps } from '@/lib/types'
 import React from 'react'
 
-const AccountSetting:React.FC<tabsProps> = ({open})=> {
+const AccountSetting = ()=> {
   return (
-   open && <div className=''>
+   <div className=''>
        AccountSetting
        </div>
   )
