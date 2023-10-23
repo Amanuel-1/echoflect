@@ -26,7 +26,7 @@ const QuillEditor = dynamic(() => import('react-quill'),
   username :string
  }
 
-export const PostsTab:FC<postListProps>= ({username}:{username:string}) => {
+export const PostsTab= ({username}:postListProps) => {
   const [content, setContent] = useState('');
   const [addPost ,setAddPost] = useState(false);
   const [title,setTitle] = useState('');
@@ -177,4 +177,6 @@ export const PostsTab:FC<postListProps>= ({username}:{username:string}) => {
 
  );
 }
+
+export default PostsTab
 
