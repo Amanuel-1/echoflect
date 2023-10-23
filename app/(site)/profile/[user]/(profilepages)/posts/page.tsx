@@ -24,7 +24,7 @@ const QuillEditor = dynamic(() => import('react-quill'),
 
 
 
- export default function Page(){
+ export default function Page({username}:{username:string}){
   const [content, setContent] = useState('');
   const [addPost ,setAddPost] = useState(false);
   const [title,setTitle] = useState('');
