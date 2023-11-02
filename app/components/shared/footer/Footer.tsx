@@ -64,7 +64,7 @@ const Footer = () => {
     </div>
   </nav> 
   <aside>
-    <p>Copyright © 2023 - All right reserved by AmanApps INC</p>
+    <p>Copyright © 2023 - All right reserved by <a className='font-semibold text-blue-300' href='https://amanapps.vercel.app'>AmanApps.INC</a></p>
   </aside>
 </footer>
   )
