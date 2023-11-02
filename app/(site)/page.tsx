@@ -1,4 +1,3 @@
-'use client'
 
 import { Button } from '@/components/ui/button'
 import { db } from '@/lib/db'
@@ -20,8 +19,6 @@ const meta = {
 
 export default  function Home() {
 
-
-  const [acc,setUsers]= useState([])
   
   // useEffect( ()=>{
   //   const getUsers =async ()=>{
