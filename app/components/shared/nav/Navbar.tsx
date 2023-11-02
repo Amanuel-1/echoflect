@@ -35,7 +35,7 @@ const Navbar = (props:navbarProps) => {
 
     return (                         
         <>
-           <div className={twMerge(" fixed flex justify-center top-0 w-full py-2 z-20  bg-[rgba(255,255,255,.7)] dark:bg-[rgba(30,30,30,.7)] backdrop-blur-md ",props.className )}>
+           <div className={twMerge(" fixed flex justify-center top-0 w-full py-2 z-20  bg-[rgba(255,255,255,.7)] dark:bg-transparent text-accent-foreground backdrop-blur-md ",props.className )}>
            <nav className={twMerge("md:mx-[20px]  w-full bg-transparent ",props.className)}>
                 <div className={twMerge("parent flex  md:justify-between items-center mt-2 py-2 border-0  ",props.className)}>
                     <Logo isAtTop={true}/>

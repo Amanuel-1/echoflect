@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "@types/pg": "^8.10.2",
-    "daisyui": "^3.6.5"
+    "daisyui": "^3.6.5",
+    "tailwindcss-bg-patterns": "^0.2.0"
   }
 }

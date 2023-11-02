@@ -46,7 +46,16 @@ export default  function Home() {
     //     <div className="  absolute -top-[5rem] left-[4rem] w-[10rem] h-[30rem] animate-spin duration-700 rounded-full bg-yellow-600 blur-[200px]"></div>
     //     </section>
     // </main>
-    <div className="relative flex flex-col justify-center  min-h-screen">
+    <>
+     <div className=" absolute top-0  left-0 pattern-dots pattern-stone-100 dark:pattern-black bg-blend-multiply pattern-bg-transparent bg-transparent
+  pattern-size-6 pattern-opacity-100 h-full w-full "></div>
+      
+    <div className="relative flex flex-col justify-center  min-h-screen ">
+   
+          
+  
+  
+  
       <div className="background absolute z-0 top-0 left-0 w-full h-full">
       <div className="z-10 absolute top-[5%] left-1/2 -translate-x-1/2 w-[8rem] md:w-[35rem] h-[15rem] rounded-full bg-red-300 dark:bg-[rgba(32,96,49,0.56)] blur-[90px]"></div>
       <div className="z-10 absolute top-[10%] left-1/4 -translate-x-1/2 2-[8rem] md:w-[35rem] h-[35rem] rounded-full bg-amber-300 dark:bg-[rgba(85,22,22,0.5)] blur-[110px]"></div>
@@ -156,6 +165,7 @@ export default  function Home() {
   </div>
 </div>
     </div> 
+    </>
   )
 }
 
