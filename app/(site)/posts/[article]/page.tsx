@@ -17,6 +17,7 @@ import { posts, users } from '@/lib/db/schema';
 import { getDomain } from '@/lib/functions/utils';
 import hljs from 'highlight.js/lib/core';
 import "highlight.js/styles/github.css";
+import Head from 'next/head';
 
 const markdownText = `
 # My Awesome Blog Post
@@ -119,7 +120,9 @@ const PostDetail = () => {
 
   return (
     <div className="relative grid grid-cols-3 gap-4 md:container mx-3 md:mx-auto">
-
+    <Head>
+      <title>postc</title>
+    </Head>
     <div className="relative postContent col-span-3 md:col-span-2 w-full min-h-[25rem] py-2 px-0 md:px-2 md:border-r border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 ">
     <Loading isloading={loading} className='h-[25rem] mb-[5rem]' />
       <div className={`${styles.postContent} flex flex-col gap-y-4 w-full`}>
