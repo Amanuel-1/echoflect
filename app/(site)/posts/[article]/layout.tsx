@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import {SessionProvider} from 'next-auth/react'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import ClientLayout from '@/app/components/shared/wrappers/ClientLayout'
 
 
 const inter = Inter({ subsets: ['latin'] })
