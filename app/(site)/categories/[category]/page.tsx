@@ -1,4 +1,4 @@
-'use client'
+
 
 import React, { useEffect, useState } from 'react'
 import { AiFillDislike, AiFillEye, AiFillHeart } from 'react-icons/ai'
@@ -20,43 +20,41 @@ import ImageWithFallback from '@/app/components/cards/ImageWithFallBack'
 
 
 //const covers = [Images.cover,Images.author,Images.green,Images.lighthouse,Images.herosection]
+async function getPosts(){
 
-
-const CategoryPage = () => {
-  
-  const [postData,setPostData] = useState([]);  
-  const [isLoading,setIsLoading]= useState(true)
-  const params = useParams();
-  
-
-  useEffect( ()=>{
-    const getPosts =async ()=>{
-      const result  = await fetch(`${getDomain()}/api/post`).then((res)=>res.json())
-      if(result){
-        setPostData(result)
-        console.log(result)
-        setIsLoading(false)
-      }
-      console.log(result)
-           
+    const result  = await fetch(`${getDomain()}/api/post`).then((res)=>res.json())
+    if(result){
+      return result
     }
+   
+    return null
+         
+  }
 
-    getPosts()
-    
+  // {
+  //   params,
+  //   searchParams,
+  // }: {
+  //   params: { slug: string }
+  //   searchParams: { [key: string]: string | string[] | undefined }
+  // }
 
-  },[])
-  
+const CategoryPage = async () => {
+
+
+  const postData  = await getPosts();
+
   
   return (
     <section style={roboto.style} className='relative h-full py-24 bg-inherit mx-6 md:mx-[2rem]'>
-    <Loading isloading={isLoading} className='h-[20rem] backdrop-blur-sm' />
+    
     <div className='w-full flex flex-col md:p-[1rem] rounded-[5px]'>
       <div className="flex w-full justify-center ">
             
       </div>
       <Box className=' columns-2xs  gap-4  dark:bg-stone-950 border-none'>
        {
-        postData && postData.map(({posts,user}:{posts:IPost,user:typeof users},i)=>(
+        postData && postData.map(({posts,user}:{posts:IPost,user:typeof users},i:number)=>(
           
             <div key={i+2} className='my-[1rem] min-w-[17rem] break-inside-avoid-column flex flex-col justify-center dark:bg-stone-950   rounded-[15px] border border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 cursor-pointer hover:scale-95 transition-all duration-500 ease-out '>
           
@@ -98,3 +96,5 @@ const CategoryPage = () => {
 }
 
 export default CategoryPage
+
+
