@@ -19,7 +19,7 @@ import "highlight.js/styles/github.css";
 import Head from 'next/head';
 import { Metadata, ResolvingMetadata } from 'next';
 
-export const runtime ="edge";
+
 
 type aPost={
   posts:IPost,
