@@ -17,37 +17,8 @@ import { getDomain } from '@/lib/functions/utils';
 import hljs from 'highlight.js/lib/core';
 import "highlight.js/styles/github.css";
 import Head from 'next/head';
-import { constructMetadata } from '@/lib/utils';
+import { Metadata, ResolvingMetadata } from 'next';
 
-const markdownText = `
-# My Awesome Blog Post
-
-Welcome to my blog! In this post, I'll be sharing some code examples in different programming languages.
-
-## JavaScript Code
-
-Here's an example of a JavaScript function that greets a person by name:
-
-\`\`\`javascript
-function greet(name) {
-  console.log('Hello, ' + name + '!');
-}
-greet('John');
-\`\`\`
-
-## Python Code
-
-And here's a Python function that multiplies two numbers:
-
-\`\`\`python
-def multiply(a, b):
-    return a * b
-result = multiply(3, 4)
-print(result)
-\`\`\`
-
-I hope you found these code examples helpful. Stay tuned for more exciting content!
-`;
 
 // const author = {
 //   avatar: {
@@ -66,6 +37,11 @@ type aPost={
   posts:IPost,
   user:typeof users
 }
+type Props = {
+  params: { article: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
 
 async function getpostData(article:string){
   const result  = await fetch(`${getDomain()}/api/post?slug=${article}`).then((res)=>res.json())
@@ -92,22 +68,35 @@ async function getAuthor(posts :any){
 // }
 
 
-export const metadata = constructMetadata({
-  title: "Blog - Loglib",
-  description:
-      "All the latest news, guides, and updates from loglib - the privacy first open source web analytics.",
-  image: "https://echoflect.vercel.app/api/og?title=amanifarms&author=Amanuel",
-});
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = params.article
+ 
+  // fetch data
+  const postList:aPost[] = await fetch(`${getDomain()}/api`).then((res) => res.json())
 
-
+  const currentPost  =  postList[0]
+ 
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+ 
+  return {
+    title: currentPost.posts.title,
+    description:currentPost.posts.description.slice(0,200),
+    authors:[{name:currentPost.user.name +"",url:`${getDomain()}/profile/${currentPost.user.username}`}],
+    openGraph:{
+      images: [`${getDomain()}/api/og?title=${currentPost.posts.title}&author=${currentPost.user.name}`, ...previousImages],
+    },
+  }
+}
 
 const PostDetail = async(  {
   params,
   searchParams,
-}: {
-  params: { article: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}) => {
+}:Props) => {
 
 
   type poststype = {
@@ -136,8 +125,7 @@ const PostDetail = async(  {
 
   return (
     <div className="relative grid grid-cols-3 gap-4 md:container mx-3 md:mx-auto">
- 
-        )
+      
     <div className="relative postContent col-span-3 md:col-span-2 w-full min-h-[25rem] py-2 px-0 md:px-2 md:border-r border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 ">
    
       <div className={`${styles.postContent} flex flex-col gap-y-4 w-full`}>
