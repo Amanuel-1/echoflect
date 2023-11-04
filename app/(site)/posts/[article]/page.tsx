@@ -19,6 +19,35 @@ import "highlight.js/styles/github.css";
 import Head from 'next/head';
 import { Metadata, ResolvingMetadata } from 'next';
 
+const markdownText = `
+# My Awesome Blog Post
+
+Welcome to my blog! In this post, I'll be sharing some code examples in different programming languages.
+
+## JavaScript Code
+
+Here's an example of a JavaScript function that greets a person by name:
+
+\`\`\`javascript
+function greet(name) {
+  console.log('Hello, ' + name + '!');
+}
+greet('John');
+\`\`\`
+
+## Python Code
+
+And here's a Python function that multiplies two numbers:
+
+\`\`\`python
+def multiply(a, b):
+    return a * b
+result = multiply(3, 4)
+print(result)
+\`\`\`
+
+I hope you found these code examples helpful. Stay tuned for more exciting content!
+`;
 
 // const author = {
 //   avatar: {
@@ -37,11 +66,10 @@ type aPost={
   posts:IPost,
   user:typeof users
 }
-type Props = {
-  params: { article: string }
-  searchParams: { [key: string]: string | string[] | undefined }
+type Props={
+    params: { article: string }
+    searchParams: { [key: string]: string | string[] | undefined } 
 }
-
 
 async function getpostData(article:string){
   const result  = await fetch(`${getDomain()}/api/post?slug=${article}`).then((res)=>res.json())
@@ -67,7 +95,6 @@ async function getAuthor(posts :any){
 //   searchParams: { [key: string]: string | string[] | undefined }
 // }
 
-
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
@@ -76,7 +103,7 @@ export async function generateMetadata(
   const slug = params.article
  
   // fetch data
-  const postList:aPost[] = await fetch(`${getDomain()}/api`).then((res) => res.json())
+  const postList:aPost[] = await getpostData(params.article)
 
   const currentPost  =  postList[0]
  
@@ -87,11 +114,16 @@ export async function generateMetadata(
     title: currentPost.posts.title,
     description:currentPost.posts.description.slice(0,200),
     authors:[{name:currentPost.user.name +"",url:`${getDomain()}/profile/${currentPost.user.username}`}],
+    creator:"Amauel Garomsa",
+    keywords:["blog","nature","technology","crypto","data mining","art","love","football","lifestyle"],
     openGraph:{
       images: [`${getDomain()}/api/og?title=${currentPost.posts.title}&author=${currentPost.user.name}`, ...previousImages],
     },
   }
 }
+
+
+
 
 const PostDetail = async(  {
   params,
@@ -106,18 +138,7 @@ const PostDetail = async(  {
  const postData:poststype[]  = await getpostData(params.article)
  const user  =  await getAuthor(postData)
 
- 
-   
-  const content  = `
-  # Markdown Example
-  
-  This is an example of **Markdown** text that includes various elements.
-  
-  - Unordered list item 1
-  - Unordered list item 2
-  - Unordered list item 3
-  `;
-  
+
 
 
 
@@ -125,7 +146,21 @@ const PostDetail = async(  {
 
   return (
     <div className="relative grid grid-cols-3 gap-4 md:container mx-3 md:mx-auto">
-      
+      {
+        postData.length &&(
+          <Head>
+          <title>{postData[0].posts.title}</title>
+          <meta property="og:title" content={postData[0].posts.title} key="title"/>
+          <meta property="og:description" content={postData[0].posts.description.slice(0,150)} />
+          <meta property="og:image" content={`${getDomain()}/api/og?title=amanifarms&author=amani`} />
+          <meta property="og:locale" content="en_US" />
+          {/* //languagedetector to be done */}
+
+          <meta name="twitter:card" content="summary"></meta>
+
+        </Head> 
+        )
+      }
     <div className="relative postContent col-span-3 md:col-span-2 w-full min-h-[25rem] py-2 px-0 md:px-2 md:border-r border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 ">
    
       <div className={`${styles.postContent} flex flex-col gap-y-4 w-full`}>
