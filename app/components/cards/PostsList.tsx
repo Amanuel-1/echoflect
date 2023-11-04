@@ -38,7 +38,7 @@ const PostsList = ({username}:{username:string}) => {
                     </div>
                    
                     <div className="col-span-4  w-full flex flex-col ">
-                      <Link href={`${getDomain()}/posts?article=${posts.slug}`}><h3 className='text-xl font-semibold text-stone-900 hover:text-amber-700'>{posts.title}</h3></Link>
+                      <Link href={`${getDomain()}/posts?${posts.slug}`}><h3 className='text-xl font-semibold text-stone-900 hover:text-amber-700'>{posts.title}</h3></Link>
                       <p>{shortener(posts.description,200)}</p>
                       </div>
                     
