@@ -98,8 +98,14 @@ const PostDetail = async(  {
   searchParams: { [key: string]: string | string[] | undefined }
 }) => {
 
- const postData  = await getpostData(params.article)
+
+  type poststype = {
+    posts:IPost,
+    user:typeof users
+   }
+ const postData:poststype[]  = await getpostData(params.article)
  const user  =  await getAuthor(postData)
+
  
    
   const content  = `
@@ -119,9 +125,21 @@ const PostDetail = async(  {
 
   return (
     <div className="relative grid grid-cols-3 gap-4 md:container mx-3 md:mx-auto">
-    <Head>
-      <title>postc</title>
-    </Head>
+      {
+        postData.length &&(
+          <Head>
+          <title>{postData[0].posts.title}</title>
+          <meta property="og:title" content={postData[0].posts.title} key="title"/>
+          <meta property="og:description" content={postData[0].posts.description.slice(0,150)} />
+          <meta property="og:image" content={`${getDomain()}/api/og?title=${postData[0].posts.title}&author=${postData[0].user.name}&image=https://seosetups.com/wp-content/uploads/2021/08/free-seo-training-guides.png`} />
+          <meta property="og:locale" content="en_US" />
+          {/* //languagedetector to be done */}
+
+          <meta name="twitter:card" content="summary"></meta>
+
+        </Head>
+        )
+      }
     <div className="relative postContent col-span-3 md:col-span-2 w-full min-h-[25rem] py-2 px-0 md:px-2 md:border-r border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 ">
    
       <div className={`${styles.postContent} flex flex-col gap-y-4 w-full`}>

@@ -1,5 +1,5 @@
 export const siteconfig ={
-    name:"echoflect",
+    name:"echoflect.vercel.app",
     description:`it is a website that enables authors from all over
      the world to reach out to their audiences and write a patented
       piece of art on the fly`,
