@@ -1,4 +1,3 @@
-"use client"
 
 import React, { useEffect, useState } from 'react';
 import styles from '@/styles/markdown.module.css'
@@ -49,58 +48,58 @@ print(result)
 I hope you found these code examples helpful. Stay tuned for more exciting content!
 `;
 
-const author = {
-  avatar: {
-    img: Images.author,
-    name: 'Selam Weldeyes'
-  },
-  cover: Images.cover,
-  bio: 'I am a passionate writer dedicated to creating captivating stories.',
-  role: 'Writer',
-  email: 'selamwinta@gmail.com',
-  followers: '150k',
-  likes: '2.3M+'
-};
+// const author = {
+//   avatar: {
+//     img: Images.author,
+//     name: 'Selam Weldeyes'
+//   },
+//   cover: Images.cover,
+//   bio: 'I am a passionate writer dedicated to creating captivating stories.',
+//   role: 'Writer',
+//   email: 'selamwinta@gmail.com',
+//   followers: '150k',
+//   likes: '2.3M+'
+// };
 
 type aPost={
   posts:IPost,
   user:typeof users
 }
 
+async function getpostData(article:string){
+  const result  = await fetch(`${getDomain()}/api/post?slug=${article}`).then((res)=>res.json())
+  if(result){
+    return result
+  }
 
-const PostDetail = () => {
+  return null
+}
 
-  const [loading,setIsLoading] = useState(true)
-  const [postData, setPostData] = useState([]);
-  const [user,setUser] = useState<Usertype>()
+async function getAuthor(posts :any){
+  if(posts.length){
+    return posts[0].user
+  }
 
-  const params = useParams();
+  return null
+}
+// {
+//   params,
+//   searchParams,
+// }: {
+//   params: { slug: string }
+//   searchParams: { [key: string]: string | string[] | undefined }
+// }
 
-  useEffect( ()=>{
-    const getPost =async ()=>{
-      const result  = await fetch(`${getDomain()}/api/post?slug=${params.article}`).then((res)=>res.json())
-      if(result){
-        setIsLoading(false)
-        setPostData(result)
-        result.length?setUser(result[0].user):""
-        console.log(result)
-        
-      }
-      console.log(result)
-           
-    }
+const PostDetail = async(  {
+  params,
+  searchParams,
+}: {
+  params: { article: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}) => {
 
-    getPost()
-    
-    
-
-  },[])
-
-  useEffect(() => {
-    
-      hljs.highlightAll();
-  }, []);
-  
+ const postData  = await getpostData(params.article)
+ const user  =  await getAuthor(postData)
  
    
   const content  = `
@@ -124,13 +123,13 @@ const PostDetail = () => {
       <title>postc</title>
     </Head>
     <div className="relative postContent col-span-3 md:col-span-2 w-full min-h-[25rem] py-2 px-0 md:px-2 md:border-r border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 ">
-    <Loading isloading={loading} className='h-[25rem] mb-[5rem]' />
+   
       <div className={`${styles.postContent} flex flex-col gap-y-4 w-full`}>
         
       {
         
         //this maynot be neccessary because we only want one post but we are selecting all posts and retrieve the first one
-        postData.length && loading==false ?( postData.map(({posts,user}:{posts:IPost,user:typeof users},i)=>(
+        postData.length  ?( postData.map(({posts,user}:{posts:IPost,user:typeof users},i:number)=>(
           <>
           <div className=" relative w-full h-[20rem] p-0 flex justify-center items-center rounded-t-[10px]">
             <Image src={posts.thumbnail} alt={posts.title} objectFit='cover' layout='fill' />
@@ -144,7 +143,7 @@ const PostDetail = () => {
         ))
           )
           :(
-            !loading && <div className="absolute h-full w-full">
+              <div className="absolute h-full w-full">
                 <div className="flex flex-col gap-1 justify-center items-center w-full h-full grayscale hue-rotate-[50deg]">
                 <Image src={Images.nodata} alt="no data" width={150} height={150}/>
                 <p className="text-2xl text-stone-700 text-center">
@@ -162,7 +161,7 @@ const PostDetail = () => {
         <ProfileCard cover={user.coverphoto as string} user={user as Usertype} bio={user.bio as string} />
         </Box>
         ):(
-          !loading && <div className=" w-full h-full py-[3rem]">
+          <div className=" w-full h-full py-[3rem]">
                   <div className="flex flex-col gap-1 h-full w-full justify-center items-center grayscale hue-rotate-[50deg]">
                   <Image src={Images.nodata} alt="no data" width={100} height={100}/>
                   <h1 className="text-xs text-stone-700 text-center">

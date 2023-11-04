@@ -66,7 +66,7 @@ const Loading =() => {
           </div>
           <div className="w-[50%] self-center h-[3rem] rounded-[10px] animate-pulse"></div>
           <div className="flex gap-4 justify-between mx-4">
-            <div className="w-[3rem] h-[3rem] rounded-full bg-stone-600  animate-pulse"></div>
+            <div className="w-[3rem] h-[3rem] rounded-full bg-stone-400 dark:bg-stone-600  animate-pulse"></div>
           </div>
           <div className="p-4 relative text-stone-800 dark:text-stone-100 dark:bg-stone-950 rounded-[15px] ">
          

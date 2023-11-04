@@ -59,8 +59,8 @@ export default  function Home() {
       </div>
       <div className="landingPage z-10 flex flex-col gap-[6rem] justify-center items-center  text-stone-700">
       <div className="z-10 w-full hero flex  flex-col flex-wrap gap-4 pt-[5rem] pb-[10rem] text-stone-700 dark:text-stone-300 text-center">
-        <div className="announcement w-fit py-2 px-8 rounded-[50px] bg-[rgba(20,30,20,.2)] backdrop-blur-sm font-semibold hover:scale-95 transition-all duration-500 cursor-pointer relative">
-  <div className="border-gradient-animation relative overflow-hidden">
+        <div className="announcement w-fit py-2 px-8 rounded-[50px] bg-[rgba(20,30,20,.2)] dark:border backdrop-blur-sm font-semibold hover:scale-95 transition-all duration-500 cursor-pointer relative">
+  <div className="border-gradient-animation bg-transparent relative overflow-hidden">
     {shortener("🎉 new changes coming ahead. It will be awesome when finished", 50)}
   </div>
 </div>
