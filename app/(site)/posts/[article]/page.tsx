@@ -19,48 +19,7 @@ import "highlight.js/styles/github.css";
 import Head from 'next/head';
 import { Metadata, ResolvingMetadata } from 'next';
 
-const markdownText = `
-# My Awesome Blog Post
-
-Welcome to my blog! In this post, I'll be sharing some code examples in different programming languages.
-
-## JavaScript Code
-
-Here's an example of a JavaScript function that greets a person by name:
-
-\`\`\`javascript
-function greet(name) {
-  console.log('Hello, ' + name + '!');
-}
-greet('John');
-\`\`\`
-
-## Python Code
-
-And here's a Python function that multiplies two numbers:
-
-\`\`\`python
-def multiply(a, b):
-    return a * b
-result = multiply(3, 4)
-print(result)
-\`\`\`
-
-I hope you found these code examples helpful. Stay tuned for more exciting content!
-`;
-
-// const author = {
-//   avatar: {
-//     img: Images.author,
-//     name: 'Selam Weldeyes'
-//   },
-//   cover: Images.cover,
-//   bio: 'I am a passionate writer dedicated to creating captivating stories.',
-//   role: 'Writer',
-//   email: 'selamwinta@gmail.com',
-//   followers: '150k',
-//   likes: '2.3M+'
-// };
+export const runtime ="edge";
 
 type aPost={
   posts:IPost,
