@@ -131,7 +131,7 @@ const PostDetail = async(  {
           <title>{postData[0].posts.title}</title>
           <meta property="og:title" content={postData[0].posts.title} key="title"/>
           <meta property="og:description" content={postData[0].posts.description.slice(0,150)} />
-          <meta property="og:image" content={`${getDomain()}/api/og?title=${postData[0].posts.title}&author=${postData[0].user.name}&image=https://seosetups.com/wp-content/uploads/2021/08/free-seo-training-guides.png`} />
+          <meta property="og:image" content={`${getDomain()}/api/og?title=amanifarms&author=amani`} />
           <meta property="og:locale" content="en_US" />
           {/* //languagedetector to be done */}
 

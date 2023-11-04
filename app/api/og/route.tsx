@@ -3,9 +3,9 @@ import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
 import { siteconfig } from "@/lib/siteconfig";
 
-// export const config = {
-//   runtime: "experimental-edge",
-// };
+export const config = {
+  runtime: "experimental-edge",
+};
 
 export async function GET(req:NextRequest) {
   try {
