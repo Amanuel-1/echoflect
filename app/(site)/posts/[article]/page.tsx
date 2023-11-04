@@ -17,6 +17,7 @@ import { getDomain } from '@/lib/functions/utils';
 import hljs from 'highlight.js/lib/core';
 import "highlight.js/styles/github.css";
 import Head from 'next/head';
+import { constructMetadata } from '@/lib/utils';
 
 const markdownText = `
 # My Awesome Blog Post
@@ -90,6 +91,16 @@ async function getAuthor(posts :any){
 //   searchParams: { [key: string]: string | string[] | undefined }
 // }
 
+
+export const metadata = constructMetadata({
+  title: "Blog - Loglib",
+  description:
+      "All the latest news, guides, and updates from loglib - the privacy first open source web analytics.",
+  image: "https://loglib.io/api/og/blog",
+});
+
+
+
 const PostDetail = async(  {
   params,
   searchParams,
@@ -125,21 +136,8 @@ const PostDetail = async(  {
 
   return (
     <div className="relative grid grid-cols-3 gap-4 md:container mx-3 md:mx-auto">
-      {
-        postData.length &&(
-          <Head>
-          <title>{postData[0].posts.title}</title>
-          <meta property="og:title" content={postData[0].posts.title} key="title"/>
-          <meta property="og:description" content={postData[0].posts.description.slice(0,150)} />
-          <meta property="og:image" content={`${getDomain()}/api/og?title=amanifarms&author=amani`} />
-          <meta property="og:locale" content="en_US" />
-          {/* //languagedetector to be done */}
-
-          <meta name="twitter:card" content="summary"></meta>
-
-        </Head>
+ 
         )
-      }
     <div className="relative postContent col-span-3 md:col-span-2 w-full min-h-[25rem] py-2 px-0 md:px-2 md:border-r border-stone-200 dark:border-[#47291b81] drop-shadow-lg shadow-amber-950 ">
    
       <div className={`${styles.postContent} flex flex-col gap-y-4 w-full`}>
