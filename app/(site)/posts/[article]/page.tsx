@@ -96,7 +96,7 @@ export const metadata = constructMetadata({
   title: "Blog - Loglib",
   description:
       "All the latest news, guides, and updates from loglib - the privacy first open source web analytics.",
-  image: "https://loglib.io/api/og/blog",
+  image: "https://echoflect.vercel.app/api/og?title=amanifarms&author=Amanuel",
 });
 
 
