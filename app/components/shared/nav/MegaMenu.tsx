@@ -22,7 +22,7 @@ const MegaMenu = (props:megaMenuProps) => {
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  }, []);
+  }, [handleClickOutside]);
 
   return (
           <>
