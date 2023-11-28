@@ -228,8 +228,8 @@ export default  function Home() {
                             <p className="mt-2 text-sm text-gray-200 sm:text-base lg:text-sm xl:text-base">I can't express enough, how amazing this service has been for my company.</p>
                         </div>
                         <h3 className="pl-12 mt-3 text-sm font-medium leading-5 text-gray-800 truncate sm:text-base lg:text-sm lg:text-base">
-                            John Doe
-                            <span className="mt-1 text-sm leading-5 text-gray-500 truncate">- CEO SomeCompany</span>
+                            Amanuel Garomsa
+                            <span className="mt-1 text-sm leading-5 text-gray-500 truncate">- CEO of Amanapps</span>
                         </h3>
                         <p className="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                     </div>
