@@ -10,19 +10,21 @@ const MegaMenu = (props:megaMenuProps) => {
   
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-      props.onClose();
-    }
-  };
 
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        props.onClose();
+      }
+    };
+
     document.addEventListener('click', handleClickOutside);
 
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  }, [handleClickOutside]);
+  }, [props.onClose]);
+
 
   return (
           <>
