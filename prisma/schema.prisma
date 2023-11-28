@@ -1,0 +1,124 @@
+
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+
+    url      = env("DATABASE_URL")
+    directUrl = env("DIRECT_URL")
+}
+
+
+model Account {
+  id                 String    @id @default(cuid())
+  userId             String
+  providerType       String
+  providerId         String
+  providerAccountId  String
+  refreshToken       String?
+  accessToken        String?
+  accessTokenExpires DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  user               User      @relation(fields: [userId], references: [id])
+
+  @@unique([providerId, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  userId       String
+  expires      DateTime
+  sessionToken String   @unique
+  accessToken  String   @unique
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  user         User     @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  username String @unique
+  bio String @default("A passionate writer😊✨😎")
+  coverphoto String @db.Text
+  email         String?   @unique
+  emailVerified DateTime?
+  honor Decimal @db.Decimal(10,2)  
+  image         String?
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  posts Post[]
+  bookmarks BookMark[]
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model VerificationRequest {
+  id         String   @id @default(cuid())
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([identifier, token])
+  
+}
+
+model Post {
+  id          String    @id @default(cuid())
+  authorId    String 
+  title       String    @default("untitled") @unique
+  slug        String @unique
+  description String
+  content     String
+  thumbnail   String
+  published   Boolean   @default(true)
+  rating      Decimal?
+  views       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @default(now())
+  author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  
+  
+  comments Comment[]
+  bookmarks BookMark[]
+  categories Category[]
+
+  @@index([slug,title,published])
+
+  
+}
+
+model Comment {
+  id               String     @id @default(cuid())
+  postId           String?
+  commentId        String?
+  post             Post?      @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  parentComment    Comment?   @relation("ChildComments", fields: [commentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  childComments    Comment[]  @relation("ChildComments")
+}
+
+
+model BookMark {
+
+  id String @id @default(cuid())
+  postId String
+  hostId String
+
+  host User @relation(fields: [hostId],references: [id],onDelete: Cascade,onUpdate:Cascade)
+  post Post @relation(fields: [postId],references: [id],onDelete: Cascade,onUpdate:Cascade)
+  
+
+}
+
+model Category {
+  id String @id @default(cuid())
+  posts Post[]
+}
