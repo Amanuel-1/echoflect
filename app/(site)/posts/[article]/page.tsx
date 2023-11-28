@@ -4,8 +4,6 @@ import styles from '@/styles/markdown.module.css'
 import Image from 'next/image'
 import { Images } from '@/public/resources';
 import postStyle from '@/styles/markdown.module.css'
-import Base64 from 'base64-js';
-
 
 import ProfileCard from '@/app/components/cards/ProfileCard';
 import Box from '@/app/components/shared/Box';
@@ -67,7 +65,14 @@ export async function generateMetadata(
   const postList:aPost[] = await getpostData(params.article)
 
   const currentPost  =  postList[0]
+ 
+  const imageData = currentPost.posts.thumbnail; // Assuming this holds the base64-encoded image data
 
+  const pngData = Base64.toByteArray(imageData); // Decode the base64 string
+
+// Convert the decoded data to a PNG buffer
+const pngBuffer = new Blob([pngData], { type: 'image/png' });
+ 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || []
  
@@ -78,7 +83,7 @@ export async function generateMetadata(
     creator:"Amauel Garomsa",
     keywords:["blog","nature","technology","crypto","data mining","art","love","football","lifestyle"],
     openGraph:{
-      images: [`${getDomain()}/api/og?title=${currentPost.posts.title}&author=${currentPost.user.name}&image=${currentPost.posts.thumbnail.replace(/=+$/, "")}`, ...previousImages],
+      images: [`${getDomain()}/api/og?title=${currentPost.posts.title}&author=${currentPost.user.name}&image=${currentPost.posts.thumbnail}`, ...previousImages],
     },
   }
 }
