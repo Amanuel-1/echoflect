@@ -18,15 +18,15 @@ import { navItemsProps } from '@/lib/types'
     }
   }
 
-  useEffect(() => {
-    // Attach event listener to the document object
-    document.addEventListener('click', outSideClicked);
+  // useEffect(() => {
+  //   // Attach event listener to the document object
+  //   document.addEventListener('click', outSideClicked);
 
-    // Detach event listener when the component is unmounted
-    return () => {
-      document.removeEventListener('click', outSideClicked);
-    };
-  }, []);
+  //   // Detach event listener when the component is unmounted
+  //   return () => {
+  //     document.removeEventListener('click', outSideClicked);
+  //   };
+  // }, []);
 
 
    return (
