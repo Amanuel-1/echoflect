@@ -26,7 +26,7 @@ import { navItemsProps } from '@/lib/types'
     return () => {
       document.removeEventListener('click', outSideClicked);
     };
-  }, []);
+  }, [outSideClicked]);
 
 
    return (
