@@ -66,13 +66,6 @@ export async function generateMetadata(
 
   const currentPost  =  postList[0]
  
-  const imageData = currentPost.posts.thumbnail; // Assuming this holds the base64-encoded image data
-
-  const pngData = Base64.toByteArray(imageData); // Decode the base64 string
-
-// Convert the decoded data to a PNG buffer
-const pngBuffer = new Blob([pngData], { type: 'image/png' });
- 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || []
  
